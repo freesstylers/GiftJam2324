@@ -14,6 +14,10 @@ config/name="Gift Jam 2324"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[dotnet]
+
+project/assembly_name="Gift Jam 2324"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
