@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://o4b08xh3bk42"]
+
+[ext_resource type="Script" path="res://Scripts/Testing/NoteKeyPad.gd" id="1_byo0o"]
+[ext_resource type="Texture2D" uid="uid://cagtcjuiqd4qn" path="res://icon.svg" id="1_nte2y"]
+
+[node name="NoteKeyPad" type="Node2D" node_paths=PackedStringArray("KeypadSprite")]
+position = Vector2(560, 347)
+script = ExtResource("1_byo0o")
+KeypadSprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_nte2y")

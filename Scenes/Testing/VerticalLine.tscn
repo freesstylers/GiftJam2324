@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4v0627ljq8j1"]
+
+[ext_resource type="Texture2D" uid="uid://blm0iqisbvvu5" path="res://VerticalLine.png" id="1_8tj1t"]
+
+[node name="PathFollow2D" type="PathFollow2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_8tj1t")

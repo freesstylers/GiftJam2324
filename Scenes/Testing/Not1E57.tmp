@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cunhkcjcrb3ne"]
+
+[ext_resource type="Script" path="res://Scripts/Testing/NoteRails.gd" id="1_s5kyb"]
+[ext_resource type="PackedScene" uid="uid://c4v0627ljq8j1" path="res://Scenes/Testing/VerticalLine.tscn" id="2_o0lgw"]
+
+[sub_resource type="Curve2D" id="Curve2D_e7awq"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 352, 0)
+}
+point_count = 2
+
+[node name="NoteRails" type="Node2D"]
+position = Vector2(160, 88)
+script = ExtResource("1_s5kyb")
+verticalLine = ExtResource("2_o0lgw")
+
+[node name="KeysPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_e7awq")

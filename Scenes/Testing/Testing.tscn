@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhxf1m37n5whx"]
+
+[ext_resource type="PackedScene" uid="uid://r2rcn54eg4n6" path="res://Scenes/BPM/BPMMaster.tscn" id="1_k14tp"]
+[ext_resource type="PackedScene" uid="uid://o4b08xh3bk42" path="res://Scenes/Testing/NoteKeyPad.tscn" id="2_t5l66"]
+[ext_resource type="PackedScene" uid="uid://cunhkcjcrb3ne" path="res://Scenes/Testing/NoteRails.tscn" id="3_fdogw"]
+
+[node name="Testing" type="Node2D"]
+
+[node name="BpmMaster" parent="." instance=ExtResource("1_k14tp")]
+
+[node name="NoteKeyPad" parent="." instance=ExtResource("2_t5l66")]
+
+[node name="NoteRails" parent="." instance=ExtResource("3_fdogw")]
