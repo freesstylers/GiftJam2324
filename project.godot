@@ -18,6 +18,10 @@ config/icon="res://icon.svg"
 
 GiftJamGlobals="*res://Scripts/GiftJamGlobals.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [dotnet]
 
 project/assembly_name="Gift Jam 2324"
