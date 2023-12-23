@@ -15,8 +15,6 @@ func _ready():
 	var time_per_bpm = 60.0 / GiftJamGlobals.GIFJAM_BPM
 	BPM_TIMER.wait_time = time_per_bpm
 	BPM_TIMER.start()
-	#var callable = func():GiftJamGlobals.BPM_Notification.emit()
-	#call_deferred(callable)
 	
 func BPM_Notification():
 	if PlayMetronome:
