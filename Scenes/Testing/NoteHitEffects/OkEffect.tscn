@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkgtdolv7qr3a"]
+
+[ext_resource type="Texture2D" uid="uid://cagtcjuiqd4qn" path="res://icon.svg" id="1_jgfff"]
+[ext_resource type="Script" path="res://Scripts/Testing/NoteHitEffect.gd" id="2_vy486"]
+
+[node name="OkEffect" type="Sprite2D"]
+modulate = Color(0.976471, 0.4, 0.223529, 1)
+position = Vector2(128, 80)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_jgfff")
+script = ExtResource("2_vy486")

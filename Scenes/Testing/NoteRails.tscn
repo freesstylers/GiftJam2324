@@ -25,6 +25,7 @@ Beginning = NodePath("../Beginning")
 End = NodePath("../End")
 
 [node name="NoteHitter" parent="KeysPath" instance=ExtResource("2_osjnh")]
+position = Vector2(486.403, 0)
 
 [node name="Beginning" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)

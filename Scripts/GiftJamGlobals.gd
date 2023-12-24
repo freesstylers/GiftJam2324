@@ -5,3 +5,5 @@ var GIFJAM_BPM_IN_SECONDS = 60.0 / 60.0
 
 signal BPM_Notification()
 signal Fight_Start()
+
+enum NoteHitStatus { NONE, MISS, OK, GREAT, PERFECT}

@@ -35,10 +35,13 @@ func _process(delta):
 	for i in range(notes_in_rails.size()):
 		var current_element : Note = notes_in_rails[notes_in_rails.size()-i-1]
 		var deltaMovement = (bpm_movement * delta)
+		if current_element.progress_ratio >= (NumBeats-1)  / NumBeats:
+			current_element.FadeAway(NotesFadeAwayLength)
+			#current_element.NoteHit(true)
 		if current_element.progress_ratio + deltaMovement > 1.0:
 			current_element.progress_ratio = 1.0
 			var deltaPos = (End.global_position-Beginning.global_position).normalized() * 100
-			current_element.FadeAway(NotesFadeAwayLength, End.global_position + deltaPos)
+			print(current_element.progress_ratio)
 			notes_in_rails.remove_at(i)
 		else:
 			current_element.progress_ratio += deltaMovement		
