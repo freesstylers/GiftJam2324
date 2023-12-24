@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bv22ivwo0yn75"]
+[gd_scene load_steps=4 format=3 uid="uid://bv22ivwo0yn75"]
 
 [ext_resource type="Script" path="res://Scripts/Testing/Note.gd" id="1_go4f3"]
 [ext_resource type="Texture2D" uid="uid://cagtcjuiqd4qn" path="res://icon.svg" id="2_bx30q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ppati"]
 
 [node name="PathFollow2D" type="PathFollow2D"]
 script = ExtResource("1_go4f3")
@@ -10,3 +12,8 @@ script = ExtResource("1_go4f3")
 modulate = Color(0.180392, 0.211765, 0.231373, 1)
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("2_bx30q")
+
+[node name="Area2D" type="Area2D" parent="." groups=["note"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["note"]]
+shape = SubResource("RectangleShape2D_ppati")

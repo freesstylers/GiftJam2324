@@ -1,13 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://cunhkcjcrb3ne"]
+[gd_scene load_steps=7 format=3 uid="uid://cunhkcjcrb3ne"]
 
 [ext_resource type="Script" path="res://Scripts/Testing/NoteRails.gd" id="1_s5kyb"]
 [ext_resource type="PackedScene" uid="uid://c4v0627ljq8j1" path="res://Scenes/Testing/VerticalLine.tscn" id="2_o0lgw"]
+[ext_resource type="PackedScene" uid="uid://duqtfj5yejb0u" path="res://Scenes/Testing/NoteHitter.tscn" id="2_osjnh"]
 [ext_resource type="PackedScene" uid="uid://bv22ivwo0yn75" path="res://Scenes/Testing/Note.tscn" id="3_tgg0u"]
 [ext_resource type="Texture2D" uid="uid://cagtcjuiqd4qn" path="res://icon.svg" id="3_ufm0l"]
 
 [sub_resource type="Curve2D" id="Curve2D_e7awq"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 104, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 608, 0)
 }
 point_count = 2
 
@@ -17,16 +18,19 @@ position = Vector2(160, 88)
 [node name="KeysPath" type="Path2D" parent="." node_paths=PackedStringArray("Beginning", "End")]
 curve = SubResource("Curve2D_e7awq")
 script = ExtResource("1_s5kyb")
+NumBeats = 4.0
 verticalLine = ExtResource("2_o0lgw")
 keyNote = ExtResource("3_tgg0u")
 Beginning = NodePath("../Beginning")
 End = NodePath("../End")
+
+[node name="NoteHitter" parent="KeysPath" instance=ExtResource("2_osjnh")]
 
 [node name="Beginning" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_ufm0l")
 
 [node name="End" type="Sprite2D" parent="."]
-position = Vector2(112, 0)
+position = Vector2(608, 0)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_ufm0l")

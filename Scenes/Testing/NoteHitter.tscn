@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://duqtfj5yejb0u"]
+
+[ext_resource type="Texture2D" uid="uid://blm0iqisbvvu5" path="res://VerticalLine.png" id="1_srjol"]
+[ext_resource type="Script" path="res://Scripts/Testing/NoteHitter.gd" id="1_ybsiu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xffq"]
+size = Vector2(83.2301, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a276r"]
+size = Vector2(51, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lyx4c"]
+
+[node name="NoteHitter" type="PathFollow2D"]
+position = Vector2(486.403, 0)
+progress = 486.4
+script = ExtResource("1_ybsiu")
+
+[node name="PlaceToHit2" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_srjol")
+
+[node name="OkArea" type="Area2D" parent="."]
+position = Vector2(-0.402954, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OkArea"]
+shape = SubResource("RectangleShape2D_8xffq")
+
+[node name="GreatArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GreatArea"]
+position = Vector2(0.0970459, 0)
+shape = SubResource("RectangleShape2D_a276r")
+
+[node name="PerfectArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PerfectArea"]
+shape = SubResource("RectangleShape2D_lyx4c")
+
+[connection signal="area_entered" from="OkArea" to="." method="note_enter_ok_area"]
+[connection signal="area_exited" from="OkArea" to="." method="note_exit_ok_area"]
+[connection signal="area_entered" from="GreatArea" to="." method="note_enter_great_area"]
+[connection signal="area_exited" from="GreatArea" to="." method="note_exit_great_area"]
+[connection signal="area_entered" from="PerfectArea" to="." method="note_enter_perfect_area"]
+[connection signal="area_exited" from="PerfectArea" to="." method="note_exit_perfect_area"]
