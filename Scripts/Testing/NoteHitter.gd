@@ -3,6 +3,7 @@ class_name NoteHitter
 
 var placeToHitTween : Tween = null
 var notes_available = []
+var myKeyType : GiftJamGlobals 
 
 func _ready():
 	AnimatePlaceToHit()
@@ -35,4 +36,7 @@ func note_exit_great_area(note):
 
 func note_exit_ok_area(note):
 	if note.is_in_group("note"):
+		var noteExited = note as Note
+		if noteExited.GetNoteWasHit():
+			noteExited.NoteMissed()
 		print("OK EXIT")	

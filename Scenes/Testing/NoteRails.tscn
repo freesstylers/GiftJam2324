@@ -15,23 +15,23 @@ point_count = 2
 [node name="NoteRails" type="Node2D"]
 position = Vector2(160, 88)
 
-[node name="KeysPath" type="Path2D" parent="." node_paths=PackedStringArray("Beginning", "End")]
+[node name="NoteRails" type="Path2D" parent="." node_paths=PackedStringArray("Beginning", "End")]
 curve = SubResource("Curve2D_e7awq")
 script = ExtResource("1_s5kyb")
-NumBeats = 4.0
 verticalLine = ExtResource("2_o0lgw")
 keyNote = ExtResource("3_tgg0u")
 Beginning = NodePath("../Beginning")
 End = NodePath("../End")
 
-[node name="NoteHitter" parent="KeysPath" instance=ExtResource("2_osjnh")]
-position = Vector2(486.403, 0)
-
-[node name="Beginning" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_ufm0l")
+[node name="NoteHitter" parent="NoteRails" instance=ExtResource("2_osjnh")]
+position = Vector2(404.321, 0)
+progress = 404.32
 
 [node name="End" type="Sprite2D" parent="."]
 position = Vector2(608, 0)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_ufm0l")
+
+[node name="Beginning" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_ufm0l")
