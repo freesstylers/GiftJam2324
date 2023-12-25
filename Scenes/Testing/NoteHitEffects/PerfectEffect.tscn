@@ -4,9 +4,26 @@
 [ext_resource type="Script" path="res://Scripts/Testing/NoteHitEffect.gd" id="2_8ue5v"]
 
 [node name="PerfectEffect" type="Sprite2D"]
-modulate = Color(0, 0.729412, 0.313726, 1)
+self_modulate = Color(1, 1, 1, 0)
 position = Vector2(152, 104)
-scale = Vector2(0.15, 0.15)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_ugpqt")
 script = ExtResource("2_8ue5v")
 MovementDelta = Vector2(0, 500)
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0, 1, 0.0705882, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -64.0
+offset_right = -64.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 50
+text = "PERFECT"
+horizontal_alignment = 1
+vertical_alignment = 1

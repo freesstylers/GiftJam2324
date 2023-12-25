@@ -4,39 +4,69 @@ class_name NoteHitter
 var placeToHitTween : Tween = null
 var notes_available = []
 var myKeyType : GiftJamGlobals 
+var NoteInsideHitter : Note = null
+
+var OK : bool = false
+var GREAT : bool = false
+var PERFECT : bool = false
 
 func _ready():
-	AnimatePlaceToHit()
-
-func AnimatePlaceToHit():
 	placeToHitTween = self.create_tween().set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN);
 	placeToHitTween.tween_property($PlaceToHit2, "scale", Vector2(0.1,0.1), GiftJamGlobals.GIFJAM_BPM_IN_SECONDS/2)
 	placeToHitTween.tween_property($PlaceToHit2, "scale", Vector2(0.2,0.2), GiftJamGlobals.GIFJAM_BPM_IN_SECONDS/2)
 	placeToHitTween.set_loops()
+	
+func _process(delta):
+	if Input.is_action_just_pressed("input_right"):
+		print("RIGHT")
+		TryHitNote(GiftJamGlobals.NoteType.RIGHT)
+	if Input.is_action_just_pressed("input_left"):
+		print("LEFT")
+		TryHitNote(GiftJamGlobals.NoteType.LEFT)
+	if Input.is_action_just_pressed("input_up"):
+		print("UP")
+		TryHitNote(GiftJamGlobals.NoteType.UP)
+	if Input.is_action_just_pressed("input_down"):
+		print("DOWN")
+		TryHitNote(GiftJamGlobals.NoteType.DOWN)
 
+func TryHitNote(dir : GiftJamGlobals.NoteType):
+	#Avoid hitting the note more than once 
+	if NoteInsideHitter and not NoteInsideHitter.GetNoteWasHit():
+		var noteHitStatus : GiftJamGlobals.NoteHitStatus = GiftJamGlobals.NoteHitStatus.MISS
+		if PERFECT:
+			noteHitStatus = GiftJamGlobals.NoteHitStatus.PERFECT
+		elif GREAT:
+			noteHitStatus = GiftJamGlobals.NoteHitStatus.GREAT
+		elif OK:
+			noteHitStatus = GiftJamGlobals.NoteHitStatus.OK
+		
+		var hitResult : GiftJamGlobals.NoteHitStatus = NoteInsideHitter.NoteHit(dir, noteHitStatus)
+		GiftJamGlobals.Note_Hit_Result.emit(hitResult)
+
+#Callbacks handling Notes entering each of the areas
 func note_enter_ok_area(note):
 	if note.is_in_group("note"):
-		print("OK ENTER")
-
+		NoteInsideHitter = note.get_parent() as Note
+		OK = true
 func note_enter_great_area(note):
 	if note.is_in_group("note"):
-		print("GREAT ENTER")
-
+		GREAT = true
 func note_enter_perfect_area(note):
 	if note.is_in_group("note"):
-		print("PERFECT ENTER")	
-
+		PERFECT = true
 func note_exit_perfect_area(note):
 	if note.is_in_group("note"):
-		print("PERFECT EXIT")	
-
+		PERFECT = false
 func note_exit_great_area(note):
 	if note.is_in_group("note"):
-		print("GREAT EXIT")	
-
+		GREAT = false
 func note_exit_ok_area(note):
+	#Here I get the area2D attached to the Note, but the catch is that it is actually the area2d's father who has
+	#the Note script and controls its hehaviour
 	if note.is_in_group("note"):
-		var noteExited = note as Note
-		if noteExited.GetNoteWasHit():
-			noteExited.NoteMissed()
-		print("OK EXIT")	
+		if not NoteInsideHitter.GetNoteWasHit():
+			var result : GiftJamGlobals.NoteHitStatus = NoteInsideHitter.NoteHit(GiftJamGlobals.NoteType.UP,GiftJamGlobals.NoteHitStatus.MISS) #Dir does not matter, its a miss
+			GiftJamGlobals.Note_Hit_Result.emit(result)
+		NoteInsideHitter = null
+		OK = false

@@ -5,7 +5,25 @@
 
 [node name="OkEffect" type="Sprite2D"]
 modulate = Color(0.976471, 0.4, 0.223529, 1)
+self_modulate = Color(1, 1, 1, 0)
 position = Vector2(128, 80)
-scale = Vector2(0.15, 0.15)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_jgfff")
 script = ExtResource("2_vy486")
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 0.47451, 0.0705882, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -64.0
+offset_right = -64.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 50
+text = "OK"
+horizontal_alignment = 1
+vertical_alignment = 1
