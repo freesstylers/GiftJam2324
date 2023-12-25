@@ -10,54 +10,56 @@
 [ext_resource type="Texture2D" uid="uid://bl4gatl7yuj0g" path="res://Assets/Sprites/Notas/Izquierda.png" id="8_1qgc4"]
 [ext_resource type="Texture2D" uid="uid://2vnxqds5h8en" path="res://Assets/Sprites/Notas/Derecha.png" id="9_kolby"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ppati"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s32cn"]
 size = Vector2(0, 20)
 
-[node name="PathFollow2D" type="PathFollow2D"]
+[node name="NoteHitbox" type="Area2D" groups=["note"]]
 script = ExtResource("1_go4f3")
 MissEffect = ExtResource("2_hq07o")
 OkEffect = ExtResource("2_5goob")
 GreatEffect = ExtResource("2_uu0ww")
 PerfectEffect = ExtResource("2_p5km2")
 
-[node name="Area2D" type="Area2D" parent="." groups=["note"]]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." groups=["note"]]
+shape = SubResource("RectangleShape2D_s32cn")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["note"]]
-shape = SubResource("RectangleShape2D_ppati")
+[node name="EnemyNotes2" type="Node2D" parent="."]
+visible = false
 
-[node name="Notes" type="Node2D" parent="."]
-
-[node name="Up" type="Sprite2D" parent="Notes"]
+[node name="Up" type="Sprite2D" parent="EnemyNotes2"]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("6_u2dsh")
 
-[node name="Down" type="Sprite2D" parent="Notes"]
+[node name="Down" type="Sprite2D" parent="EnemyNotes2"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_u2dsh")
+
+[node name="Left" type="Sprite2D" parent="EnemyNotes2"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_u2dsh")
+
+[node name="Right" type="Sprite2D" parent="EnemyNotes2"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_u2dsh")
+
+[node name="PlayerNotes" type="Node2D" parent="."]
+
+[node name="Up" type="Sprite2D" parent="PlayerNotes"]
+visible = false
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_u2dsh")
+
+[node name="Down" type="Sprite2D" parent="PlayerNotes"]
+visible = false
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("7_b0yqf")
 
-[node name="Left" type="Sprite2D" parent="Notes"]
+[node name="Left" type="Sprite2D" parent="PlayerNotes"]
+visible = false
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("8_1qgc4")
 
-[node name="Right" type="Sprite2D" parent="Notes"]
+[node name="Right" type="Sprite2D" parent="PlayerNotes"]
+visible = false
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("9_kolby")
-
-[node name="EnemyNotes" type="Node2D" parent="."]
-visible = false
-
-[node name="Up" type="Sprite2D" parent="EnemyNotes"]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("6_u2dsh")
-
-[node name="Down" type="Sprite2D" parent="EnemyNotes"]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("6_u2dsh")
-
-[node name="Left" type="Sprite2D" parent="EnemyNotes"]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("6_u2dsh")
-
-[node name="Right" type="Sprite2D" parent="EnemyNotes"]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("6_u2dsh")

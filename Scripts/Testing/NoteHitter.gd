@@ -16,7 +16,7 @@ func _ready():
 	placeToHitTween.tween_property($PlaceToHit2, "scale", Vector2(0.2,0.2), GiftJamGlobals.GIFJAM_BPM_IN_SECONDS/2)
 	placeToHitTween.set_loops()
 	
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("input_right"):
 		print("RIGHT")
 		TryHitNote(GiftJamGlobals.NoteType.RIGHT)
@@ -47,7 +47,7 @@ func TryHitNote(dir : GiftJamGlobals.NoteType):
 #Callbacks handling Notes entering each of the areas
 func note_enter_ok_area(note):
 	if note.is_in_group("note"):
-		NoteInsideHitter = note.get_parent() as Note
+		NoteInsideHitter = note as Note
 		OK = true
 func note_enter_great_area(note):
 	if note.is_in_group("note"):

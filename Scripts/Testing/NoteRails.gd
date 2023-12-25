@@ -4,24 +4,16 @@ class_name NoteRails
 @export var NumBeats : float = 5
 @export var verticalLine : PackedScene = null
 @export var keyNote : PackedScene = null
-@export var NotesFadeAwayLength : float = 1.0
-
-@export var Beginning : Node2D= null
-@export var End  : Node2D= null
 
 var bpm_movement : float = (60.0 / GiftJamGlobals.GIFJAM_BPM) / NumBeats
 var bpm_lines = []
-var notes_in_rails = []
+var waiting_notes = []
 
-var placeToHit : NoteHitter = null
-var placeToHitTween : Tween = null
-
-var everyN = 5
-var auxN = 5
+var noteHitter : NoteHitter = null
 
 func _ready():
-	placeToHit = $NoteHitter
-	placeToHit.progress_ratio = (NumBeats-1) / NumBeats
+	noteHitter = $NoteHitter
+	noteHitter.progress_ratio = (NumBeats-1) / NumBeats
 
 	bpm_movement = (GiftJamGlobals.GIFJAM_BPM / 60.0) / NumBeats
 	#Place the vertical bars over the path2d so that they represent the beats
@@ -36,40 +28,39 @@ func _ready():
 	GiftJamGlobals.connect("BPM_Notification", Testing_AddNoteToBeat)
 	
 func _process(delta):
-	MoveBPMLines(delta)
-	MoveNotesInRail(delta)
-
-func MoveBPMLines(delta):
 	for i in range(bpm_lines.size()):
 		var current_element : PathFollow2D = bpm_lines[i]
+		var delta_movement = bpm_movement*delta
+		#If the beat reached the path end, check for new notes to spawn
+		if current_element.progress_ratio + delta_movement > 1.0:
+			var noteToSpawn = GetPossibleNote()
+			if noteToSpawn:
+				current_element.add_child(noteToSpawn)
 		current_element.progress_ratio += (bpm_movement * delta)
-
-func MoveNotesInRail(delta):
-	for i in range(notes_in_rails.size()):
-		var index : int = notes_in_rails.size()-i-1
-		var current_element : Note = notes_in_rails[index]
-		var deltaMovement = (bpm_movement * delta)
-		#If the note passed the note hitter, start to fade it away
-		if current_element.progress_ratio >= (NumBeats-1)  / NumBeats:
-			current_element.FadeAway(NotesFadeAwayLength)
-		#If the note reached the end of the path 2D remove it from the rail
-		if current_element.progress_ratio + deltaMovement > 1.0:
-			current_element.progress_ratio = 1.0
-			notes_in_rails.remove_at(index)
-		#Move the note a little bit
-		else:
-			current_element.progress_ratio += deltaMovement		
+		
+func AddKeyNote(delayInBeats: int ,noteType : GiftJamGlobals.NoteType):
+	waiting_notes.append({delay = delayInBeats, noteType = noteType})
 	
+#Dictionary waiting_notes[i] = {delay : int, noteType : type: GiftJamGlobals.NoteType}
+func GetPossibleNote()->Note:
+	if waiting_notes.size() > 0:
+		for i in range(waiting_notes.size()):
+			waiting_notes[i].delay = waiting_notes[i].delay-1
+			print(waiting_notes[i].delay)
+		if waiting_notes[0].delay <= 0:
+			var spawning_note = waiting_notes[0]
+			waiting_notes.remove_at(0)
+			var newNote = (keyNote.instantiate() as Note)
+			newNote.SetNoteType(spawning_note.noteType,noteHitter.progress_ratio, GiftJamGlobals.GIFJAM_BPM_IN_SECONDS)
+			return newNote
+	return null
+
+########TESTING... TO DELETE#######
+var everyN = 5
+var auxN = 5	
 func Testing_AddNoteToBeat():
 	auxN = auxN -1
 	if auxN <= 0:
 		auxN = everyN
-		AddKeyNote(randi() % 4)
-	
-func AddKeyNote(noteType : GiftJamGlobals.NoteType):
-	var spawned = keyNote.instantiate() as Note
-	var newNote = (spawned as Note)
-	newNote.SetNoteType(noteType)
-	self.add_child(newNote)
-	newNote.progress_ratio = 0.0
-	notes_in_rails.append(newNote)
+		AddKeyNote(0, randi() % 4)
+########TESTING... TO DELETE#######

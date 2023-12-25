@@ -1,0 +1,62 @@
+[gd_scene load_steps=11 format=3 uid="uid://bo2ym10tbhk03"]
+
+[ext_resource type="Script" path="res://Scripts/Testing/Note.gd" id="1_p4e0a"]
+[ext_resource type="PackedScene" uid="uid://c1ujt0puwtmfh" path="res://Scenes/Testing/NoteHitEffects/MissEffect.tscn" id="2_3j7xd"]
+[ext_resource type="PackedScene" uid="uid://bkgtdolv7qr3a" path="res://Scenes/Testing/NoteHitEffects/OkEffect.tscn" id="3_4ijj5"]
+[ext_resource type="PackedScene" uid="uid://ch038v25fwfw8" path="res://Scenes/Testing/NoteHitEffects/GreatEffect.tscn" id="4_3ckdd"]
+[ext_resource type="PackedScene" uid="uid://72wcyaddjgym" path="res://Scenes/Testing/NoteHitEffects/PerfectEffect.tscn" id="5_x1kjt"]
+[ext_resource type="Texture2D" uid="uid://cba1t482rhpc3" path="res://Assets/Sprites/Notas/Arriba.png" id="6_1qp1m"]
+[ext_resource type="Texture2D" uid="uid://vhufsnteek2m" path="res://Assets/Sprites/Notas/Abajo.png" id="7_hv3no"]
+[ext_resource type="Texture2D" uid="uid://bl4gatl7yuj0g" path="res://Assets/Sprites/Notas/Izquierda.png" id="8_gi8af"]
+[ext_resource type="Texture2D" uid="uid://2vnxqds5h8en" path="res://Assets/Sprites/Notas/Derecha.png" id="9_gn725"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ppati"]
+size = Vector2(0, 20)
+
+[node name="PathFollow2D" type="PathFollow2D"]
+script = ExtResource("1_p4e0a")
+MissEffect = ExtResource("2_3j7xd")
+OkEffect = ExtResource("3_4ijj5")
+GreatEffect = ExtResource("4_3ckdd")
+PerfectEffect = ExtResource("5_x1kjt")
+
+[node name="Note" type="Area2D" parent="." groups=["note"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Note" groups=["note"]]
+shape = SubResource("RectangleShape2D_ppati")
+
+[node name="Notes" type="Node2D" parent="Note"]
+
+[node name="Up" type="Sprite2D" parent="Note/Notes"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_1qp1m")
+
+[node name="Down" type="Sprite2D" parent="Note/Notes"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_hv3no")
+
+[node name="Left" type="Sprite2D" parent="Note/Notes"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("8_gi8af")
+
+[node name="Right" type="Sprite2D" parent="Note/Notes"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("9_gn725")
+
+[node name="EnemyNotes" type="Node2D" parent="Note"]
+
+[node name="Up" type="Sprite2D" parent="Note/EnemyNotes"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_1qp1m")
+
+[node name="Down" type="Sprite2D" parent="Note/EnemyNotes"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_1qp1m")
+
+[node name="Left" type="Sprite2D" parent="Note/EnemyNotes"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_1qp1m")
+
+[node name="Right" type="Sprite2D" parent="Note/EnemyNotes"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_1qp1m")
