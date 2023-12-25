@@ -4,8 +4,25 @@
 [ext_resource type="Script" path="res://Scripts/Testing/NoteHitEffect.gd" id="2_hbj31"]
 
 [node name="GreatEffect" type="Sprite2D"]
-modulate = Color(0.623529, 0.635294, 0.25098, 1)
+self_modulate = Color(1, 1, 1, 0)
 position = Vector2(152, 88)
-scale = Vector2(0.15, 0.15)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_nplum")
 script = ExtResource("2_hbj31")
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 0.117647, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -64.0
+offset_right = -64.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 50
+text = "GREAT"
+horizontal_alignment = 1
+vertical_alignment = 1

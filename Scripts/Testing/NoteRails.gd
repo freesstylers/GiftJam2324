@@ -16,6 +16,9 @@ var notes_in_rails = []
 var placeToHit : NoteHitter = null
 var placeToHitTween : Tween = null
 
+var everyN = 5
+var auxN = 5
+
 func _ready():
 	placeToHit = $NoteHitter
 	placeToHit.progress_ratio = (NumBeats-1) / NumBeats
@@ -29,7 +32,8 @@ func _ready():
 		var progress : float = 1.0 - (1.0 * i / NumBeats)
 		pathFollow.progress_ratio = progress
 		bpm_lines.append(pathFollow)
-	AddKeyNote()
+		
+	GiftJamGlobals.connect("BPM_Notification", Testing_AddNoteToBeat)
 	
 func _process(delta):
 	MoveBPMLines(delta)
@@ -42,7 +46,8 @@ func MoveBPMLines(delta):
 
 func MoveNotesInRail(delta):
 	for i in range(notes_in_rails.size()):
-		var current_element : Note = notes_in_rails[notes_in_rails.size()-i-1]
+		var index : int = notes_in_rails.size()-i-1
+		var current_element : Note = notes_in_rails[index]
 		var deltaMovement = (bpm_movement * delta)
 		#If the note passed the note hitter, start to fade it away
 		if current_element.progress_ratio >= (NumBeats-1)  / NumBeats:
@@ -50,14 +55,21 @@ func MoveNotesInRail(delta):
 		#If the note reached the end of the path 2D remove it from the rail
 		if current_element.progress_ratio + deltaMovement > 1.0:
 			current_element.progress_ratio = 1.0
-			notes_in_rails.remove_at(i)
+			notes_in_rails.remove_at(index)
 		#Move the note a little bit
 		else:
 			current_element.progress_ratio += deltaMovement		
 	
-func AddKeyNote():
-	var newNote = keyNote.instantiate() as Note
-	var pathFollow = (newNote as PathFollow2D)
+func Testing_AddNoteToBeat():
+	auxN = auxN -1
+	if auxN <= 0:
+		auxN = everyN
+		AddKeyNote(GiftJamGlobals.NoteType.UP)
+	
+func AddKeyNote(noteType : GiftJamGlobals.NoteType):
+	var spawned = keyNote.instantiate() as Note
+	var newNote = (spawned as Note)
+	newNote.SetNoteType(noteType)
 	self.add_child(newNote)
-	pathFollow.progress_ratio = 0.0
-	notes_in_rails.append(pathFollow)
+	newNote.progress_ratio = 0.0
+	notes_in_rails.append(newNote)
