@@ -64,7 +64,7 @@ func Testing_AddNoteToBeat():
 	auxN = auxN -1
 	if auxN <= 0:
 		auxN = everyN
-		AddKeyNote(GiftJamGlobals.NoteType.UP)
+		AddKeyNote(randi() % 4)
 	
 func AddKeyNote(noteType : GiftJamGlobals.NoteType):
 	var spawned = keyNote.instantiate() as Note

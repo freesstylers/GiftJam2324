@@ -9,7 +9,6 @@ position = Vector2(152, 104)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_ugpqt")
 script = ExtResource("2_8ue5v")
-MovementDelta = Vector2(0, 500)
 
 [node name="Label" type="Label" parent="."]
 modulate = Color(0, 1, 0.0705882, 1)

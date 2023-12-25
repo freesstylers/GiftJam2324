@@ -1,13 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://bv22ivwo0yn75"]
+[gd_scene load_steps=11 format=3 uid="uid://bv22ivwo0yn75"]
 
 [ext_resource type="Script" path="res://Scripts/Testing/Note.gd" id="1_go4f3"]
 [ext_resource type="PackedScene" uid="uid://bkgtdolv7qr3a" path="res://Scenes/Testing/NoteHitEffects/OkEffect.tscn" id="2_5goob"]
-[ext_resource type="Texture2D" uid="uid://cagtcjuiqd4qn" path="res://icon.svg" id="2_bx30q"]
 [ext_resource type="PackedScene" uid="uid://c1ujt0puwtmfh" path="res://Scenes/Testing/NoteHitEffects/MissEffect.tscn" id="2_hq07o"]
 [ext_resource type="PackedScene" uid="uid://72wcyaddjgym" path="res://Scenes/Testing/NoteHitEffects/PerfectEffect.tscn" id="2_p5km2"]
 [ext_resource type="PackedScene" uid="uid://ch038v25fwfw8" path="res://Scenes/Testing/NoteHitEffects/GreatEffect.tscn" id="2_uu0ww"]
+[ext_resource type="Texture2D" uid="uid://cba1t482rhpc3" path="res://Assets/Sprites/Notas/Arriba.png" id="6_u2dsh"]
+[ext_resource type="Texture2D" uid="uid://vhufsnteek2m" path="res://Assets/Sprites/Notas/Abajo.png" id="7_b0yqf"]
+[ext_resource type="Texture2D" uid="uid://bl4gatl7yuj0g" path="res://Assets/Sprites/Notas/Izquierda.png" id="8_1qgc4"]
+[ext_resource type="Texture2D" uid="uid://2vnxqds5h8en" path="res://Assets/Sprites/Notas/Derecha.png" id="9_kolby"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ppati"]
+size = Vector2(0, 20)
 
 [node name="PathFollow2D" type="PathFollow2D"]
 script = ExtResource("1_go4f3")
@@ -16,12 +20,44 @@ OkEffect = ExtResource("2_5goob")
 GreatEffect = ExtResource("2_uu0ww")
 PerfectEffect = ExtResource("2_p5km2")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.180392, 0.211765, 0.231373, 1)
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("2_bx30q")
-
 [node name="Area2D" type="Area2D" parent="." groups=["note"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["note"]]
 shape = SubResource("RectangleShape2D_ppati")
+
+[node name="Notes" type="Node2D" parent="."]
+
+[node name="Up" type="Sprite2D" parent="Notes"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_u2dsh")
+
+[node name="Down" type="Sprite2D" parent="Notes"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_b0yqf")
+
+[node name="Left" type="Sprite2D" parent="Notes"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("8_1qgc4")
+
+[node name="Right" type="Sprite2D" parent="Notes"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("9_kolby")
+
+[node name="EnemyNotes" type="Node2D" parent="."]
+visible = false
+
+[node name="Up" type="Sprite2D" parent="EnemyNotes"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_u2dsh")
+
+[node name="Down" type="Sprite2D" parent="EnemyNotes"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_u2dsh")
+
+[node name="Left" type="Sprite2D" parent="EnemyNotes"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_u2dsh")
+
+[node name="Right" type="Sprite2D" parent="EnemyNotes"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_u2dsh")

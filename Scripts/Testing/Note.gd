@@ -11,12 +11,21 @@ var myTween:Tween = null
 var noteWasHit : bool = false
 var myNoteType : GiftJamGlobals.NoteType = GiftJamGlobals.NoteType.UP 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	noteSprite = $Sprite2D
-
 func SetNoteType(type: GiftJamGlobals.NoteType):
 	myNoteType = type
+	match type:
+		GiftJamGlobals.NoteType.UP:
+			noteSprite = $Notes/Up
+		GiftJamGlobals.NoteType.DOWN:
+			noteSprite = $Notes/Down
+		GiftJamGlobals.NoteType.LEFT:
+			noteSprite = $Notes/Left
+		GiftJamGlobals.NoteType.RIGHT:
+			noteSprite = $Notes/Right
+	$Notes/Up.visible = myNoteType == GiftJamGlobals.NoteType.UP
+	$Notes/Down.visible = myNoteType == GiftJamGlobals.NoteType.DOWN
+	$Notes/Left.visible = myNoteType == GiftJamGlobals.NoteType.LEFT
+	$Notes/Right.visible = myNoteType == GiftJamGlobals.NoteType.RIGHT
 
 func GetNoteWasHit():
 	return noteWasHit
