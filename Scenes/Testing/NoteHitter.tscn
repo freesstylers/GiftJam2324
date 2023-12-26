@@ -16,7 +16,7 @@ position = Vector2(486.403, 0)
 progress = 486.4
 script = ExtResource("1_ybsiu")
 
-[node name="PlaceToHit2" type="Sprite2D" parent="."]
+[node name="PlaceToHit" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_srjol")
 

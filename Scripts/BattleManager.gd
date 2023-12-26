@@ -1,5 +1,6 @@
 extends Node
 
+@export var SONG_BPM : int = 130
 @export var PlayMetronome : bool = false
 @export var NumAttacksPerAttack : int = 3 
 
@@ -22,7 +23,7 @@ func _ready():
 	
 	metronomeSound = $MetronomeSound
 	BPM_TIMER = $BPM_TIMER
-	var time_per_bpm = 60.0 / GiftJamGlobals.GIFJAM_BPM
+	var time_per_bpm = 60.0 / SONG_BPM
 	BPM_TIMER.wait_time = time_per_bpm
 	BPM_TIMER.start()
 	
@@ -52,4 +53,5 @@ func BPM_Notification():
 	
 func Start_Battle():
 	ChangeAttackMode(true)
+	noteRail.SetBPM(SONG_BPM)
 	SendNotesToRail()
