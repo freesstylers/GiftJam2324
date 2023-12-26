@@ -1,8 +1,109 @@
-[gd_scene format=3 uid="uid://dv31ttuyw5rnf"]
+[gd_scene load_steps=7 format=3 uid="uid://dv31ttuyw5rnf"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Script" path="res://Scripts/MainMenuScript.gd" id="1_s2qbx"]
+[ext_resource type="Texture2D" uid="uid://cdtihfxql4ua0" path="res://Assets/MainMenu/LogoTemp.png" id="2_rjfxt"]
+[ext_resource type="Texture2D" uid="uid://bs4huwweijiv8" path="res://Assets/MainMenu/LogoFreestylers.png" id="2_tuuka"]
+[ext_resource type="FontFile" uid="uid://c2x1ua4cao7is" path="res://Assets/Fonts/Larceny.ttf" id="2_xpdlg"]
+[ext_resource type="Texture2D" uid="uid://c821idnkhdm02" path="res://Assets/MainMenu/Twitter.png" id="3_hamnk"]
+[ext_resource type="Texture2D" uid="uid://bksfffs4teg1h" path="res://Assets/MainMenu/LogoGiftJam.png" id="4_kmo4h"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s2qbx")
+
+[node name="MainMenu" type="MarginContainer" parent="."]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-color = Color(1, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu"]
+layout_mode = 2
+
+[node name="Play" type="TextureButton" parent="MainMenu/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_stretch_ratio = 0.5
+texture_normal = ExtResource("2_rjfxt")
+
+[node name="Credits" type="TextureButton" parent="MainMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.5
+texture_normal = ExtResource("2_rjfxt")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/VBoxContainer"]
+layout_mode = 2
+
+[node name="FreeStylers" type="TextureButton" parent="MainMenu/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_tuuka")
+
+[node name="GiftJam" type="TextureButton" parent="MainMenu/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_kmo4h")
+
+[node name="Twitter" type="TextureButton" parent="MainMenu/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_hamnk")
+
+[node name="Button" type="Button" parent="MainMenu/VBoxContainer"]
+layout_mode = 2
+
+[node name="CreditsPanel" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsPanel"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CreditsPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xpdlg")
+theme_override_font_sizes/font_size = 32
+text = "CREDITS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="CreditsPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xpdlg")
+theme_override_font_sizes/font_size = 32
+text = "------------
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="CreditsPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xpdlg")
+theme_override_font_sizes/font_size = 32
+text = "Gonzalo cidoncha - EL NOTAS
+DAVID CZEPIEL - EL MÁQUINA
+PABLO GROSSI - EL ARTISTA
+IGNACIO ORY - EL CAÓTICO
+JOSE MARTÍN - EL FIESTERO
+JAVIER ARIAS - EL GENIO
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsBack" type="Button" parent="CreditsPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xpdlg")
+theme_override_font_sizes/font_size = 32
+text = "Back"
+
+[connection signal="button_down" from="MainMenu/VBoxContainer/Play" to="." method="_on_play_button_down"]
+[connection signal="button_down" from="MainMenu/VBoxContainer/Credits" to="." method="_on_credits_button_down"]
+[connection signal="button_down" from="MainMenu/VBoxContainer/HBoxContainer/FreeStylers" to="." method="_on_free_stylers_button_down"]
+[connection signal="button_down" from="MainMenu/VBoxContainer/HBoxContainer/GiftJam" to="." method="_on_gift_jam_button_down"]
+[connection signal="button_down" from="MainMenu/VBoxContainer/HBoxContainer/Twitter" to="." method="_on_twitter_button_down"]
+[connection signal="button_down" from="CreditsPanel/VBoxContainer/CreditsBack" to="." method="_on_credits_back_button_down"]
