@@ -1,0 +1,42 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://cg2isnk1gk3hk"]
+
+[ext_resource type="Texture2D" uid="uid://micqivx6l8ut" path="res://Assets/Sprites/Protagonista/PunchRight/PunchRight1.png" id="1_27q58"]
+[ext_resource type="Texture2D" uid="uid://ddc33ltt6b8jp" path="res://Assets/Sprites/Protagonista/PunchRight/PunchRight2.png" id="2_a3i2j"]
+[ext_resource type="Texture2D" uid="uid://btgopd26w2rd5" path="res://Assets/Sprites/Protagonista/PunchRight/PunchRight3.png" id="3_ppi0s"]
+[ext_resource type="Texture2D" uid="uid://cwyj1kro8a27y" path="res://Assets/Sprites/Protagonista/PunchRight/PunchRight4.png" id="4_spk4d"]
+[ext_resource type="Texture2D" uid="uid://cfgeadiiypdhx" path="res://Assets/Sprites/Protagonista/PunchRight/PunchRight5.png" id="5_6vptu"]
+[ext_resource type="Texture2D" uid="uid://dxihlw1o48nw6" path="res://Assets/Sprites/Protagonista/PunchRight/PunchRight6.png" id="6_8a1sv"]
+[ext_resource type="Texture2D" uid="uid://b7a72axllcan3" path="res://Assets/Sprites/Protagonista/PunchRight/PunchRight7.png" id="7_f1765"]
+[ext_resource type="Texture2D" uid="uid://c38wd3vsxo6ls" path="res://Assets/Sprites/Protagonista/PunchRight/PunchRight8.png" id="8_ou0gf"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 0.75,
+"texture": ExtResource("1_27q58")
+}, {
+"duration": 0.75,
+"texture": ExtResource("2_a3i2j")
+}, {
+"duration": 0.75,
+"texture": ExtResource("3_ppi0s")
+}, {
+"duration": 0.75,
+"texture": ExtResource("4_spk4d")
+}, {
+"duration": 0.75,
+"texture": ExtResource("5_6vptu")
+}, {
+"duration": 0.75,
+"texture": ExtResource("6_8a1sv")
+}, {
+"duration": 0.75,
+"texture": ExtResource("7_f1765")
+}, {
+"duration": 0.75,
+"texture": ExtResource("8_ou0gf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]

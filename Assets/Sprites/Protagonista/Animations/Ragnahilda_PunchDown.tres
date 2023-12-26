@@ -1,0 +1,42 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://blndimigli34l"]
+
+[ext_resource type="Texture2D" uid="uid://db00ubow7vsw" path="res://Assets/Sprites/Protagonista/PunchDown/PunchDown1.png" id="1_hvt8y"]
+[ext_resource type="Texture2D" uid="uid://27vo2uite6h" path="res://Assets/Sprites/Protagonista/PunchDown/PunchDown2.png" id="2_ao55d"]
+[ext_resource type="Texture2D" uid="uid://c8ar4i8hlr3ll" path="res://Assets/Sprites/Protagonista/PunchDown/PunchDown3.png" id="3_upfd4"]
+[ext_resource type="Texture2D" uid="uid://dye47no6en314" path="res://Assets/Sprites/Protagonista/PunchDown/PunchDown4.png" id="4_mgcy4"]
+[ext_resource type="Texture2D" uid="uid://lkxxswykmcbo" path="res://Assets/Sprites/Protagonista/PunchDown/PunchDown5.png" id="5_l3ye0"]
+[ext_resource type="Texture2D" uid="uid://dhqyrc44xsgma" path="res://Assets/Sprites/Protagonista/PunchDown/PunchDown6.png" id="6_3e8or"]
+[ext_resource type="Texture2D" uid="uid://t5uipv4cvw07" path="res://Assets/Sprites/Protagonista/PunchDown/PunchDown7.png" id="7_rh00r"]
+[ext_resource type="Texture2D" uid="uid://cvs8nw28t01sa" path="res://Assets/Sprites/Protagonista/PunchDown/PunchDown8.png" id="8_7fqjd"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 0.75,
+"texture": ExtResource("1_hvt8y")
+}, {
+"duration": 0.75,
+"texture": ExtResource("2_ao55d")
+}, {
+"duration": 0.75,
+"texture": ExtResource("3_upfd4")
+}, {
+"duration": 0.75,
+"texture": ExtResource("4_mgcy4")
+}, {
+"duration": 0.75,
+"texture": ExtResource("5_l3ye0")
+}, {
+"duration": 0.75,
+"texture": ExtResource("6_3e8or")
+}, {
+"duration": 0.75,
+"texture": ExtResource("7_rh00r")
+}, {
+"duration": 0.75,
+"texture": ExtResource("8_7fqjd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

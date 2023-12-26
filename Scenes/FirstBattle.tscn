@@ -1,4 +1,14 @@
-[gd_scene format=3 uid="uid://cfh6vbf7jfvlp"]
+[gd_scene load_steps=4 format=3 uid="uid://cfh6vbf7jfvlp"]
+
+[ext_resource type="SpriteFrames" uid="uid://cg2isnk1gk3hk" path="res://Assets/Sprites/Protagonista/Animations/Ragnahilda_PunchRight.tres" id="1_whe0o"]
+
+[sub_resource type="Animation" id="Animation_ugoik"]
+resource_name = "Ragnahilda_Idle"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qipwu"]
+_data = {
+"Ragnahilda_Idle": SubResource("Animation_ugoik")
+}
 
 [node name="FirstBattle" type="Node2D"]
 
@@ -6,3 +16,13 @@
 offset_right = 40.0
 offset_bottom = 40.0
 color = Color(0, 0, 1, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qipwu")
+}
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_whe0o")
+frame = 4
+frame_progress = 0.882699
