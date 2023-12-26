@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cfh6vbf7jfvlp"]
 
-[ext_resource type="SpriteFrames" uid="uid://cg2isnk1gk3hk" path="res://Assets/Sprites/Protagonista/Animations/Ragnahilda_PunchRight.tres" id="1_whe0o"]
+[ext_resource type="SpriteFrames" uid="uid://cg2isnk1gk3hk" path="res://Assets/Sprites/Protagonista/Animations/Ragnahilda_PunchRight.tres" id="1_nkkor"]
 
 [sub_resource type="Animation" id="Animation_ugoik"]
 resource_name = "Ragnahilda_Idle"
@@ -23,6 +23,6 @@ libraries = {
 }
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("1_whe0o")
+sprite_frames = ExtResource("1_nkkor")
 frame = 4
 frame_progress = 0.882699
