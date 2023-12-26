@@ -45,21 +45,17 @@ texture = ExtResource("6_u2dsh")
 [node name="PlayerNotes" type="Node2D" parent="."]
 
 [node name="Up" type="Sprite2D" parent="PlayerNotes"]
-visible = false
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("6_u2dsh")
 
 [node name="Down" type="Sprite2D" parent="PlayerNotes"]
-visible = false
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("7_b0yqf")
 
 [node name="Left" type="Sprite2D" parent="PlayerNotes"]
-visible = false
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("8_1qgc4")
 
 [node name="Right" type="Sprite2D" parent="PlayerNotes"]
-visible = false
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("9_kolby")

@@ -22,7 +22,7 @@ func _process(_delta):
 	if not fadeStarted and myPathFollow2DContainer and myPathFollow2DContainer.progress_ratio >= fadingStartPathPercentageStart:
 		FadeAway(fadeDuration)
 
-func SetNoteType(type: GiftJamGlobals.NoteType, fadeOutStartPath: float, fadeOutDuration: float):
+func SetNoteType(type: GiftJamGlobals.NoteType, fadeOutStartPath: float, fadeOutDuration: float, attacking : bool):
 	myNoteType = type
 	match type:
 		GiftJamGlobals.NoteType.UP:
@@ -40,6 +40,11 @@ func SetNoteType(type: GiftJamGlobals.NoteType, fadeOutStartPath: float, fadeOut
 	
 	fadingStartPathPercentageStart = fadeOutStartPath
 	fadeDuration = fadeOutDuration
+	#Sprite color is updated
+	if attacking: 
+		noteSprite.modulate = Color.BLUE
+	else:
+		noteSprite.modulate = Color.RED
 
 func GetNoteWasHit():
 	return noteWasHit
@@ -50,24 +55,22 @@ func NoteHit(noteType : GiftJamGlobals.NoteType, noteHitStatus : GiftJamGlobals.
 	match noteHitStatus:
 		GiftJamGlobals.NoteHitStatus.OK:
 			if noteType == myNoteType:
-				ShowFeedback(Color.ORANGE, OkEffect.instantiate())
+				ShowFeedback(OkEffect.instantiate())
 				hitResult = GiftJamGlobals.NoteHitStatus.OK
 		GiftJamGlobals.NoteHitStatus.GREAT:
 			if noteType == myNoteType:
-				ShowFeedback(Color.YELLOW, GreatEffect.instantiate())
+				ShowFeedback(GreatEffect.instantiate())
 				hitResult = GiftJamGlobals.NoteHitStatus.GREAT
 		GiftJamGlobals.NoteHitStatus.PERFECT:
 			if noteType == myNoteType:
-				ShowFeedback(Color.GREEN, PerfectEffect.instantiate())
+				ShowFeedback(PerfectEffect.instantiate())
 				hitResult = GiftJamGlobals.NoteHitStatus.PERFECT
 	if hitResult == GiftJamGlobals.NoteHitStatus.MISS:
-		ShowFeedback(Color.RED, MissEffect.instantiate())
+		ShowFeedback(MissEffect.instantiate())
 	return hitResult
 
 #Adjust the sprite and spawn some effect depending on how well the player hit the note
-func ShowFeedback(NoteHitColor, EffectSpawned):
-	#Sprite color is updated
-	noteSprite.modulate = NoteHitColor
+func ShowFeedback(EffectSpawned):
 	#Spawned feedback's position is set to my position and added as a child of the globals
 	EffectSpawned.global_position = global_position
 	GiftJamGlobals.add_child(EffectSpawned)

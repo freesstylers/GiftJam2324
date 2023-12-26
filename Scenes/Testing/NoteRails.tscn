@@ -5,21 +5,18 @@
 [ext_resource type="PackedScene" uid="uid://duqtfj5yejb0u" path="res://Scenes/Testing/NoteHitter.tscn" id="2_osjnh"]
 [ext_resource type="PackedScene" uid="uid://bv22ivwo0yn75" path="res://Scenes/Testing/Note.tscn" id="3_tgg0u"]
 
-[sub_resource type="Curve2D" id="Curve2D_e7awq"]
+[sub_resource type="Curve2D" id="Curve2D_nowrk"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 608, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 800, 0)
 }
 point_count = 2
 
-[node name="NoteRails" type="Node2D"]
-position = Vector2(160, 88)
-
-[node name="NoteRails" type="Path2D" parent="."]
-curve = SubResource("Curve2D_e7awq")
+[node name="NoteRails" type="Path2D"]
+curve = SubResource("Curve2D_nowrk")
 script = ExtResource("1_s5kyb")
 verticalLine = ExtResource("2_o0lgw")
 keyNote = ExtResource("3_tgg0u")
 
-[node name="NoteHitter" parent="NoteRails" instance=ExtResource("2_osjnh")]
-position = Vector2(404.321, 0)
+[node name="NoteHitter2" parent="." instance=ExtResource("2_osjnh")]
+position = Vector2(404.32, 0)
 progress = 404.32

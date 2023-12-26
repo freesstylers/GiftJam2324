@@ -10,6 +10,8 @@ var OK : bool = false
 var GREAT : bool = false
 var PERFECT : bool = false
 
+var onAttackMode : bool = true
+
 func _ready():
 	placeToHitTween = self.create_tween().set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN);
 	placeToHitTween.tween_property($PlaceToHit2, "scale", Vector2(0.1,0.1), GiftJamGlobals.GIFJAM_BPM_IN_SECONDS/2)
@@ -17,18 +19,24 @@ func _ready():
 	placeToHitTween.set_loops()
 	
 func _process(_delta):
-	if Input.is_action_just_pressed("input_right"):
-		print("RIGHT")
-		TryHitNote(GiftJamGlobals.NoteType.RIGHT)
-	if Input.is_action_just_pressed("input_left"):
-		print("LEFT")
-		TryHitNote(GiftJamGlobals.NoteType.LEFT)
-	if Input.is_action_just_pressed("input_up"):
-		print("UP")
-		TryHitNote(GiftJamGlobals.NoteType.UP)
-	if Input.is_action_just_pressed("input_down"):
-		print("DOWN")
-		TryHitNote(GiftJamGlobals.NoteType.DOWN)
+	if onAttackMode:
+		if Input.is_action_just_pressed("input_right"):
+			TryHitNote(GiftJamGlobals.NoteType.RIGHT)
+		if Input.is_action_just_pressed("input_left"):
+			TryHitNote(GiftJamGlobals.NoteType.LEFT)
+		if Input.is_action_just_pressed("input_up"):
+			TryHitNote(GiftJamGlobals.NoteType.UP)
+		if Input.is_action_just_pressed("input_down"):
+			TryHitNote(GiftJamGlobals.NoteType.DOWN)
+	else:		
+		if Input.is_action_just_pressed("input_right"):
+			TryHitNote(GiftJamGlobals.NoteType.LEFT)
+		if Input.is_action_just_pressed("input_left"):
+			TryHitNote(GiftJamGlobals.NoteType.RIGHT)
+		if Input.is_action_just_pressed("input_up"):
+			TryHitNote(GiftJamGlobals.NoteType.DOWN)
+		if Input.is_action_just_pressed("input_down"):
+			TryHitNote(GiftJamGlobals.NoteType.UP)
 
 func TryHitNote(dir : GiftJamGlobals.NoteType):
 	#Avoid hitting the note more than once 
@@ -43,6 +51,9 @@ func TryHitNote(dir : GiftJamGlobals.NoteType):
 		
 		var hitResult : GiftJamGlobals.NoteHitStatus = NoteInsideHitter.NoteHit(dir, noteHitStatus)
 		GiftJamGlobals.Note_Hit_Result.emit(hitResult)
+
+func SetAttackMode(attackMode:bool):
+	onAttackMode = attackMode
 
 #Callbacks handling Notes entering each of the areas
 func note_enter_ok_area(note):

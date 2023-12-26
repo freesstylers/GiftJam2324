@@ -10,9 +10,10 @@ var bpm_lines = []
 var waiting_notes = []
 
 var noteHitter : NoteHitter = null
+var currentlyAttacking : bool = false
 
 func _ready():
-	noteHitter = $NoteHitter
+	noteHitter = $NoteHitter2
 	noteHitter.progress_ratio = (NumBeats-1) / NumBeats
 
 	bpm_movement = (GiftJamGlobals.GIFJAM_BPM / 60.0) / NumBeats
@@ -51,9 +52,13 @@ func GetPossibleNote()->Note:
 			var spawning_note = waiting_notes[0]
 			waiting_notes.remove_at(0)
 			var newNote = (keyNote.instantiate() as Note)
-			newNote.SetNoteType(spawning_note.noteType,noteHitter.progress_ratio, GiftJamGlobals.GIFJAM_BPM_IN_SECONDS)
+			newNote.SetNoteType(spawning_note.noteType,noteHitter.progress_ratio, GiftJamGlobals.GIFJAM_BPM_IN_SECONDS, currentlyAttacking)
 			return newNote
 	return null
+	
+func on_attack_mode_changed(mode):
+	currentlyAttacking = mode
+	noteHitter.SetAttackMode(mode)
 
 ########TESTING... TO DELETE#######
 var everyN = 5
@@ -61,6 +66,6 @@ var auxN = 5
 func Testing_AddNoteToBeat():
 	auxN = auxN -1
 	if auxN <= 0:
-		auxN = everyN
-		AddKeyNote(0, randi() % 4)
+		auxN = 1
+		#AddKeyNote(0, randi() % 4)
 ########TESTING... TO DELETE#######
