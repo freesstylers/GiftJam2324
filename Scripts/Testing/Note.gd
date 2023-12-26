@@ -22,6 +22,9 @@ func _process(_delta):
 	if not fadeStarted and myPathFollow2DContainer and myPathFollow2DContainer.progress_ratio >= fadingStartPathPercentageStart:
 		FadeAway(fadeDuration)
 
+func GetNoteWasHit():
+	return noteWasHit
+
 func SetNoteType(type: GiftJamGlobals.NoteType, fadeOutStartPath: float, fadeOutDuration: float, attacking : bool):
 	myNoteType = type
 	match type:
@@ -46,9 +49,6 @@ func SetNoteType(type: GiftJamGlobals.NoteType, fadeOutStartPath: float, fadeOut
 	else:
 		noteSprite.modulate = Color.RED
 
-func GetNoteWasHit():
-	return noteWasHit
-
 func NoteHit(noteType : GiftJamGlobals.NoteType, noteHitStatus : GiftJamGlobals.NoteHitStatus ) -> GiftJamGlobals.NoteHitStatus :
 	noteWasHit = true
 	var hitResult : GiftJamGlobals.NoteHitStatus  = GiftJamGlobals.NoteHitStatus.MISS
@@ -69,7 +69,6 @@ func NoteHit(noteType : GiftJamGlobals.NoteType, noteHitStatus : GiftJamGlobals.
 		ShowFeedback(MissEffect.instantiate())
 	return hitResult
 
-#Adjust the sprite and spawn some effect depending on how well the player hit the note
 func ShowFeedback(EffectSpawned):
 	#Spawned feedback's position is set to my position and added as a child of the globals
 	EffectSpawned.global_position = global_position

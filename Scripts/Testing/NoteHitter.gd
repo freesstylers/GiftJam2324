@@ -1,21 +1,18 @@
 extends PathFollow2D
 class_name NoteHitter
 
-var placeToHitTween : Tween = null
-var notes_available = []
-var myKeyType : GiftJamGlobals 
 var NoteInsideHitter : Note = null
-
+#FLAGS TO KNOW WHERE IS THE NOTE INSIDE THE HITTER
 var OK : bool = false
 var GREAT : bool = false
 var PERFECT : bool = false
 
 var onAttackMode : bool = true
 
-func _ready():
-	placeToHitTween = self.create_tween().set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN);
-	placeToHitTween.tween_property($PlaceToHit2, "scale", Vector2(0.1,0.1), GiftJamGlobals.GIFJAM_BPM_IN_SECONDS/2)
-	placeToHitTween.tween_property($PlaceToHit2, "scale", Vector2(0.2,0.2), GiftJamGlobals.GIFJAM_BPM_IN_SECONDS/2)
+func SetBPM(SONG_BPM:float):
+	var placeToHitTween :Tween = self.create_tween().set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN);
+	placeToHitTween.tween_property($PlaceToHit, "scale", Vector2(0.1,0.1), (60.0/SONG_BPM)/2.0)
+	placeToHitTween.tween_property($PlaceToHit, "scale", Vector2(0.2,0.2), (60.0/SONG_BPM)/2.0)
 	placeToHitTween.set_loops()
 	
 func _process(_delta):
