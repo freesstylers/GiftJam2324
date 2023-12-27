@@ -9,51 +9,64 @@ class_name NoteRails
 var bpm_lines = []
 var bpm_movement : float = 0
 #NOTES WAITING TO BE SPAWNED
-var waiting_notes = []
+var waiting_set_of_notes = []
 #NOTE HITTER AND ATTACK MODE
 var noteHitter : NoteHitter = null
 var currentlyAttacking : bool = false
 #CURRENT SONG BPM 
 var currentSongBPM :float = 0
 var currentSongSecondsPerBPM :float= 0
+var playerCanHitNotes : bool = true
 
 func _ready():
 	noteHitter = $NoteHitter2
-	noteHitter.progress_ratio = (NumBeats-1) / NumBeats
+	noteHitter.progress_ratio = 0#(NumBeats-1) / NumBeats	
+	SetBPM(130)
+	
 	#Place the vertical bars over the path2d so that they represent the beats
-	for i in range(NumBeats):
+	for i in range(NumBeats+1):
 		var newLine = verticalLine.instantiate() as PathFollow2D
 		self.add_child(newLine)
-		var progress : float = 1.0 - (1.0 * i / NumBeats)
+		var progress : float =(1.0 * i / NumBeats)
 		newLine.progress_ratio = progress
 		bpm_lines.append(newLine)
 	
 func _process(delta):
-	for i in range(bpm_lines.size()):
-		var current_element : PathFollow2D = bpm_lines[i]
-		var delta_movement = bpm_movement*delta
-		#If the beat reached the path end, check for new notes to spawn
-		if current_element.progress_ratio + delta_movement > 1.0:
-			var noteToSpawn = GetPossibleNote()
-			if noteToSpawn:
-				current_element.add_child(noteToSpawn)
-		current_element.progress_ratio += (bpm_movement * delta)
-		
-func AddKeyNote(delayInBeats: int ,noteType : GiftJamGlobals.NoteType):
-	waiting_notes.append({delay = delayInBeats, noteType = noteType})
+	var delta_movement = bpm_movement*delta
+	#If the beat reached the path end, check for new notes to spawn
+	if noteHitter.progress_ratio + delta_movement > 1.0:
+		#Player finished hitting notes, new set must be placed
+		if playerCanHitNotes:
+			playerCanHitNotes = false
+			Testing() # Create a new set of notes
+			ClearCurrentSetOfNotes()
+			PlaceNextSetOfNotes()
+		#All the placed notes have faded in, now the player needs to hit them
+		else:
+			playerCanHitNotes = true
+		noteHitter.SetShowingNotesToPlayer(playerCanHitNotes)
+	noteHitter.progress_ratio += (bpm_movement * delta)
 	
 #Dictionary waiting_notes[i] = {delay : int, noteType : type: GiftJamGlobals.NoteType}
-func GetPossibleNote()->Note:
-	if waiting_notes.size() > 0:
-		for i in range(waiting_notes.size()):
-			waiting_notes[i].delay = waiting_notes[i].delay-1
-		if waiting_notes[0].delay <= 0:
-			var spawning_note = waiting_notes[0]
-			waiting_notes.remove_at(0)
+#nextSet = { attacking : bool, notes : waiting_notes[i]}
+func PlaceNextSetOfNotes():
+	if waiting_set_of_notes.size() > 0:
+		var nextSet = waiting_set_of_notes[0]
+		waiting_set_of_notes.remove_at(0)
+		for i in range(nextSet.notes.size()):
+			var spawning_note_data = nextSet.notes[i]
 			var newNote = (keyNote.instantiate() as Note)
-			newNote.SetNoteType(spawning_note.noteType,noteHitter.progress_ratio, currentSongSecondsPerBPM, currentlyAttacking)
-			return newNote
-	return null
+			newNote.SetNoteType(spawning_note_data.noteType,noteHitter.progress_ratio, currentSongSecondsPerBPM, currentlyAttacking)
+			bpm_lines[spawning_note_data.delay].add_child(newNote)
+	
+func ClearCurrentSetOfNotes():
+	for i in range(bpm_lines.size()):
+		for child in bpm_lines[i].get_children():
+			var possibleNote : Note = null
+			possibleNote = child as Note
+			if possibleNote:
+				bpm_lines[i].remove_child(child)
+				child.queue_free()
 	
 func on_attack_mode_changed(mode):
 	currentlyAttacking = mode
@@ -64,3 +77,13 @@ func SetBPM(SONG_BPM:float):
 	currentSongBPM = SONG_BPM
 	currentSongSecondsPerBPM = 60.0 / SONG_BPM
 	noteHitter.SetBPM(SONG_BPM)
+	
+#Dictionary waiting_notes[i] = {delay : int, noteType : type: GiftJamGlobals.NoteType}
+#nextSet = { attacking : bool, notes : waiting_notes[i]}
+func Testing():
+	var testSetOfNotes = {}
+	testSetOfNotes.attacking = true
+	testSetOfNotes.notes = []
+	testSetOfNotes.notes.append({delay = 1 + randi()%(NumBeats as int -1 ), noteType=  randi() % 4})
+	testSetOfNotes.notes.append({delay = 1 + randi()%(NumBeats as int -1), noteType= randi() % 4})
+	waiting_set_of_notes.append(testSetOfNotes)

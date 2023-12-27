@@ -18,9 +18,9 @@ var fadeStarted : bool = false
 func _ready():
 	myPathFollow2DContainer = self.get_parent() as PathFollow2D
 	
-func _process(_delta):
-	if not fadeStarted and myPathFollow2DContainer and myPathFollow2DContainer.progress_ratio >= fadingStartPathPercentageStart:
-		FadeAway(fadeDuration)
+#func _process(_delta):
+	#if not fadeStarted and myPathFollow2DContainer and myPathFollow2DContainer.progress_ratio >= fadingStartPathPercentageStart:
+		#FadeAway(fadeDuration)
 
 func GetNoteWasHit():
 	return noteWasHit

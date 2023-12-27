@@ -1,13 +1,13 @@
 [gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://blndimigli34l"]
 
-[ext_resource type="Texture2D" uid="uid://c503ap26t7l6q" path="res://Assets/Sprites/Protagonista/PunchDown/PunchDown1.png" id="1_6l3m4"]
-[ext_resource type="Texture2D" uid="uid://d0dg2l6amasy4" path="res://Assets/Sprites/Protagonista/PunchDown/PunchDown2.png" id="2_01vem"]
-[ext_resource type="Texture2D" uid="uid://cr4fo5wyqu84d" path="res://Assets/Sprites/Protagonista/PunchDown/PunchDown3.png" id="3_br640"]
-[ext_resource type="Texture2D" uid="uid://b5a8ari2w4kh1" path="res://Assets/Sprites/Protagonista/PunchDown/PunchDown4.png" id="4_rrakx"]
-[ext_resource type="Texture2D" uid="uid://bv6cwcyk7824v" path="res://Assets/Sprites/Protagonista/PunchDown/PunchDown5.png" id="5_5wlnt"]
-[ext_resource type="Texture2D" uid="uid://drtttcsnsiegl" path="res://Assets/Sprites/Protagonista/PunchDown/PunchDown6.png" id="6_lyarx"]
-[ext_resource type="Texture2D" uid="uid://c7pyt8np07r1d" path="res://Assets/Sprites/Protagonista/PunchDown/PunchDown7.png" id="7_7h82d"]
-[ext_resource type="Texture2D" uid="uid://bt75co168nn3m" path="res://Assets/Sprites/Protagonista/PunchDown/PunchDown8.png" id="8_c3x67"]
+[ext_resource type="Texture2D" uid="uid://cnplb53o6spar" path="res://Assets/Sprites/Protagonista/PunchDown/PunchDown1.png" id="1_6l3m4"]
+[ext_resource type="Texture2D" uid="uid://bb4d7jit207nx" path="res://Assets/Sprites/Protagonista/PunchDown/PunchDown2.png" id="2_01vem"]
+[ext_resource type="Texture2D" uid="uid://dk53rml1glspg" path="res://Assets/Sprites/Protagonista/PunchDown/PunchDown3.png" id="3_br640"]
+[ext_resource type="Texture2D" uid="uid://b2rta7mbw28ta" path="res://Assets/Sprites/Protagonista/PunchDown/PunchDown4.png" id="4_rrakx"]
+[ext_resource type="Texture2D" uid="uid://cimj1om0v52w1" path="res://Assets/Sprites/Protagonista/PunchDown/PunchDown5.png" id="5_5wlnt"]
+[ext_resource type="Texture2D" uid="uid://b3t83c66dcsug" path="res://Assets/Sprites/Protagonista/PunchDown/PunchDown6.png" id="6_lyarx"]
+[ext_resource type="Texture2D" uid="uid://6d7p5qypbxd" path="res://Assets/Sprites/Protagonista/PunchDown/PunchDown7.png" id="7_7h82d"]
+[ext_resource type="Texture2D" uid="uid://c2532r6h6nrj8" path="res://Assets/Sprites/Protagonista/PunchDown/PunchDown8.png" id="8_c3x67"]
 
 [resource]
 animations = [{

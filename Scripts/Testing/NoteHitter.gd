@@ -8,6 +8,7 @@ var GREAT : bool = false
 var PERFECT : bool = false
 
 var onAttackMode : bool = true
+var playerCanHitNotes : bool = false
 
 func SetBPM(SONG_BPM:float):
 	var placeToHitTween :Tween = self.create_tween().set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN);
@@ -37,7 +38,7 @@ func _process(_delta):
 
 func TryHitNote(dir : GiftJamGlobals.NoteType):
 	#Avoid hitting the note more than once 
-	if NoteInsideHitter and not NoteInsideHitter.GetNoteWasHit():
+	if playerCanHitNotes and NoteInsideHitter and not NoteInsideHitter.GetNoteWasHit():
 		var noteHitStatus : GiftJamGlobals.NoteHitStatus = GiftJamGlobals.NoteHitStatus.MISS
 		if PERFECT:
 			noteHitStatus = GiftJamGlobals.NoteHitStatus.PERFECT
@@ -51,6 +52,8 @@ func TryHitNote(dir : GiftJamGlobals.NoteType):
 
 func SetAttackMode(attackMode:bool):
 	onAttackMode = attackMode
+func SetShowingNotesToPlayer(pCanHit:bool):
+	playerCanHitNotes = pCanHit
 
 #Callbacks handling Notes entering each of the areas
 func note_enter_ok_area(note):
@@ -72,8 +75,8 @@ func note_exit_great_area(note):
 func note_exit_ok_area(note):
 	#Here I get the area2D attached to the Note, but the catch is that it is actually the area2d's father who has
 	#the Note script and controls its hehaviour
-	if note.is_in_group("note"):
-		if not NoteInsideHitter.GetNoteWasHit():
+	if playerCanHitNotes and note.is_in_group("note"):
+		if NoteInsideHitter and not NoteInsideHitter.GetNoteWasHit():
 			var result : GiftJamGlobals.NoteHitStatus = NoteInsideHitter.NoteHit(GiftJamGlobals.NoteType.UP,GiftJamGlobals.NoteHitStatus.MISS) #Dir does not matter, its a miss
 			GiftJamGlobals.Note_Hit_Result.emit(result)
 		NoteInsideHitter = null

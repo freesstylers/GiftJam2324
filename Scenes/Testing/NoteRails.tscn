@@ -12,6 +12,7 @@ _data = {
 point_count = 2
 
 [node name="NoteRails" type="Path2D"]
+position = Vector2(192, 112)
 curve = SubResource("Curve2D_nowrk")
 script = ExtResource("1_s5kyb")
 verticalLine = ExtResource("2_o0lgw")
