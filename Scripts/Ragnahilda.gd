@@ -5,6 +5,7 @@ var IdleAnim = preload("res://Assets/Sprites/Protagonista/Animations/Ragnahilda_
 var PunchLeftAnim = preload("res://Assets/Sprites/Protagonista/Animations/Ragnahilda_PunchLeft.tres")
 var PunchRightAnim = preload("res://Assets/Sprites/Protagonista/Animations/Ragnahilda_PunchRight.tres")
 var PunchDownAnim = preload("res://Assets/Sprites/Protagonista/Animations/Ragnahilda_PunchDown.tres")
+var PunchUpAnim = preload("res://Assets/Sprites/Protagonista/Animations/Ragnahilda_PunchUp.tres")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	self.play()
@@ -20,7 +21,8 @@ func _process(_delta):
 			self.set_sprite_frames(PunchLeftAnim)
 			self.play()
 		if Input.is_action_just_pressed("input_up"):
-			pass
+			self.set_sprite_frames(PunchUpAnim)
+			self.play()
 		if Input.is_action_just_pressed("input_down"):
 			self.set_sprite_frames(PunchDownAnim)
 			self.play()
@@ -32,7 +34,8 @@ func _process(_delta):
 			self.set_sprite_frames(PunchLeftAnim)
 			self.play()
 		if Input.is_action_just_pressed("input_up"):
-			pass
+			self.set_sprite_frames(PunchUpAnim)
+			self.play()
 		if Input.is_action_just_pressed("input_down"):
 			self.set_sprite_frames(PunchDownAnim)
 			self.play()

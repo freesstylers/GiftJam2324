@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://dv31ttuyw5rnf"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenuScript.gd" id="1_s2qbx"]
-[ext_resource type="Texture2D" uid="uid://cdtihfxql4ua0" path="res://Assets/MainMenu/LogoTemp.png" id="2_rjfxt"]
-[ext_resource type="Texture2D" uid="uid://bs4huwweijiv8" path="res://Assets/MainMenu/LogoFreestylers.png" id="2_tuuka"]
-[ext_resource type="FontFile" uid="uid://c2x1ua4cao7is" path="res://Assets/Fonts/Larceny.ttf" id="2_xpdlg"]
-[ext_resource type="Texture2D" uid="uid://c821idnkhdm02" path="res://Assets/MainMenu/Twitter.png" id="3_hamnk"]
-[ext_resource type="Texture2D" uid="uid://bksfffs4teg1h" path="res://Assets/MainMenu/LogoGiftJam.png" id="4_kmo4h"]
+[ext_resource type="Texture2D" uid="uid://dvgvrc51l6gh" path="res://Assets/MainMenu/LogoTemp.png" id="2_rjfxt"]
+[ext_resource type="Texture2D" uid="uid://ba086fbet6wd5" path="res://Assets/MainMenu/LogoFreestylers.png" id="2_tuuka"]
+[ext_resource type="FontFile" uid="uid://b7tnent1gr2u3" path="res://Assets/Fonts/Larceny.ttf" id="2_xpdlg"]
+[ext_resource type="Texture2D" uid="uid://bqji7lspvjsm1" path="res://Assets/MainMenu/Twitter.png" id="3_hamnk"]
+[ext_resource type="Texture2D" uid="uid://cdqu35fo7lt8j" path="res://Assets/MainMenu/LogoGiftJam.png" id="4_kmo4h"]
 
 [node name="Control" type="Control"]
 layout_mode = 3

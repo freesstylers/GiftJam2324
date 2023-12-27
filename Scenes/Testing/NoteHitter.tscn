@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://duqtfj5yejb0u"]
 
-[ext_resource type="Texture2D" uid="uid://blm0iqisbvvu5" path="res://VerticalLine.png" id="1_srjol"]
+[ext_resource type="Texture2D" uid="uid://cgjmht4f5e56x" path="res://VerticalLine.png" id="1_srjol"]
 [ext_resource type="Script" path="res://Scripts/Testing/NoteHitter.gd" id="1_ybsiu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8xffq"]

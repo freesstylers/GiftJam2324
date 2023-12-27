@@ -1,11 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://cbi05qfsjhskp"]
 
-[ext_resource type="SpriteFrames" uid="uid://ctr2lotnfhvkj" path="res://Assets/Sprites/Protagonista/Animations/Ragnahilda_Idle.tres" id="1_tq8h2"]
+[ext_resource type="SpriteFrames" uid="uid://blndimigli34l" path="res://Assets/Sprites/Protagonista/Animations/Ragnahilda_PunchDown.tres" id="1_xovg1"]
 [ext_resource type="Script" path="res://Scripts/Ragnahilda.gd" id="2_d10bj"]
 
 [node name="Ragnahilda" type="AnimatedSprite2D"]
 position = Vector2(560, 300)
-sprite_frames = ExtResource("1_tq8h2")
+sprite_frames = ExtResource("1_xovg1")
+frame = 7
+frame_progress = 1.0
 script = ExtResource("2_d10bj")
 
 [connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
