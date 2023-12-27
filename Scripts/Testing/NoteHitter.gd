@@ -7,7 +7,6 @@ var OK : bool = false
 var GREAT : bool = false
 var PERFECT : bool = false
 
-var onAttackMode : bool = true
 var playerCanHitNotes : bool = false
 
 func SetBPM(SONG_BPM:float):
@@ -17,24 +16,14 @@ func SetBPM(SONG_BPM:float):
 	placeToHitTween.set_loops()
 	
 func _process(_delta):
-	if onAttackMode:
-		if Input.is_action_just_pressed("input_right"):
-			TryHitNote(GiftJamGlobals.NoteType.RIGHT)
-		if Input.is_action_just_pressed("input_left"):
-			TryHitNote(GiftJamGlobals.NoteType.LEFT)
-		if Input.is_action_just_pressed("input_up"):
-			TryHitNote(GiftJamGlobals.NoteType.UP)
-		if Input.is_action_just_pressed("input_down"):
-			TryHitNote(GiftJamGlobals.NoteType.DOWN)
-	else:		
-		if Input.is_action_just_pressed("input_right"):
-			TryHitNote(GiftJamGlobals.NoteType.LEFT)
-		if Input.is_action_just_pressed("input_left"):
-			TryHitNote(GiftJamGlobals.NoteType.RIGHT)
-		if Input.is_action_just_pressed("input_up"):
-			TryHitNote(GiftJamGlobals.NoteType.DOWN)
-		if Input.is_action_just_pressed("input_down"):
-			TryHitNote(GiftJamGlobals.NoteType.UP)
+	if Input.is_action_just_pressed("input_right"):
+		TryHitNote(GiftJamGlobals.NoteType.RIGHT)
+	if Input.is_action_just_pressed("input_left"):
+		TryHitNote(GiftJamGlobals.NoteType.LEFT)
+	if Input.is_action_just_pressed("input_up"):
+		TryHitNote(GiftJamGlobals.NoteType.UP)
+	if Input.is_action_just_pressed("input_down"):
+		TryHitNote(GiftJamGlobals.NoteType.DOWN)
 
 func TryHitNote(dir : GiftJamGlobals.NoteType):
 	#Avoid hitting the note more than once 
@@ -50,8 +39,6 @@ func TryHitNote(dir : GiftJamGlobals.NoteType):
 		var hitResult : GiftJamGlobals.NoteHitStatus = NoteInsideHitter.NoteHit(dir, noteHitStatus)
 		GiftJamGlobals.Note_Hit_Result.emit(hitResult)
 
-func SetAttackMode(attackMode:bool):
-	onAttackMode = attackMode
 func SetShowingNotesToPlayer(pCanHit:bool):
 	playerCanHitNotes = pCanHit
 

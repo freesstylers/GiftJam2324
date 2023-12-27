@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://duqtfj5yejb0u"]
+[gd_scene load_steps=7 format=3 uid="uid://duqtfj5yejb0u"]
 
 [ext_resource type="Texture2D" uid="uid://blm0iqisbvvu5" path="res://VerticalLine.png" id="1_srjol"]
 [ext_resource type="Script" path="res://Scripts/Testing/NoteHitter.gd" id="1_ybsiu"]
@@ -10,6 +10,9 @@ size = Vector2(83.2301, 20)
 size = Vector2(51, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lyx4c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_whyar"]
+size = Vector2(11, 20)
 
 [node name="NoteHitter" type="PathFollow2D"]
 position = Vector2(486.403, 0)
@@ -36,6 +39,12 @@ shape = SubResource("RectangleShape2D_a276r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PerfectArea"]
 shape = SubResource("RectangleShape2D_lyx4c")
+
+[node name="NoteSpawnAnimTrigger" type="Area2D" parent="." groups=["notespawntrigger"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoteSpawnAnimTrigger"]
+position = Vector2(0.0969849, 0)
+shape = SubResource("RectangleShape2D_whyar")
 
 [connection signal="area_entered" from="OkArea" to="." method="note_enter_ok_area"]
 [connection signal="area_exited" from="OkArea" to="." method="note_exit_ok_area"]

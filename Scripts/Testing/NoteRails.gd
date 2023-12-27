@@ -20,8 +20,7 @@ var playerCanHitNotes : bool = true
 
 func _ready():
 	noteHitter = $NoteHitter2
-	noteHitter.progress_ratio = 0#(NumBeats-1) / NumBeats	
-	SetBPM(130)
+	noteHitter.progress_ratio = 0
 	
 	#Place the vertical bars over the path2d so that they represent the beats
 	for i in range(NumBeats+1):
@@ -38,7 +37,7 @@ func _process(delta):
 		#Player finished hitting notes, new set must be placed
 		if playerCanHitNotes:
 			playerCanHitNotes = false
-			Testing() # Create a new set of notes
+			#Testing() # Create a new set of notes
 			ClearCurrentSetOfNotes()
 			PlaceNextSetOfNotes()
 		#All the placed notes have faded in, now the player needs to hit them
@@ -48,16 +47,17 @@ func _process(delta):
 	noteHitter.progress_ratio += (bpm_movement * delta)
 	
 #Dictionary waiting_notes[i] = {delay : int, noteType : type: GiftJamGlobals.NoteType}
-#nextSet = { attacking : bool, notes : waiting_notes[i]}
+#nextSet = { notes : waiting_notes[i]}
 func PlaceNextSetOfNotes():
 	if waiting_set_of_notes.size() > 0:
 		var nextSet = waiting_set_of_notes[0]
 		waiting_set_of_notes.remove_at(0)
 		for i in range(nextSet.notes.size()):
 			var spawning_note_data = nextSet.notes[i]
-			var newNote = (keyNote.instantiate() as Note)
-			newNote.SetNoteType(spawning_note_data.noteType,noteHitter.progress_ratio, currentSongSecondsPerBPM, currentlyAttacking)
-			bpm_lines[spawning_note_data.delay].add_child(newNote)
+			if spawning_note_data.noteType != GiftJamGlobals.NoteType.NONE:
+				var newNote = (keyNote.instantiate() as Note)
+				newNote.SetNoteType(spawning_note_data.noteType,noteHitter.progress_ratio, currentSongSecondsPerBPM, currentlyAttacking)
+				bpm_lines[spawning_note_data.delay].add_child(newNote)
 	
 func ClearCurrentSetOfNotes():
 	for i in range(bpm_lines.size()):
@@ -70,7 +70,6 @@ func ClearCurrentSetOfNotes():
 	
 func on_attack_mode_changed(mode):
 	currentlyAttacking = mode
-	noteHitter.SetAttackMode(mode)
 	
 func SetBPM(SONG_BPM:float):
 	bpm_movement = (SONG_BPM / 60.0) / NumBeats
@@ -78,11 +77,18 @@ func SetBPM(SONG_BPM:float):
 	currentSongSecondsPerBPM = 60.0 / SONG_BPM
 	noteHitter.SetBPM(SONG_BPM)
 	
+func AddKeyNoteSet(newNotes):
+	var testSetOfNotes = {}	
+	testSetOfNotes.notes = []
+	for i in range(NumBeats+1):
+		testSetOfNotes.notes.append({delay = i, noteType=  newNotes[i]})
+	waiting_set_of_notes.append(testSetOfNotes)
+
 #Dictionary waiting_notes[i] = {delay : int, noteType : type: GiftJamGlobals.NoteType}
-#nextSet = { attacking : bool, notes : waiting_notes[i]}
+#nextSet = { notes : waiting_notes[i] }
 func Testing():
+	currentlyAttacking = not currentlyAttacking
 	var testSetOfNotes = {}
-	testSetOfNotes.attacking = true
 	testSetOfNotes.notes = []
 	testSetOfNotes.notes.append({delay = 1 + randi()%(NumBeats as int -1 ), noteType=  randi() % 4})
 	testSetOfNotes.notes.append({delay = 1 + randi()%(NumBeats as int -1), noteType= randi() % 4})

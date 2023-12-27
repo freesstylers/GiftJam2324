@@ -2,7 +2,7 @@ extends Node
 
 @export var SONG_BPM : int = 130
 @export var PlayMetronome : bool = false
-@export var NumAttacksPerAttack : int = 3 
+@export var NumAttacksPerAttack : int = 4
 
 var Attacking : bool = false
 var playerHealth : float = 100
@@ -18,11 +18,10 @@ signal attack_mode_changed(attacking : bool)
 
 func _ready():
 	noteRail = $NoteRails
-	
 	battleSong = $BattleSong
-	
 	metronomeSound = $MetronomeSound
 	BPM_TIMER = $BPM_TIMER
+	
 	var time_per_bpm = 60.0 / SONG_BPM
 	BPM_TIMER.wait_time = time_per_bpm
 	BPM_TIMER.start()
@@ -37,8 +36,12 @@ func ChangeAttackMode(newMode : bool):
 
 func SendNotesToRail():
 	notesInRail= NumAttacksPerAttack
+	var newSet = []
+	newSet.append(GiftJamGlobals.NoteType.NONE) #Start of the rail
 	for i in range(NumAttacksPerAttack):
-		noteRail.AddKeyNote(2 + i, randi() % 4)
+		newSet.append(1 + (randi()%4))
+	newSet.append(GiftJamGlobals.NoteType.NONE) #End of the rail
+	noteRail.AddKeyNoteSet(newSet)
 		
 func note_hit_result(result : GiftJamGlobals.NoteHitStatus):
 	notesInRail = notesInRail -1

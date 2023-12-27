@@ -1,6 +1,6 @@
 extends Node
 
-enum NoteType { UP, DOWN, LEFT, RIGHT }
+enum NoteType { NONE, UP, DOWN, LEFT, RIGHT }
 enum NoteHitStatus { NONE, MISS, OK, GREAT, PERFECT}
 
 const NoteSprites = ["res://Assets/Sprites/Notas/Arriba.png",
