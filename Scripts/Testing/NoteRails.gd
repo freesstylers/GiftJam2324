@@ -58,12 +58,28 @@ func _process(delta):
 	
 
 func UpdateVisuals():
+	#Subpanel con el texto de ATTACK/DEFEND
 	var destY :int = -30
 	var localTween : Tween = railsActionpanel.create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	if not playerCanHitNotes:
 		destY = 0
-		localTween.set_ease(Tween.EASE_IN)
+		localTween.set_trans(Tween.TRANS_QUAD)
+		localTween.set_ease(Tween.EASE_OUT)
 	localTween.tween_property(railsActionpanel, "position:y", destY, 0.25)
+	#Texto 
+	if currentlyAttacking:
+		railsActionText.text = "ATTACK"
+	else:
+		railsActionText.text = "DEFEND"
+	#Tween del color del borde
+	var myTween : Tween = railsBackground.create_tween()
+	var destColor : Color = Color.MAGENTA
+	if currentlyAttacking:
+		destColor = GiftJamGlobals.ATTACK_COLOR
+	else:
+		destColor = GiftJamGlobals.DEFEND_COLOR
+	myTween.tween_property(railsBackground, "theme_override_styles/panel:border_color", destColor, 0.3)
+
 	
 #Dictionary waiting_notes[i] = {delay : int, noteType : type: GiftJamGlobals.NoteType}
 #nextSet = { notes : waiting_notes[i]}

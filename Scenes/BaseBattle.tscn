@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://Scripts/BattleManager.gd" id="1_svkjm"]
 [ext_resource type="PackedScene" uid="uid://o4b08xh3bk42" path="res://Scenes/Testing/NoteKeyPad.tscn" id="2_j063c"]
 [ext_resource type="PackedScene" uid="uid://cunhkcjcrb3ne" path="res://Scenes/Testing/NoteRails.tscn" id="3_n5f63"]
-[ext_resource type="AudioStream" uid="uid://c6wam6fra1wyt" path="res://Audio/Songs/boss1-130bpm.wav" id="5_8ctp3"]
-[ext_resource type="PackedScene" uid="uid://muu12hug5ib1" path="res://Scenes/Boss G.tscn" id="6_3shk1"]
-[ext_resource type="AudioStream" uid="uid://shblwmanckqc" path="res://Audio/Songs/MetronomeTick.mp3" id="6_jn1fn"]
+[ext_resource type="AudioStream" uid="uid://dsxgu5myj0jjo" path="res://Audio/Songs/boss1-130bpm.wav" id="5_8ctp3"]
+[ext_resource type="PackedScene" path="res://Scenes/Boss G.tscn" id="6_3shk1"]
+[ext_resource type="AudioStream" uid="uid://u3b0wntbljip" path="res://Audio/Songs/MetronomeTick.mp3" id="6_jn1fn"]
 [ext_resource type="PackedScene" uid="uid://cbi05qfsjhskp" path="res://Scenes/ragnahilda.tscn" id="6_skhid"]
 [ext_resource type="SpriteFrames" uid="uid://ctr2lotnfhvkj" path="res://Assets/Sprites/Protagonista/Animations/Ragnahilda_Idle.tres" id="8_opoqs"]
 
@@ -14,10 +14,10 @@ script = ExtResource("1_svkjm")
 PlayMetronome = true
 
 [node name="NoteKeyPad" parent="." instance=ExtResource("2_j063c")]
-position = Vector2(560, 480)
+position = Vector2(1032, 85)
 
 [node name="NoteRails" parent="." instance=ExtResource("3_n5f63")]
-position = Vector2(163, 54)
+position = Vector2(155, 588)
 
 [node name="BattleSong" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_8ctp3")
