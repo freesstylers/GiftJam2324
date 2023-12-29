@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://d1hlfcf0u0dd0"]
+[gd_scene load_steps=9 format=3 uid="uid://d1hlfcf0u0dd0"]
 
 [ext_resource type="Script" path="res://Scripts/BattleManager.gd" id="1_svkjm"]
 [ext_resource type="PackedScene" uid="uid://o4b08xh3bk42" path="res://Scenes/Testing/NoteKeyPad.tscn" id="2_j063c"]
 [ext_resource type="PackedScene" uid="uid://cunhkcjcrb3ne" path="res://Scenes/Testing/NoteRails.tscn" id="3_n5f63"]
-[ext_resource type="AudioStream" uid="uid://dsxgu5myj0jjo" path="res://Audio/Songs/boss1-130bpm.wav" id="5_8ctp3"]
-[ext_resource type="AudioStream" uid="uid://u3b0wntbljip" path="res://Audio/Songs/MetronomeTick.mp3" id="6_jn1fn"]
+[ext_resource type="AudioStream" uid="uid://c6wam6fra1wyt" path="res://Audio/Songs/boss1-130bpm.wav" id="5_8ctp3"]
+[ext_resource type="PackedScene" uid="uid://muu12hug5ib1" path="res://Scenes/Boss G.tscn" id="6_3shk1"]
+[ext_resource type="AudioStream" uid="uid://shblwmanckqc" path="res://Audio/Songs/MetronomeTick.mp3" id="6_jn1fn"]
 [ext_resource type="PackedScene" uid="uid://cbi05qfsjhskp" path="res://Scenes/ragnahilda.tscn" id="6_skhid"]
+[ext_resource type="SpriteFrames" uid="uid://ctr2lotnfhvkj" path="res://Assets/Sprites/Protagonista/Animations/Ragnahilda_Idle.tres" id="8_opoqs"]
 
 [node name="BaseBattle" type="Node2D"]
 script = ExtResource("1_svkjm")
@@ -25,7 +27,13 @@ stream = ExtResource("6_jn1fn")
 
 [node name="BPM_TIMER" type="Timer" parent="."]
 
+[node name="Boss G" parent="." instance=ExtResource("6_3shk1")]
+
 [node name="Ragnahilda" parent="." instance=ExtResource("6_skhid")]
+sprite_frames = ExtResource("8_opoqs")
+frame = 0
+frame_progress = 0.332353
 
 [connection signal="attack_mode_changed" from="." to="NoteRails" method="on_attack_mode_changed"]
+[connection signal="attack_mode_changed" from="." to="Boss G" method="_on_base_battle_attack_mode_changed"]
 [connection signal="timeout" from="BPM_TIMER" to="." method="BPM_Notification"]

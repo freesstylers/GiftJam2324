@@ -11,3 +11,7 @@ const NoteSprites = ["res://Assets/Sprites/Notas/Arriba.png",
 signal BPM_Notification()
 signal Fight_Start()
 signal Note_Hit_Result(result : NoteHitStatus, dir : NoteType) 
+
+enum characterHit {Ragnahilda, Enemy}
+
+signal LifeChanged(who : characterHit, quantity : int)

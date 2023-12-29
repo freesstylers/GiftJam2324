@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://muu12hug5ib1"]
+
+[ext_resource type="SpriteFrames" uid="uid://v0r50qlk686x" path="res://Assets/Sprites/Boss G/Animations/Idle.tres" id="1_ieqho"]
+[ext_resource type="Script" path="res://Scenes/BossAnims.gd" id="2_w36y1"]
+
+[node name="Boss G" type="AnimatedSprite2D"]
+position = Vector2(560, 300)
+sprite_frames = ExtResource("1_ieqho")
+script = ExtResource("2_w36y1")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
