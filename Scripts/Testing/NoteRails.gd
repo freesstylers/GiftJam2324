@@ -56,7 +56,6 @@ func _process(delta):
 		UpdateVisuals()
 	noteHitter.progress_ratio += (bpm_movement * delta)
 	
-
 func UpdateVisuals():
 	#Subpanel con el texto de ATTACK/DEFEND
 	var destY :int = -30
