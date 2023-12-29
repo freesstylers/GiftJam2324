@@ -18,9 +18,18 @@ var currentSongBPM :float = 0
 var currentSongSecondsPerBPM :float= 0
 var playerCanHitNotes : bool = true
 
+var railsBackground : Panel = null
+var railsActionpanel : Panel = null
+var railsActionText : Label = null
+
 func _ready():
 	noteHitter = $NoteHitter2
 	noteHitter.progress_ratio = 0
+	
+	railsBackground = $Background
+	railsActionpanel = $Background/ActionPanel
+	railsActionText = $Background/ActionPanel/ActionText
+	railsActionpanel.position.y = 0
 	
 	#Place the vertical bars over the path2d so that they represent the beats
 	for i in range(NumBeats+1):
@@ -44,7 +53,33 @@ func _process(delta):
 		else:
 			playerCanHitNotes = true
 		noteHitter.SetShowingNotesToPlayer(playerCanHitNotes)
+		UpdateVisuals()
 	noteHitter.progress_ratio += (bpm_movement * delta)
+	
+
+func UpdateVisuals():
+	#Subpanel con el texto de ATTACK/DEFEND
+	var destY :int = -30
+	var localTween : Tween = railsActionpanel.create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	if not playerCanHitNotes:
+		destY = 0
+		localTween.set_trans(Tween.TRANS_QUAD)
+		localTween.set_ease(Tween.EASE_OUT)
+	localTween.tween_property(railsActionpanel, "position:y", destY, 0.25)
+	#Texto 
+	if currentlyAttacking:
+		railsActionText.text = "ATTACK"
+	else:
+		railsActionText.text = "DEFEND"
+	#Tween del color del borde
+	var myTween : Tween = railsBackground.create_tween()
+	var destColor : Color = Color.MAGENTA
+	if currentlyAttacking:
+		destColor = GiftJamGlobals.ATTACK_COLOR
+	else:
+		destColor = GiftJamGlobals.DEFEND_COLOR
+	myTween.tween_property(railsBackground, "theme_override_styles/panel:border_color", destColor, 0.3)
+
 	
 #Dictionary waiting_notes[i] = {delay : int, noteType : type: GiftJamGlobals.NoteType}
 #nextSet = { notes : waiting_notes[i]}

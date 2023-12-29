@@ -1,0 +1,42 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://v0r50qlk686x"]
+
+[ext_resource type="Texture2D" uid="uid://d00shhfsqrdmd" path="res://Assets/Sprites/Boss G/Boss G Idle/Boss G_Idle_1.png" id="1_3wn2d"]
+[ext_resource type="Texture2D" uid="uid://c00u7s77rn237" path="res://Assets/Sprites/Boss G/Boss G Idle/Boss G_Idle_2.png" id="2_hrqiv"]
+[ext_resource type="Texture2D" uid="uid://300538idl7qe" path="res://Assets/Sprites/Boss G/Boss G Idle/Boss G_Idle_3.png" id="3_8lx7k"]
+[ext_resource type="Texture2D" uid="uid://cm7cge0gvg2ht" path="res://Assets/Sprites/Boss G/Boss G Idle/Boss G_Idle_4.png" id="4_u26gu"]
+[ext_resource type="Texture2D" uid="uid://b8y3jt58ib1le" path="res://Assets/Sprites/Boss G/Boss G Idle/Boss G_Idle_5.png" id="5_iqt64"]
+[ext_resource type="Texture2D" uid="uid://ct6bnsijcuynn" path="res://Assets/Sprites/Boss G/Boss G Idle/Boss G_Idle_6.png" id="6_6bk5j"]
+[ext_resource type="Texture2D" uid="uid://b8opk8yxa88ej" path="res://Assets/Sprites/Boss G/Boss G Idle/Boss G_Idle_7.png" id="7_ul5k5"]
+[ext_resource type="Texture2D" uid="uid://cjr7lvbps1yu7" path="res://Assets/Sprites/Boss G/Boss G Idle/Boss G_Idle_8.png" id="8_u7v0s"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 0.6,
+"texture": ExtResource("1_3wn2d")
+}, {
+"duration": 0.6,
+"texture": ExtResource("2_hrqiv")
+}, {
+"duration": 0.6,
+"texture": ExtResource("3_8lx7k")
+}, {
+"duration": 0.6,
+"texture": ExtResource("4_u26gu")
+}, {
+"duration": 0.6,
+"texture": ExtResource("5_iqt64")
+}, {
+"duration": 0.6,
+"texture": ExtResource("6_6bk5j")
+}, {
+"duration": 0.6,
+"texture": ExtResource("7_ul5k5")
+}, {
+"duration": 0.6,
+"texture": ExtResource("8_u7v0s")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]

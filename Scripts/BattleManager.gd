@@ -1,4 +1,5 @@
 extends Node
+class_name BattleManager
 
 @export var SONG_BPM : int = 130
 @export var PlayMetronome : bool = false
@@ -6,6 +7,7 @@ extends Node
 
 var Attacking : bool = false
 var playerHealth : float = 100
+var enemyHealth : float = 100
 var noteRail : NoteRails = null
 
 var battleSong : AudioStreamPlayer2D = null
@@ -28,6 +30,7 @@ func _ready():
 	
 	GiftJamGlobals.connect("Fight_Start", Start_Battle)
 	GiftJamGlobals.connect("Note_Hit_Result", note_hit_result)
+	GiftJamGlobals.connect("LifeChanged", on_life_changed)
 	Start_Battle()
 	
 func ChangeAttackMode(newMode : bool):
@@ -43,7 +46,7 @@ func SendNotesToRail():
 	newSet.append(GiftJamGlobals.NoteType.NONE) #End of the rail
 	noteRail.AddKeyNoteSet(newSet)
 		
-func note_hit_result(result : GiftJamGlobals.NoteHitStatus):
+func note_hit_result(result : GiftJamGlobals.NoteHitStatus, noteType: GiftJamGlobals.NoteType):
 	notesInRail = notesInRail -1
 	if notesInRail <= 0:
 		ChangeAttackMode(not Attacking)
@@ -58,3 +61,22 @@ func Start_Battle():
 	ChangeAttackMode(true)
 	noteRail.SetBPM(SONG_BPM)
 	SendNotesToRail()
+
+func on_life_changed(who : GiftJamGlobals.characterHit, quantity : int):
+	if who == GiftJamGlobals.characterHit.Enemy:
+		enemyHealth -= quantity
+		print("EnemyHealth: %d" % enemyHealth)
+		
+		if enemyHealth <= 0:
+			print ("VICTORY")
+			pass
+		pass
+	else:
+		playerHealth -= quantity
+		print("PlayerHealth: %d" % playerHealth)
+			
+		if playerHealth <= 0:
+			print ("DEFEAT")
+			pass
+		pass
+	pass

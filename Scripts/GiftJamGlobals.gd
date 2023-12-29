@@ -1,5 +1,8 @@
 extends Node
 
+const ATTACK_COLOR = Color.AQUA
+const DEFEND_COLOR = Color.CRIMSON
+
 enum NoteType { NONE, UP, DOWN, LEFT, RIGHT }
 enum NoteHitStatus { NONE, MISS, OK, GREAT, PERFECT}
 
@@ -10,4 +13,8 @@ const NoteSprites = ["res://Assets/Sprites/Notas/Arriba.png",
 
 signal BPM_Notification()
 signal Fight_Start()
-signal Note_Hit_Result(result : NoteHitStatus) 
+signal Note_Hit_Result(result : NoteHitStatus, dir : NoteType) 
+
+enum characterHit {Ragnahilda, Enemy}
+signal LifeChanged(who : characterHit, quantity : int)
+
