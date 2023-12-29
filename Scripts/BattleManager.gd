@@ -1,4 +1,5 @@
 extends Node
+class_name BattleManager
 
 @export var SONG_BPM : int = 130
 @export var PlayMetronome : bool = false
@@ -45,7 +46,7 @@ func SendNotesToRail():
 	newSet.append(GiftJamGlobals.NoteType.NONE) #End of the rail
 	noteRail.AddKeyNoteSet(newSet)
 		
-func note_hit_result(result : GiftJamGlobals.NoteHitStatus):
+func note_hit_result(result : GiftJamGlobals.NoteHitStatus, noteType: GiftJamGlobals.NoteType):
 	notesInRail = notesInRail -1
 	if notesInRail <= 0:
 		ChangeAttackMode(not Attacking)

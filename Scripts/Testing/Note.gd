@@ -43,9 +43,9 @@ func SetNoteType(type: GiftJamGlobals.NoteType, fadeOutStartPath: float, fadeOut
 	fadeDuration = fadeOutDuration
 	#Sprite color is updated
 	if attackNote: 
-		noteSprite.modulate = Color.BLUE
+		noteSprite.modulate = GiftJamGlobals.ATTACK_COLOR
 	else:
-		noteSprite.modulate = Color.RED
+		noteSprite.modulate = GiftJamGlobals.DEFEND_COLOR
 	noteSprite.scale = Vector2(0,0)
 
 func NoteHit(noteType : GiftJamGlobals.NoteType, noteHitStatus : GiftJamGlobals.NoteHitStatus ) -> GiftJamGlobals.NoteHitStatus :

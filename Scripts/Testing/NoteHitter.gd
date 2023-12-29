@@ -41,6 +41,7 @@ func TryHitNote(dir : GiftJamGlobals.NoteType):
 
 func SetShowingNotesToPlayer(pCanHit:bool):
 	playerCanHitNotes = pCanHit
+	
 
 #Callbacks handling Notes entering each of the areas
 func note_enter_ok_area(note):
@@ -65,6 +66,6 @@ func note_exit_ok_area(note):
 	if playerCanHitNotes and note.is_in_group("note"):
 		if NoteInsideHitter and not NoteInsideHitter.GetNoteWasHit():
 			var result : GiftJamGlobals.NoteHitStatus = NoteInsideHitter.NoteHit(GiftJamGlobals.NoteType.UP,GiftJamGlobals.NoteHitStatus.MISS) #Dir does not matter, its a miss
-			GiftJamGlobals.Note_Hit_Result.emit(result)
+			GiftJamGlobals.Note_Hit_Result.emit(result,GiftJamGlobals.NoteType.UP)
 		NoteInsideHitter = null
 		OK = false
