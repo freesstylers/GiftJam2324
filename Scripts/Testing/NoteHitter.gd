@@ -37,7 +37,7 @@ func TryHitNote(dir : GiftJamGlobals.NoteType):
 			noteHitStatus = GiftJamGlobals.NoteHitStatus.OK
 		
 		var hitResult : GiftJamGlobals.NoteHitStatus = NoteInsideHitter.NoteHit(dir, noteHitStatus)
-		GiftJamGlobals.Note_Hit_Result.emit(hitResult)
+		GiftJamGlobals.Note_Hit_Result.emit(hitResult, dir)
 
 func SetShowingNotesToPlayer(pCanHit:bool):
 	playerCanHitNotes = pCanHit
