@@ -1,6 +1,9 @@
 extends AnimatedSprite2D
 
-var attackingMode : bool
+@export var PlayerBattlePosition : Vector2 = Vector2()
+@export var TakeDamagePositionDelta : Vector2 = Vector2(0,10)
+
+var attackingMode : bool = true
 var IdleAnim = preload("res://Assets/Sprites/Protagonista/Animations/Ragnahilda_Idle.tres")
 var PunchLeftAnim = preload("res://Assets/Sprites/Protagonista/Animations/Ragnahilda_PunchLeft.tres")
 var PunchRightAnim = preload("res://Assets/Sprites/Protagonista/Animations/Ragnahilda_PunchRight.tres")
@@ -23,27 +26,39 @@ func _on_animation_finished():
 
 func on_note_hit_result(hitResult:GiftJamGlobals.NoteHitStatus, noteType : GiftJamGlobals.NoteType):
 	if attackingMode:
+		self.stop()
 		if noteType == GiftJamGlobals.NoteType.LEFT:
 			self.set_sprite_frames(PunchLeftAnim)
+			self.play()
 			pass
 		elif noteType == GiftJamGlobals.NoteType.RIGHT:
 			self.set_sprite_frames(PunchRightAnim)
+			self.play()
 			pass
 		elif noteType == GiftJamGlobals.NoteType.UP:
 			self.set_sprite_frames(PunchUpAnim)
+			self.play()
 			pass
 		elif noteType == GiftJamGlobals.NoteType.DOWN:
 			self.set_sprite_frames(PunchDownAnim)
+			self.play()
 			pass
 		pass
 	else:
+		#Player FAILED, takes damage and 
 		if hitResult == GiftJamGlobals.NoteHitStatus.MISS || hitResult == GiftJamGlobals.NoteHitStatus.NONE:
 			var localTween : Tween = self.create_tween()
 			localTween.set_trans(Tween.TRANS_LINEAR)
 			localTween.set_ease(Tween.EASE_IN)
 			var destColor : Color = Color(255.0,100.0/255.0,100.0/255.0)
-			localTween.tween_property(self, "modulate", destColor, 0.1)
-			localTween.tween_property(self, "modulate", Color.WHITE, 0.1)
+			localTween.set_parallel(true)
+			var animLength : float = 0.2
+			#Color anim
+			localTween.tween_property(self, "modulate", destColor, animLength/2.0)
+			localTween.tween_property(self, "modulate", Color.WHITE, animLength/2.0).set_delay(animLength/2.0)
+			#Position anim
+			localTween.tween_property(self, "position", PlayerBattlePosition + TakeDamagePositionDelta, animLength/2.0)
+			localTween.tween_property(self, "position", PlayerBattlePosition , animLength/2.0).set_delay(animLength/2.0)
 			
 			if hitResult == GiftJamGlobals.NoteHitStatus.NONE:
 				GiftJamGlobals.LifeChanged.emit(GiftJamGlobals.characterHit.Ragnahilda, 5)

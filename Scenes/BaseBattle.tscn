@@ -51,7 +51,10 @@ scale = Vector2(3, 3)
 sprite_frames = ExtResource("8_opoqs")
 frame = 0
 frame_progress = 0.332353
+PlayerBattlePosition = Vector2(560, 470)
+TakeDamagePositionDelta = Vector2(0, 20)
 
 [connection signal="attack_mode_changed" from="." to="NoteRails" method="on_attack_mode_changed"]
 [connection signal="attack_mode_changed" from="." to="Boss G" method="_on_base_battle_attack_mode_changed"]
+[connection signal="attack_mode_changed" from="." to="Ragnahilda" method="_on_base_battle_attack_mode_changed"]
 [connection signal="timeout" from="BPM_TIMER" to="." method="BPM_Notification"]
