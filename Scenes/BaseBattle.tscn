@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d1hlfcf0u0dd0"]
+[gd_scene load_steps=10 format=3 uid="uid://d1hlfcf0u0dd0"]
 
 [ext_resource type="Script" path="res://Scripts/BattleManager.gd" id="1_svkjm"]
 [ext_resource type="PackedScene" uid="uid://o4b08xh3bk42" path="res://Scenes/Testing/NoteKeyPad.tscn" id="2_j063c"]
@@ -8,16 +8,31 @@
 [ext_resource type="AudioStream" uid="uid://u3b0wntbljip" path="res://Audio/Songs/MetronomeTick.mp3" id="6_jn1fn"]
 [ext_resource type="PackedScene" uid="uid://cbi05qfsjhskp" path="res://Scenes/ragnahilda.tscn" id="6_skhid"]
 [ext_resource type="SpriteFrames" uid="uid://ctr2lotnfhvkj" path="res://Assets/Sprites/Protagonista/Animations/Ragnahilda_Idle.tres" id="8_opoqs"]
+[ext_resource type="PackedScene" uid="uid://04xpf1qx7n6x" path="res://Scenes/UIManager.tscn" id="9_dhk2w"]
 
 [node name="BaseBattle" type="Node2D"]
 script = ExtResource("1_svkjm")
 PlayMetronome = true
 
-[node name="NoteKeyPad" parent="." instance=ExtResource("2_j063c")]
-position = Vector2(1032, 85)
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="NoBorrar" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UIManager" parent="UI/NoBorrar" instance=ExtResource("9_dhk2w")]
+layout_mode = 1
 
 [node name="NoteRails" parent="." instance=ExtResource("3_n5f63")]
+z_index = 10
 position = Vector2(155, 588)
+
+[node name="NoteKeyPad" parent="." instance=ExtResource("2_j063c")]
+position = Vector2(1054, 135)
 
 [node name="BattleSong" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_8ctp3")
@@ -28,8 +43,11 @@ stream = ExtResource("6_jn1fn")
 [node name="BPM_TIMER" type="Timer" parent="."]
 
 [node name="Boss G" parent="." instance=ExtResource("6_3shk1")]
+scale = Vector2(2, 2)
 
 [node name="Ragnahilda" parent="." instance=ExtResource("6_skhid")]
+position = Vector2(560, 470)
+scale = Vector2(3, 3)
 sprite_frames = ExtResource("8_opoqs")
 frame = 0
 frame_progress = 0.332353

@@ -5,6 +5,7 @@ class_name BattleManager
 @export var PlayMetronome : bool = false
 @export var NumAttacksPerAttack : int = 4
 
+var UIManager : BattleUIManager = null
 var Attacking : bool = false
 var playerHealth : float = 100
 var enemyHealth : float = 100
@@ -23,6 +24,7 @@ func _ready():
 	battleSong = $BattleSong
 	metronomeSound = $MetronomeSound
 	BPM_TIMER = $BPM_TIMER
+	UIManager = $UI/NoBorrar/UIManager
 	
 	var time_per_bpm = 60.0 / SONG_BPM
 	BPM_TIMER.wait_time = time_per_bpm
@@ -79,4 +81,5 @@ func on_life_changed(who : GiftJamGlobals.characterHit, quantity : int):
 			print ("DEFEAT")
 			pass
 		pass
+	UIManager.on_character_health_changed(playerHealth, enemyHealth)
 	pass

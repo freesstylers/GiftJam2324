@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://04xpf1qx7n6x"]
+
+[ext_resource type="PackedScene" uid="uid://dpo2batpi8tuw" path="res://Scenes/HealthBar.tscn" id="1_64i2p"]
+[ext_resource type="Script" path="res://Scripts/BattleUIManager.gd" id="1_jrcc2"]
+
+[node name="UIManager" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jrcc2")
+
+[node name="RagnagildaHPBar" parent="." instance=ExtResource("1_64i2p")]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 20.0
+offset_right = 440.0
+offset_bottom = 65.0
+value = 100.0
+
+[node name="BossHPBar" parent="." instance=ExtResource("1_64i2p")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -442.0
+offset_top = 20.0
+offset_right = -42.0
+offset_bottom = 65.0
+grow_horizontal = 0
+value = 100.0
+fill_mode = 1
+onHitDisplacement = Vector2(-2, 5)
