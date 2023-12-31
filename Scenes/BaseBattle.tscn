@@ -1,14 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://d1hlfcf0u0dd0"]
+[gd_scene load_steps=8 format=3 uid="uid://d1hlfcf0u0dd0"]
 
 [ext_resource type="Script" path="res://Scripts/BattleManager.gd" id="1_svkjm"]
-[ext_resource type="PackedScene" uid="uid://o4b08xh3bk42" path="res://Scenes/Testing/NoteKeyPad.tscn" id="2_j063c"]
-[ext_resource type="PackedScene" uid="uid://cunhkcjcrb3ne" path="res://Scenes/Testing/NoteRails.tscn" id="3_n5f63"]
-[ext_resource type="AudioStream" uid="uid://dsxgu5myj0jjo" path="res://Audio/Songs/boss1-130bpm.wav" id="5_8ctp3"]
-[ext_resource type="PackedScene" path="res://Scenes/Boss G.tscn" id="6_3shk1"]
-[ext_resource type="AudioStream" uid="uid://u3b0wntbljip" path="res://Audio/Songs/MetronomeTick.mp3" id="6_jn1fn"]
+[ext_resource type="PackedScene" uid="uid://b7hn7pqk7rh8t" path="res://Scenes/Prefabs/UIContainer.tscn" id="2_gkg66"]
+[ext_resource type="AudioStream" uid="uid://b0pwo8n1lag45" path="res://Audio/Songs/boss1-130bpm.wav" id="5_8ctp3"]
+[ext_resource type="PackedScene" uid="uid://muu12hug5ib1" path="res://Scenes/Boss G.tscn" id="6_3shk1"]
+[ext_resource type="AudioStream" uid="uid://b8f55lu5knkao" path="res://Audio/Songs/MetronomeTick.mp3" id="6_jn1fn"]
 [ext_resource type="PackedScene" uid="uid://cbi05qfsjhskp" path="res://Scenes/ragnahilda.tscn" id="6_skhid"]
 [ext_resource type="SpriteFrames" uid="uid://ctr2lotnfhvkj" path="res://Assets/Sprites/Protagonista/Animations/Ragnahilda_Idle.tres" id="8_opoqs"]
-[ext_resource type="PackedScene" uid="uid://04xpf1qx7n6x" path="res://Scenes/UIManager.tscn" id="9_dhk2w"]
 
 [node name="BaseBattle" type="Node2D"]
 script = ExtResource("1_svkjm")
@@ -16,23 +14,7 @@ PlayMetronome = true
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="NoBorrar" type="Control" parent="UI"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="UIManager" parent="UI/NoBorrar" instance=ExtResource("9_dhk2w")]
-layout_mode = 1
-
-[node name="NoteRails" parent="." instance=ExtResource("3_n5f63")]
-z_index = 10
-position = Vector2(155, 588)
-
-[node name="NoteKeyPad" parent="." instance=ExtResource("2_j063c")]
-position = Vector2(1054, 135)
+[node name="Container" parent="UI" instance=ExtResource("2_gkg66")]
 
 [node name="BattleSong" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_8ctp3")
@@ -43,10 +25,11 @@ stream = ExtResource("6_jn1fn")
 [node name="BPM_TIMER" type="Timer" parent="."]
 
 [node name="Boss G" parent="." instance=ExtResource("6_3shk1")]
+position = Vector2(631, 258)
 scale = Vector2(2, 2)
 
 [node name="Ragnahilda" parent="." instance=ExtResource("6_skhid")]
-position = Vector2(560, 470)
+position = Vector2(631, 488)
 scale = Vector2(3, 3)
 sprite_frames = ExtResource("8_opoqs")
 frame = 0
@@ -54,7 +37,7 @@ frame_progress = 0.332353
 PlayerBattlePosition = Vector2(560, 470)
 TakeDamagePositionDelta = Vector2(0, 20)
 
-[connection signal="attack_mode_changed" from="." to="NoteRails" method="on_attack_mode_changed"]
+[connection signal="attack_mode_changed" from="." to="UI/Container" method="_on_base_battle_attack_mode_changed"]
 [connection signal="attack_mode_changed" from="." to="Boss G" method="_on_base_battle_attack_mode_changed"]
 [connection signal="attack_mode_changed" from="." to="Ragnahilda" method="_on_base_battle_attack_mode_changed"]
 [connection signal="timeout" from="BPM_TIMER" to="." method="BPM_Notification"]

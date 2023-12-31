@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dpo2batpi8tuw"]
 
-[ext_resource type="Script" path="res://Scripts/HealthBarController.gd" id="1_nnv0p"]
+[ext_resource type="Script" path="res://Scripts/HealthBarController.gd" id="1_qea7d"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8b314"]
 
@@ -30,7 +30,7 @@ theme_override_styles/background = SubResource("StyleBoxEmpty_8b314")
 theme_override_styles/fill = SubResource("StyleBoxFlat_887v6")
 value = 86.79
 show_percentage = false
-script = ExtResource("1_nnv0p")
+script = ExtResource("1_qea7d")
 greyLifeUpdateSpeed = 40.0
 onHitDisplacement = Vector2(2, 5)
 

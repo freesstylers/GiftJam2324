@@ -20,11 +20,12 @@ var notesInRail : int = 0
 signal attack_mode_changed(attacking : bool)
 
 func _ready():
-	noteRail = $NoteRails
 	battleSong = $BattleSong
 	metronomeSound = $MetronomeSound
 	BPM_TIMER = $BPM_TIMER
-	UIManager = $UI/NoBorrar/UIManager
+	
+	UIManager = $UI/Container
+	noteRail = $UI/Container/NoteRails
 	
 	var time_per_bpm = 60.0 / SONG_BPM
 	BPM_TIMER.wait_time = time_per_bpm
