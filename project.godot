@@ -21,7 +21,8 @@ GiftJamGlobals="*res://Scripts/GiftJamGlobals.gd"
 
 [display]
 
-window/stretch/mode="canvas_items"
+window/size/borderless=true
+window/stretch/mode="viewport"
 
 [dotnet]
 
