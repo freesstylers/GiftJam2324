@@ -35,14 +35,22 @@ func _on_twitter_button_down():
 	Twitter()
 	pass # Replace with function body.
 
-func _on_play_button_down():
+func _on_level_button_down(level: int):
 	get_tree().root.get_node("SceneManager").startGame()
 	pass # Replace with function body.
 
 func _on_credits_button_down():
 	get_node("CreditsPanel").visible = true
+	$"MainButtonContainer".visible = false;
 	pass # Replace with function body.
 
 func _on_credits_back_button_down():
 	get_node("CreditsPanel").visible = false
+	$"MainButtonContainer".visible = true;
+	pass # Replace with function body.
+
+
+func TogglePlayMenu(state: bool):
+	$"level container".visible = state;
+	$"MainButtonContainer".visible = not state;
 	pass # Replace with function body.
