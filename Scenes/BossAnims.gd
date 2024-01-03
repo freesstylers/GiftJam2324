@@ -11,27 +11,22 @@ var attackingMode : bool
 func _ready():
 	GiftJamGlobals.connect("Note_Hit_Result", on_note_hit_result)
 	self.play()
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _on_base_battle_attack_mode_changed(attacking):
 	attackingMode = attacking
-	pass # Replace with function body.
 
 func _on_animation_finished():
 	self.set_sprite_frames(IdleAnim)
 	self.play()
-	pass # Replace with function body.
 
 func on_note_hit_result(hitResult:GiftJamGlobals.NoteHitStatus, noteType : GiftJamGlobals.NoteType):
+	#Is the player currently attacking???
 	if attackingMode:
 		if hitResult == GiftJamGlobals.NoteHitStatus.PERFECT || hitResult == GiftJamGlobals.NoteHitStatus.GREAT || hitResult == GiftJamGlobals.NoteHitStatus.OK:
 			var localTween : Tween = self.create_tween()
 			localTween.set_trans(Tween.TRANS_LINEAR)
 			localTween.set_ease(Tween.EASE_IN)
-			var destColor : Color = Color(255.0,100.0/255.0,100.0/255.0)
-			localTween.tween_property(self, "modulate", destColor, 0.1)
+			localTween.tween_property(self, "modulate", Color(1.0,100.0/255.0,100.0/255.0), 0.1)
 			localTween.tween_property(self, "modulate", Color.WHITE, 0.1)
 			
 			if hitResult == GiftJamGlobals.NoteHitStatus.PERFECT:
@@ -46,23 +41,16 @@ func on_note_hit_result(hitResult:GiftJamGlobals.NoteHitStatus, noteType : GiftJ
 			else:
 				#Tween guapo
 				pass
+	#Is the boss's turn to attack???
 	else:
+		#Stop whatever the boss is doing and play an animation that matches the note type
+		self.stop()
 		if noteType == GiftJamGlobals.NoteType.LEFT:
 			self.set_sprite_frames(PunchLeftAnim)
-			self.play()
-			pass
 		elif noteType == GiftJamGlobals.NoteType.RIGHT:
 			self.set_sprite_frames(PunchRightAnim)
-			self.play()
-			pass
 		elif noteType == GiftJamGlobals.NoteType.UP:
 			self.set_sprite_frames(PunchUpAnim)
-			self.play()
-			pass
 		elif noteType == GiftJamGlobals.NoteType.DOWN:
 			self.set_sprite_frames(PunchDownAnim)
-			self.play()
-			pass
-		pass
-			
-	
+		self.play()
