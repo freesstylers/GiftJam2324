@@ -1,0 +1,26 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://e227cu4uco7"]
+
+[ext_resource type="Texture2D" uid="uid://b7xatk5t5kcx1" path="res://Assets/Sprites/Protagonista/PunchLeft/PunchLeft1.png" id="1_wplo0"]
+[ext_resource type="Texture2D" uid="uid://bb4d7jit207nx" path="res://Assets/Sprites/Protagonista/PunchDown/PunchDown2.png" id="2_rjwsb"]
+[ext_resource type="Texture2D" uid="uid://c6s38bil26sc0" path="res://Assets/Sprites/Protagonista/PunchLeft/PunchLeft2.png" id="4_lb8ao"]
+[ext_resource type="Texture2D" uid="uid://e6weufqay417" path="res://Assets/Sprites/Protagonista/PunchLeft/PunchLeft6.png" id="5_arc7v"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 0.1,
+"texture": ExtResource("1_wplo0")
+}, {
+"duration": 0.2,
+"texture": ExtResource("2_rjwsb")
+}, {
+"duration": 0.2,
+"texture": ExtResource("4_lb8ao")
+}, {
+"duration": 0.7,
+"texture": ExtResource("5_arc7v")
+}],
+"loop": false,
+"name": &"default",
+"speed": 4.0
+}]

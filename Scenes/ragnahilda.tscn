@@ -6,7 +6,7 @@
 [node name="Ragnahilda" type="AnimatedSprite2D"]
 position = Vector2(560, 300)
 sprite_frames = ExtResource("1_xovg1")
-frame = 7
+frame = 3
 frame_progress = 1.0
 script = ExtResource("2_d10bj")
 
