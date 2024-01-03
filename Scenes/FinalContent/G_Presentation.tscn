@@ -1,21 +1,21 @@
-[gd_scene load_steps=10 format=3 uid="uid://c85vmmuqyhah0"]
+[gd_scene load_steps=10 format=3 uid="uid://c8o8fs35bruht"]
 
-[ext_resource type="Script" path="res://Scripts/Presentation/Presentation.gd" id="1_uw1sq"]
-[ext_resource type="SpriteFrames" uid="uid://b4o4idok2krco" path="res://Assets/Sprites/Background/BackgroundAnimation.tres" id="2_n4y8m"]
-[ext_resource type="Shader" path="res://Scenes/Testing/Shaders/Wave.gdshader" id="2_yjiq6"]
-[ext_resource type="Shader" path="res://Scenes/Testing/Shaders/ColorWave.gdshader" id="3_gi7sg"]
-[ext_resource type="FontFile" uid="uid://c2x1ua4cao7is" path="res://Assets/Fonts/Larceny.ttf" id="4_hgkdm"]
-[ext_resource type="SpriteFrames" uid="uid://v0r50qlk686x" path="res://Assets/Sprites/Boss G/Animations/Idle.tres" id="5_31pdg"]
-[ext_resource type="SpriteFrames" uid="uid://ctr2lotnfhvkj" path="res://Assets/Sprites/Protagonista/Animations/Ragnahilda_Idle.tres" id="6_kn5xl"]
+[ext_resource type="Script" path="res://Scripts/Presentation/Presentation.gd" id="1_87mqb"]
+[ext_resource type="SpriteFrames" uid="uid://b4o4idok2krco" path="res://Assets/Sprites/Background/BackgroundAnimation.tres" id="2_p3jlh"]
+[ext_resource type="SpriteFrames" uid="uid://v0r50qlk686x" path="res://Assets/Sprites/Boss G/Animations/Idle.tres" id="3_rp5q3"]
+[ext_resource type="SpriteFrames" uid="uid://ctr2lotnfhvkj" path="res://Assets/Sprites/Protagonista/Animations/Ragnahilda_Idle.tres" id="4_cnkgl"]
+[ext_resource type="Shader" path="res://Scenes/Testing/Shaders/Wave.gdshader" id="5_n06uc"]
+[ext_resource type="Shader" path="res://Scenes/Testing/Shaders/ColorWave.gdshader" id="6_a1uag"]
+[ext_resource type="FontFile" uid="uid://c2x1ua4cao7is" path="res://Assets/Fonts/Larceny.ttf" id="7_qa6vi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_recrc"]
-shader = ExtResource("2_yjiq6")
+shader = ExtResource("5_n06uc")
 shader_parameter/hegiht = 1.0
 shader_parameter/frecuency = 1.0
 shader_parameter/speed = 10.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_irycq"]
-shader = ExtResource("3_gi7sg")
+shader = ExtResource("6_a1uag")
 shader_parameter/speedColor = 2.0
 shader_parameter/colorH = 1.0
 shader_parameter/hegiht = 2.0
@@ -29,15 +29,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_uw1sq")
+script = ExtResource("1_87mqb")
 spriteMain = NodePath("Player/AnimatedSprite2D")
 spriteEnemy = NodePath("Enemy/AnimatedSprite2D")
 vs = NodePath("CenterContainer/VS")
+Enemy = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(633.5, 356.5)
 scale = Vector2(2.63958, 2.64074)
-sprite_frames = ExtResource("2_n4y8m")
+sprite_frames = ExtResource("2_p3jlh")
 
 [node name="Enemy" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -54,7 +55,7 @@ pivot_offset = Vector2(0.5, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
 scale = Vector2(2.5, 2.5)
-sprite_frames = ExtResource("5_31pdg")
+sprite_frames = ExtResource("3_rp5q3")
 
 [node name="Player" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -71,7 +72,7 @@ pivot_offset = Vector2(-0.5, 188)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 position = Vector2(6.5, 307)
 scale = Vector2(3.5, 3.5)
-sprite_frames = ExtResource("6_kn5xl")
+sprite_frames = ExtResource("4_cnkgl")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 material = SubResource("ShaderMaterial_recrc")
@@ -107,10 +108,12 @@ grow_vertical = 2
 pivot_offset = Vector2(34, 40)
 size_flags_horizontal = 4
 size_flags_vertical = 0
-theme_override_fonts/font = ExtResource("4_hgkdm")
+theme_override_fonts/font = ExtResource("7_qa6vi")
 theme_override_font_sizes/font_size = 400
-text = "VS
-"
+text = "GUILLE
+VS
+RAGNAHILDA"
+horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0

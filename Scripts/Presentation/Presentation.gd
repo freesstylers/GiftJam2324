@@ -5,6 +5,7 @@ extends Control
 @export var spriteEnemy : AnimatedSprite2D = null
 @export var vs : Node2D = null
 @export var timeAnim : float = 2.0
+@export var Enemy : GiftJamGlobals.Battle
 
 var EnemyIdleAnim = preload("res://Assets/Sprites/Boss G/Animations/Idle.tres")
 var PlayerIdleAnim = preload("res://Assets/Sprites/Protagonista/Animations/Ragnahilda_Idle.tres")
@@ -18,7 +19,7 @@ func start(time=timer):
 	var t = $Timer
 	start_animation()
 	await t.timeout
-	end() 
+	end()
 	
 func start_animation():
 	spriteMain.play()
@@ -30,17 +31,20 @@ func start_animation():
 	tween.set_parallel(true)
 	tween.set_trans(Tween.TRANS_LINEAR)
 	tween.set_ease(Tween.EASE_IN)
-	tween.tween_property(spriteMain, "position", Vector2(0.0, 0.0), timeAnim)
-	#tween.tween_property(spriteEnemy, "position", Vector2(0.0, 0.0), timeAnim)
+	
+	tween.tween_property(spriteMain, "position", Vector2(0.0, 227.5), timeAnim)
+	###tween.tween_property(spriteEnemy, "position", Vector2(0.0, 0.0), timeAnim)
 	tween.tween_property(vs, "scale", Vector2(1.0, 1.0), timeAnim)
 	tween.tween_property(vs, "rotation", deg_to_rad(720.0), timeAnim)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 	
 func end():
-	GiftJamGlobals.FromPresentationToBattle.emit()
+	if Enemy == GiftJamGlobals.Battle.G:
+		GiftJamGlobals.To_G_Battle.emit()
+		pass
+	elif Enemy == GiftJamGlobals.Battle.P:
+		GiftJamGlobals.To_P_Battle.emit()
+		pass
+	#GiftJamGlobals.FromPresentationToBattle.emit()
 
 func _on_Enemy_animation_finished():
 	spriteEnemy.set_sprite_frames(EnemyIdleAnim)

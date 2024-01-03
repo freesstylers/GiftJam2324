@@ -4,7 +4,7 @@ class_name BattleManager
 @export var SONG_BPM : int = 130
 @export var PlayMetronome : bool = false
 @export var NumAttacksPerAttack : int = 4
-
+@export var Enemy : GiftJamGlobals.Battle
 var UIManager : BattleUIManager = null
 var Attacking : bool = false
 var playerHealth : float = 100
@@ -72,8 +72,13 @@ func on_life_changed(who : GiftJamGlobals.characterHit, quantity : int):
 		
 		if enemyHealth <= 0:
 			print ("VICTORY")
-			GiftJamGlobals.FromBattleToMainMenu.emit()
-			pass
+			if Enemy == GiftJamGlobals.Battle.G:
+				GiftJamGlobals.To_P_Presentation.emit()
+				pass
+			elif Enemy == GiftJamGlobals.Battle.P:
+				GiftJamGlobals.FromBattleToMainMenu.emit()
+				pass
+			pass			
 		pass
 	else:
 		playerHealth -= quantity

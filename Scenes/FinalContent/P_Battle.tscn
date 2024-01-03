@@ -1,0 +1,62 @@
+[gd_scene load_steps=14 format=3 uid="uid://cces55bu50it6"]
+
+[ext_resource type="Script" path="res://Scripts/BattleManager.gd" id="1_swyby"]
+[ext_resource type="PackedScene" uid="uid://b7hn7pqk7rh8t" path="res://Scenes/Prefabs/UIContainer.tscn" id="2_jdv7m"]
+[ext_resource type="AudioStream" uid="uid://c6wam6fra1wyt" path="res://Audio/Songs/boss1-130bpm.wav" id="3_xruy4"]
+[ext_resource type="AudioStream" uid="uid://shblwmanckqc" path="res://Audio/Songs/MetronomeTick.mp3" id="4_8dgeu"]
+[ext_resource type="SpriteFrames" uid="uid://b4o4idok2krco" path="res://Assets/Sprites/Background/BackgroundAnimation.tres" id="5_m0pb6"]
+[ext_resource type="PackedScene" uid="uid://muu12hug5ib1" path="res://Scenes/Boss G.tscn" id="6_mcq38"]
+[ext_resource type="PackedScene" uid="uid://cbi05qfsjhskp" path="res://Scenes/ragnahilda.tscn" id="7_hr67b"]
+[ext_resource type="SpriteFrames" uid="uid://brmgl2qj5rekh" path="res://Assets/Sprites/P.P Punchman/Anims/PPPunchmanIdle.tres" id="7_qnsgp"]
+[ext_resource type="SpriteFrames" uid="uid://ctr2lotnfhvkj" path="res://Assets/Sprites/Protagonista/Animations/Ragnahilda_Idle.tres" id="8_d2cwv"]
+[ext_resource type="SpriteFrames" uid="uid://bc53f1pl2xaq6" path="res://Assets/Sprites/P.P Punchman/Anims/PPPunchmanLeft.tres" id="8_oe6kr"]
+[ext_resource type="SpriteFrames" uid="uid://b6e6jopefarql" path="res://Assets/Sprites/P.P Punchman/Anims/PPPunchmanRight.tres" id="9_5lnpr"]
+[ext_resource type="SpriteFrames" uid="uid://cnhln3ofqvnpn" path="res://Assets/Sprites/P.P Punchman/Anims/PPPunchmanDown.tres" id="10_um5c3"]
+[ext_resource type="SpriteFrames" uid="uid://byd1fbkmc0axc" path="res://Assets/Sprites/P.P Punchman/Anims/PPPunchmanUp.tres" id="11_ypx2b"]
+
+[node name="BaseBattle" type="Node2D"]
+script = ExtResource("1_swyby")
+PlayMetronome = true
+Enemy = 2
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Container" parent="UI" instance=ExtResource("2_jdv7m")]
+
+[node name="BattleSong" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_xruy4")
+
+[node name="MetronomeSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_8dgeu")
+
+[node name="BPM_TIMER" type="Timer" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(633.5, 357)
+scale = Vector2(2.63958, 2.64444)
+sprite_frames = ExtResource("5_m0pb6")
+frame_progress = 0.689517
+
+[node name="PPP" parent="." instance=ExtResource("6_mcq38")]
+position = Vector2(631, 258)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("7_qnsgp")
+IdleAnim = ExtResource("7_qnsgp")
+PunchLeftAnim = ExtResource("8_oe6kr")
+PunchRightAnim = ExtResource("9_5lnpr")
+PunchDownAnim = ExtResource("10_um5c3")
+PunchUpAnim = ExtResource("11_ypx2b")
+
+[node name="Ragnahilda" parent="." instance=ExtResource("7_hr67b")]
+position = Vector2(631, 488)
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("8_d2cwv")
+frame = 0
+frame_progress = 0.332353
+PlayerBattlePosition = Vector2(560, 470)
+TakeDamagePositionDelta = Vector2(0, 20)
+
+[connection signal="attack_mode_changed" from="." to="UI/Container" method="_on_base_battle_attack_mode_changed"]
+[connection signal="attack_mode_changed" from="." to="PPP" method="_on_base_battle_attack_mode_changed"]
+[connection signal="attack_mode_changed" from="." to="Ragnahilda" method="_on_base_battle_attack_mode_changed"]
+[connection signal="timeout" from="BPM_TIMER" to="." method="BPM_Notification"]

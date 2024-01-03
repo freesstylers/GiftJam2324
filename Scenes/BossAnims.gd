@@ -1,10 +1,11 @@
 extends AnimatedSprite2D
 var attackingMode : bool
-var IdleAnim = preload("res://Assets/Sprites/Boss G/Animations/Idle.tres")
-var PunchLeftAnim = preload("res://Assets/Sprites/Boss G/Animations/PunchLeft.tres")
-var PunchRightAnim = preload("res://Assets/Sprites/Boss G/Animations/PunchRight.tres")
-var PunchDownAnim = preload("res://Assets/Sprites/Protagonista/Animations/Ragnahilda_PunchDown.tres")
-var PunchUpAnim = preload("res://Assets/Sprites/Protagonista/Animations/Ragnahilda_PunchUp.tres")
+
+@export var IdleAnim : SpriteFrames = null
+@export var PunchLeftAnim : SpriteFrames = null
+@export var PunchRightAnim : SpriteFrames = null
+@export var PunchDownAnim : SpriteFrames = null
+@export var PunchUpAnim : SpriteFrames = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -45,13 +46,19 @@ func on_note_hit_result(hitResult:GiftJamGlobals.NoteHitStatus, noteType : GiftJ
 	else:
 		if noteType == GiftJamGlobals.NoteType.LEFT:
 			self.set_sprite_frames(PunchLeftAnim)
+			self.play()
 			pass
 		elif noteType == GiftJamGlobals.NoteType.RIGHT:
 			self.set_sprite_frames(PunchRightAnim)
+			self.play()
 			pass
 		elif noteType == GiftJamGlobals.NoteType.UP:
+			self.set_sprite_frames(PunchUpAnim)
+			self.play()
 			pass
 		elif noteType == GiftJamGlobals.NoteType.DOWN:
+			self.set_sprite_frames(PunchDownAnim)
+			self.play()
 			pass
 		pass
 			

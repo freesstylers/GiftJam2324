@@ -1,11 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://muu12hug5ib1"]
+[gd_scene load_steps=7 format=3 uid="uid://muu12hug5ib1"]
 
 [ext_resource type="SpriteFrames" uid="uid://v0r50qlk686x" path="res://Assets/Sprites/Boss G/Animations/Idle.tres" id="1_ieqho"]
 [ext_resource type="Script" path="res://Scenes/BossAnims.gd" id="2_w36y1"]
+[ext_resource type="SpriteFrames" uid="uid://defs4qj4kgy62" path="res://Assets/Sprites/Boss G/Animations/PunchLeft.tres" id="3_d1doi"]
+[ext_resource type="SpriteFrames" uid="uid://bjpk3xd6vynyq" path="res://Assets/Sprites/Boss G/Animations/PunchRight.tres" id="4_w3im4"]
+[ext_resource type="SpriteFrames" uid="uid://qinidg3nbu60" path="res://Assets/Sprites/Boss G/Animations/PunchDown.tres" id="5_30ie6"]
+[ext_resource type="SpriteFrames" uid="uid://bdiw6fnotim1w" path="res://Assets/Sprites/Boss G/Animations/PunchUp.tres" id="6_aq1xw"]
 
 [node name="Boss G" type="AnimatedSprite2D"]
 position = Vector2(560, 300)
 sprite_frames = ExtResource("1_ieqho")
 script = ExtResource("2_w36y1")
+IdleAnim = ExtResource("1_ieqho")
+PunchLeftAnim = ExtResource("3_d1doi")
+PunchRightAnim = ExtResource("4_w3im4")
+PunchDownAnim = ExtResource("5_30ie6")
+PunchUpAnim = ExtResource("6_aq1xw")
 
 [connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
