@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://c85vmmuqyhah0"]
+[gd_scene load_steps=10 format=3 uid="uid://c85vmmuqyhah0"]
 
 [ext_resource type="Script" path="res://Scripts/Presentation/Presentation.gd" id="1_uw1sq"]
+[ext_resource type="SpriteFrames" uid="uid://b4o4idok2krco" path="res://Assets/Sprites/Background/BackgroundAnimation.tres" id="2_n4y8m"]
 [ext_resource type="Shader" path="res://Scenes/Testing/Shaders/Wave.gdshader" id="2_yjiq6"]
 [ext_resource type="Shader" path="res://Scenes/Testing/Shaders/ColorWave.gdshader" id="3_gi7sg"]
-[ext_resource type="FontFile" uid="uid://c6ygupr07ud7y" path="res://Assets/Fonts/Larceny.ttf" id="4_hgkdm"]
+[ext_resource type="FontFile" uid="uid://c2x1ua4cao7is" path="res://Assets/Fonts/Larceny.ttf" id="4_hgkdm"]
 [ext_resource type="SpriteFrames" uid="uid://v0r50qlk686x" path="res://Assets/Sprites/Boss G/Animations/Idle.tres" id="5_31pdg"]
 [ext_resource type="SpriteFrames" uid="uid://ctr2lotnfhvkj" path="res://Assets/Sprites/Protagonista/Animations/Ragnahilda_Idle.tres" id="6_kn5xl"]
 
@@ -33,6 +34,11 @@ spriteMain = NodePath("Player/AnimatedSprite2D")
 spriteEnemy = NodePath("Enemy/AnimatedSprite2D")
 vs = NodePath("CenterContainer/VS")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(633.5, 356.5)
+scale = Vector2(2.63958, 2.64074)
+sprite_frames = ExtResource("2_n4y8m")
+
 [node name="Enemy" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 5
@@ -46,7 +52,6 @@ grow_horizontal = 2
 pivot_offset = Vector2(0.5, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
-position = Vector2(0, -624)
 scale = Vector2(2.5, 2.5)
 sprite_frames = ExtResource("5_31pdg")
 
@@ -105,3 +110,10 @@ theme_override_fonts/font = ExtResource("4_hgkdm")
 theme_override_font_sizes/font_size = 400
 text = "VS
 "
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="animation_finished" from="Enemy/AnimatedSprite2D" to="." method="_on_Enemy_animation_finished"]
+[connection signal="animation_finished" from="Player/AnimatedSprite2D" to="." method="_on_Player_animation_finished"]

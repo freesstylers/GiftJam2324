@@ -12,6 +12,8 @@ const NoteSprites = ["res://Assets/Sprites/Notas/Arriba.png",
 					"res://Assets/Sprites/Notas/Derecha.png"]
 
 signal BPM_Notification()
+signal FromPresentationToBattle()
+signal FromBattleToMainMenu()
 signal Fight_Start()
 signal Note_Hit_Result(result : NoteHitStatus, dir : NoteType) 
 

@@ -72,6 +72,7 @@ func on_life_changed(who : GiftJamGlobals.characterHit, quantity : int):
 		
 		if enemyHealth <= 0:
 			print ("VICTORY")
+			GiftJamGlobals.FromBattleToMainMenu.emit()
 			pass
 		pass
 	else:
@@ -80,6 +81,7 @@ func on_life_changed(who : GiftJamGlobals.characterHit, quantity : int):
 			
 		if playerHealth <= 0:
 			print ("DEFEAT")
+			GiftJamGlobals.FromBattleToMainMenu.emit()
 			pass
 		pass
 	UIManager.on_character_health_changed(playerHealth, enemyHealth)

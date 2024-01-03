@@ -6,7 +6,8 @@ extends Control
 @export var vs : Node2D = null
 @export var timeAnim : float = 2.0
 
-signal end_presentation
+var EnemyIdleAnim = preload("res://Assets/Sprites/Boss G/Animations/Idle.tres")
+var PlayerIdleAnim = preload("res://Assets/Sprites/Protagonista/Animations/Ragnahilda_Idle.tres")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,11 +15,10 @@ func _ready():
 	pass
 	
 func start(time=timer):
-	var t = Timer.new()
-	t.one_shot = true
-	t.wait_time = time
+	var t = $Timer
 	start_animation()
-	#t.process_callback = end
+	await t.timeout
+	end() 
 	
 func start_animation():
 	spriteMain.play()
@@ -31,7 +31,7 @@ func start_animation():
 	tween.set_trans(Tween.TRANS_LINEAR)
 	tween.set_ease(Tween.EASE_IN)
 	tween.tween_property(spriteMain, "position", Vector2(0.0, 0.0), timeAnim)
-	tween.tween_property(spriteEnemy, "position", Vector2(0.0, 0.0), timeAnim)
+	#tween.tween_property(spriteEnemy, "position", Vector2(0.0, 0.0), timeAnim)
 	tween.tween_property(vs, "scale", Vector2(1.0, 1.0), timeAnim)
 	tween.tween_property(vs, "rotation", deg_to_rad(720.0), timeAnim)
 
@@ -40,4 +40,14 @@ func _process(delta):
 	pass
 	
 func end():
-	end_presentation.emit()
+	GiftJamGlobals.FromPresentationToBattle.emit()
+
+func _on_Enemy_animation_finished():
+	spriteEnemy.set_sprite_frames(EnemyIdleAnim)
+	spriteEnemy.play()
+	pass # Replace with function body.
+
+func _on_Player_animation_finished():
+	spriteMain.set_sprite_frames(PlayerIdleAnim)
+	spriteMain.play()
+	pass # Replace with function body.

@@ -49,8 +49,18 @@ func _on_credits_back_button_down():
 	$"MainButtonContainer".visible = true;
 	pass # Replace with function body.
 
-
 func TogglePlayMenu(state: bool):
 	$"level container".visible = state;
 	$"MainButtonContainer".visible = not state;
+	pass # Replace with function body.
+
+
+func _on_tutorial_button_down():
+	get_node("TutorialPanel").visible = true
+	$"MainButtonContainer".visible = false;
+	pass # Replace with function body.
+
+func _on_tutorial_back_button_down():
+	get_node("TutorialPanel").visible = false
+	$"MainButtonContainer".visible = true;
 	pass # Replace with function body.

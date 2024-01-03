@@ -1,11 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://dv31ttuyw5rnf"]
+[gd_scene load_steps=10 format=3 uid="uid://dv31ttuyw5rnf"]
 
 [ext_resource type="Theme" uid="uid://ugxbtljmj80y" path="res://Assets/MainMenuTheme.tres" id="1_h5tew"]
 [ext_resource type="Script" path="res://Scripts/MainMenuScript.gd" id="1_s2qbx"]
-[ext_resource type="Texture2D" uid="uid://bstclb2nmk31u" path="res://Assets/MainMenu/LogoFreestylers.png" id="2_tuuka"]
-[ext_resource type="FontFile" uid="uid://c5iv3ks722hyp" path="res://Assets/Fonts/Larceny.ttf" id="2_xpdlg"]
-[ext_resource type="Texture2D" uid="uid://bl6qwto7tu54e" path="res://Assets/MainMenu/Twitter.png" id="3_hamnk"]
-[ext_resource type="Texture2D" uid="uid://bxcw5y458os4" path="res://Assets/MainMenu/LogoGiftJam.png" id="4_kmo4h"]
+[ext_resource type="Texture2D" uid="uid://bs4huwweijiv8" path="res://Assets/MainMenu/LogoFreestylers.png" id="2_tuuka"]
+[ext_resource type="FontFile" uid="uid://c2x1ua4cao7is" path="res://Assets/Fonts/Larceny.ttf" id="2_xpdlg"]
+[ext_resource type="Texture2D" uid="uid://c821idnkhdm02" path="res://Assets/MainMenu/Twitter.png" id="3_hamnk"]
+[ext_resource type="SpriteFrames" uid="uid://b4o4idok2krco" path="res://Assets/Sprites/Background/BackgroundAnimation.tres" id="3_iv8ij"]
+[ext_resource type="Texture2D" uid="uid://bksfffs4teg1h" path="res://Assets/MainMenu/LogoGiftJam.png" id="4_kmo4h"]
+[ext_resource type="Texture2D" uid="uid://blou5bwqse0gv" path="res://Assets/MainMenu/AttackTutorial.png" id="7_bc7y5"]
+[ext_resource type="Texture2D" uid="uid://bek7ck106kskt" path="res://Assets/MainMenu/DefendTutorial.png" id="8_eefuj"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -16,6 +19,13 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_h5tew")
 script = ExtResource("1_s2qbx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(632.5, 359)
+scale = Vector2(2.63542, 2.62222)
+sprite_frames = ExtResource("3_iv8ij")
+autoplay = "default"
+frame_progress = 0.279985
 
 [node name="FreeStylers" type="TextureButton" parent="."]
 layout_mode = 2
@@ -150,11 +160,74 @@ theme_override_fonts/font = ExtResource("2_xpdlg")
 theme_override_font_sizes/font_size = 32
 text = "Cerrar"
 
+[node name="TutorialPanel" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 372.0
+offset_right = -352.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TutorialPanel"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label2" type="Label" parent="TutorialPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xpdlg")
+theme_override_font_sizes/font_size = 32
+text = "TUTORIAL
+------------
+
+Ragnahilda, la más fiera de las guerreras
+que ha visto la FDI tiene que luchar. Concretamente, por su aprobado
+
+Para derrotar a sus viles \"profesores\" deberá combatir contra ellos hasta el ko final.
+
+Cada fase de la pelea tiene 2 partes: en una se muestran las acciones, y después será tu turno. 
+En modo ataque, imita las acciones que aparecen en pantalla para atacar a tu oponente.
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="TutorialPanel/VBoxContainer"]
+position = Vector2(542.5, 393)
+texture = ExtResource("7_bc7y5")
+
+[node name="Label3" type="Label" parent="TutorialPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xpdlg")
+theme_override_font_sizes/font_size = 32
+text = "
+
+Por otro lado, en modo defensa, tendrás que hacer la acción contraria para esquivar sus golpes.
+
+
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="TutorialPanel/VBoxContainer"]
+position = Vector2(544.5, 539)
+texture = ExtResource("8_eefuj")
+
+[node name="TutorialBack" type="Button" parent="TutorialPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xpdlg")
+theme_override_font_sizes/font_size = 32
+text = "Cerrar"
+
 [connection signal="button_down" from="FreeStylers" to="." method="_on_free_stylers_button_down"]
 [connection signal="button_down" from="GiftJam" to="." method="_on_gift_jam_button_down"]
 [connection signal="button_down" from="Twitter" to="." method="_on_twitter_button_down"]
 [connection signal="button_down" from="MainButtonContainer/play" to="." method="TogglePlayMenu" binds= [true]]
+[connection signal="button_down" from="MainButtonContainer/tutorial" to="." method="_on_tutorial_button_down"]
 [connection signal="button_down" from="MainButtonContainer/Credits" to="." method="_on_credits_button_down"]
 [connection signal="button_down" from="level container/level 1" to="." method="_on_level_button_down" binds= [0]]
 [connection signal="button_down" from="level container/back" to="." method="TogglePlayMenu" binds= [false]]
 [connection signal="button_down" from="CreditsPanel/VBoxContainer/CreditsBack" to="." method="_on_credits_back_button_down"]
+[connection signal="button_down" from="TutorialPanel/VBoxContainer/TutorialBack" to="." method="_on_tutorial_back_button_down"]
