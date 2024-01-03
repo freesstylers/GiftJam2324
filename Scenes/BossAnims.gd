@@ -37,11 +37,14 @@ func on_note_hit_result(hitResult:GiftJamGlobals.NoteHitStatus, noteType : GiftJ
 			if hitResult == GiftJamGlobals.NoteHitStatus.PERFECT:
 				GiftJamGlobals.LifeChanged.emit(GiftJamGlobals.characterHit.Enemy, 5)
 				pass
-			if hitResult == GiftJamGlobals.NoteHitStatus.GREAT:
+			elif hitResult == GiftJamGlobals.NoteHitStatus.GREAT:
 				GiftJamGlobals.LifeChanged.emit(GiftJamGlobals.characterHit.Enemy, 4)
 				pass
-			if hitResult == GiftJamGlobals.NoteHitStatus.OK:
+			elif hitResult == GiftJamGlobals.NoteHitStatus.OK:
 				GiftJamGlobals.LifeChanged.emit(GiftJamGlobals.characterHit.Enemy, 3)
+				pass
+			else:
+				#Tween guapo
 				pass
 	else:
 		if noteType == GiftJamGlobals.NoteType.LEFT:

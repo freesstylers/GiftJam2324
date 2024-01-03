@@ -66,4 +66,17 @@ func on_note_hit_result(hitResult:GiftJamGlobals.NoteHitStatus, noteType : GiftJ
 			if hitResult == GiftJamGlobals.NoteHitStatus.MISS:
 				GiftJamGlobals.LifeChanged.emit(GiftJamGlobals.characterHit.Ragnahilda, 4)
 				pass
+			else:
+				if noteType == GiftJamGlobals.NoteType.LEFT:
+					#Tween guapo
+					pass
+				elif noteType == GiftJamGlobals.NoteType.RIGHT:
+					#Tween guapo
+					pass
+				elif noteType == GiftJamGlobals.NoteType.UP:
+					#Tween guapo
+					pass
+				elif noteType == GiftJamGlobals.NoteType.DOWN:
+					#Tween guapo
+					pass
 	pass

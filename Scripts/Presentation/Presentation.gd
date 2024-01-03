@@ -7,8 +7,8 @@ extends Control
 @export var timeAnim : float = 2.0
 @export var Enemy : GiftJamGlobals.Battle
 
-var EnemyIdleAnim = preload("res://Assets/Sprites/Boss G/Animations/Idle.tres")
-var PlayerIdleAnim = preload("res://Assets/Sprites/Protagonista/Animations/Ragnahilda_Idle.tres")
+@export var EnemyIdleAnim : SpriteFrames = null
+@export var PlayerIdleAnim : SpriteFrames = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

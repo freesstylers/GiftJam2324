@@ -33,6 +33,8 @@ script = ExtResource("1_uw1sq")
 spriteMain = NodePath("Player/AnimatedSprite2D")
 spriteEnemy = NodePath("Enemy/AnimatedSprite2D")
 vs = NodePath("CenterContainer/VS")
+EnemyIdleAnim = ExtResource("5_31pdg")
+PlayerIdleAnim = ExtResource("6_kn5xl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(633.5, 356.5)
