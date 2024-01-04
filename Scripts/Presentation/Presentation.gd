@@ -16,6 +16,7 @@ func _ready():
 	pass
 	
 func start(time=timer):
+	$AudioStreamPlayer.play()
 	var t = $Timer
 	start_animation()
 	await t.timeout
