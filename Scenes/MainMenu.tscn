@@ -109,30 +109,28 @@ theme_override_fonts/font = ExtResource("2_xpdlg")
 theme_override_font_sizes/font_size = 60
 text = "  Cerrar  "
 
-[node name="CreditsPanel" type="MarginContainer" parent="."]
+[node name="credits" type="Panel" parent="."]
 visible = false
+layout_mode = 2
+offset_left = 360.0
+offset_top = 175.0
+offset_right = 920.0
+offset_bottom = 547.0
+
+[node name="container" type="MarginContainer" parent="credits"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -151.0
-offset_top = -173.0
-offset_right = 151.0
-offset_bottom = 173.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="CreditsPanel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="credits/container"]
 layout_mode = 2
-color = Color(0, 0.396078, 0.329412, 1)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CreditsPanel"]
-layout_mode = 2
+size_flags_horizontal = 4
 alignment = 1
 
-[node name="Label" type="Label" parent="CreditsPanel/VBoxContainer"]
+[node name="Label" type="Label" parent="credits/container/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_xpdlg")
 theme_override_font_sizes/font_size = 32
@@ -147,7 +145,7 @@ JAVIER ARIAS - EL GENIO"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="CreditsPanel/VBoxContainer"]
+[node name="Label2" type="Label" parent="credits/container/VBoxContainer"]
 visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_xpdlg")
@@ -156,7 +154,7 @@ text = "------------"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label3" type="Label" parent="CreditsPanel/VBoxContainer"]
+[node name="Label3" type="Label" parent="credits/container/VBoxContainer"]
 visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_xpdlg")
@@ -171,72 +169,70 @@ JAVIER ARIAS - EL GENIO
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CreditsBack" type="Button" parent="CreditsPanel/VBoxContainer"]
+[node name="CreditsBack" type="Button" parent="credits/container/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_xpdlg")
 theme_override_font_sizes/font_size = 32
 text = "Cerrar"
 
-[node name="TutorialPanel" type="MarginContainer" parent="."]
+[node name="tutorial" type="Panel" parent="."]
 visible = false
+layout_mode = 2
+offset_left = 148.0
+offset_top = 24.0
+offset_right = 1132.0
+offset_bottom = 696.0
+
+[node name="container" type="MarginContainer" parent="tutorial"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -536.0
-offset_top = -353.0
-offset_right = 536.0
-offset_bottom = 353.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="TutorialPanel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="tutorial/container"]
 layout_mode = 2
-color = Color(0, 0.396078, 0.329412, 1)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="TutorialPanel"]
-layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 25
 alignment = 1
 
-[node name="Label2" type="Label" parent="TutorialPanel/VBoxContainer"]
+[node name="Label2" type="Label" parent="tutorial/container/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_xpdlg")
 theme_override_font_sizes/font_size = 32
 text = "TUTORIAL
 ------------
+Ragnahilda, la más fiera de las guerreras que ha visto la FDI tiene que luchar.
+Concretamente, por su aprobado
 
-Ragnahilda, la más fiera de las guerreras
-que ha visto la FDI tiene que luchar. Concretamente, por su aprobado
-
-Para derrotar a sus viles \"profesores\" deberá combatir contra ellos hasta el ko final.
+Para derrotar a sus viles \"profesores\" deberá combatir contra ellos.
 
 Primero, tu oponente preparará una serie de movimientos (flechas)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="TutorialPanel/VBoxContainer"]
-position = Vector2(457, 310.5)
-scale = Vector2(0.159375, 0.159375)
+[node name="Sprite2D" type="Sprite2D" parent="tutorial/container/VBoxContainer"]
+position = Vector2(328, 301.5)
+scale = Vector2(0.14, 0.14)
 texture = ExtResource("8_4tl2g")
 
-[node name="Sprite2D4" type="Sprite2D" parent="TutorialPanel/VBoxContainer"]
-position = Vector2(518, 310.5)
-scale = Vector2(0.159375, 0.159375)
+[node name="Sprite2D4" type="Sprite2D" parent="tutorial/container/VBoxContainer"]
+position = Vector2(389, 301.5)
+scale = Vector2(0.14, 0.14)
 texture = ExtResource("9_d1qt2")
 
-[node name="Sprite2D5" type="Sprite2D" parent="TutorialPanel/VBoxContainer"]
-position = Vector2(583, 310.5)
-scale = Vector2(0.159375, 0.159375)
+[node name="Sprite2D5" type="Sprite2D" parent="tutorial/container/VBoxContainer"]
+position = Vector2(454, 301.5)
+scale = Vector2(0.14, 0.14)
 texture = ExtResource("10_fpce0")
 
-[node name="Sprite2D6" type="Sprite2D" parent="TutorialPanel/VBoxContainer"]
-position = Vector2(645, 310.5)
-scale = Vector2(0.159375, 0.159375)
+[node name="Sprite2D6" type="Sprite2D" parent="tutorial/container/VBoxContainer"]
+position = Vector2(516, 301.5)
+scale = Vector2(0.14, 0.14)
 texture = ExtResource("8_4tl2g")
 
-[node name="Label4" type="Label" parent="TutorialPanel/VBoxContainer"]
+[node name="Label4" type="Label" parent="tutorial/container/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_xpdlg")
 theme_override_font_sizes/font_size = 32
@@ -245,11 +241,11 @@ En la fase de ataque, imita los movimientos para atacar a tu oponente."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sprite2D3" type="Sprite2D" parent="TutorialPanel/VBoxContainer"]
-position = Vector2(542.5, 433.5)
+[node name="Sprite2D3" type="Sprite2D" parent="tutorial/container/VBoxContainer"]
+position = Vector2(432, 404)
 texture = ExtResource("7_bc7y5")
 
-[node name="Label3" type="Label" parent="TutorialPanel/VBoxContainer"]
+[node name="Label3" type="Label" parent="tutorial/container/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_xpdlg")
 theme_override_font_sizes/font_size = 32
@@ -263,11 +259,11 @@ En la fase de defensa, haz el movimiento opuesto para esquivar sus golpes.
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sprite2D2" type="Sprite2D" parent="TutorialPanel/VBoxContainer"]
-position = Vector2(544.5, 575)
+[node name="Sprite2D2" type="Sprite2D" parent="tutorial/container/VBoxContainer"]
+position = Vector2(432, 526)
 texture = ExtResource("8_eefuj")
 
-[node name="TutorialBack" type="Button" parent="TutorialPanel/VBoxContainer"]
+[node name="TutorialBack" type="Button" parent="tutorial/container/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_xpdlg")
 theme_override_font_sizes/font_size = 32
@@ -281,5 +277,5 @@ text = "Cerrar"
 [connection signal="button_down" from="MainButtonContainer/Credits" to="." method="_on_credits_button_down"]
 [connection signal="button_down" from="level container/level 1" to="." method="_on_level_button_down" binds= [0]]
 [connection signal="button_down" from="level container/back" to="." method="TogglePlayMenu" binds= [false]]
-[connection signal="button_down" from="CreditsPanel/VBoxContainer/CreditsBack" to="." method="_on_credits_back_button_down"]
-[connection signal="button_down" from="TutorialPanel/VBoxContainer/TutorialBack" to="." method="_on_tutorial_back_button_down"]
+[connection signal="button_down" from="credits/container/VBoxContainer/CreditsBack" to="." method="_on_credits_back_button_down"]
+[connection signal="button_down" from="tutorial/container/VBoxContainer/TutorialBack" to="." method="_on_tutorial_back_button_down"]
