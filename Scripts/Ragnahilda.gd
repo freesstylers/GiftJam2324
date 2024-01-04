@@ -8,21 +8,25 @@ var PunchLeftAnim = preload("res://Assets/Sprites/Protagonista/Animations/Ragnah
 var PunchRightAnim = preload("res://Assets/Sprites/Protagonista/Animations/Ragnahilda_PunchRight.tres")
 var PunchDownAnim = preload("res://Assets/Sprites/Protagonista/Animations/Ragnahilda_PunchDown.tres")
 var PunchUpAnim = preload("res://Assets/Sprites/Protagonista/Animations/Ragnahilda_PunchUp.tres")
-var EvadeSidewaysAnim = preload("res://Assets/Sprites/Protagonista/Animations/Ragnahilda_EvadeSideways.tres")
 var EvadeBackAnim = preload("res://Assets/Sprites/Protagonista/Animations/Ragnahilda_EvadeBack.tres")
+var EvadeLeftAnim = preload("res://Assets/Sprites/Protagonista/Animations/Ragnahilda_EvadeLeft.tres")
 
 var playerOriginalPos : Vector2 = Vector2(0,0)
+var playerOriginalScale : Vector2 = Vector2(0,0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GiftJamGlobals.connect("Note_Hit_Result", on_note_hit_result)
 	self.play()
 	playerOriginalPos = global_position
+	playerOriginalScale = scale
 
 func _on_base_battle_attack_mode_changed(attacking):
 	attackingMode = attacking
 
 func _on_animation_finished():
+	global_position = playerOriginalPos
+	scale = playerOriginalScale
 	self.set_sprite_frames(IdleAnim)
 	self.play()
 
@@ -73,14 +77,15 @@ func on_note_hit_result(hitResult:GiftJamGlobals.NoteHitStatus, noteType : GiftJ
 			if noteType == GiftJamGlobals.NoteType.LEFT:
 				defenseTween.set_trans(Tween.TRANS_QUINT)
 				defenseTween.set_ease(Tween.EASE_IN)
-				evadeDisplacement = Vector2(-20, 10)
+				evadeDisplacement = Vector2(-60, 0)
 				self.stop()
-				self.set_sprite_frames(EvadeSidewaysAnim)
+				self.set_sprite_frames(EvadeLeftAnim)
 				self.play()
 			elif noteType == GiftJamGlobals.NoteType.RIGHT:
-				evadeDisplacement = Vector2(20, 10)
+				evadeDisplacement = Vector2(60, 0)
 				self.stop()
-				self.set_sprite_frames(EvadeSidewaysAnim)
+				self.scale.x = -playerOriginalScale.x
+				self.set_sprite_frames(EvadeLeftAnim)
 				self.play()
 				pass
 			elif noteType == GiftJamGlobals.NoteType.UP:
@@ -88,7 +93,7 @@ func on_note_hit_result(hitResult:GiftJamGlobals.NoteHitStatus, noteType : GiftJ
 				defenseTween.set_ease(Tween.EASE_IN)
 				evadeDisplacement = Vector2(0, 30)
 				self.stop()
-				self.set_sprite_frames(EvadeBackAnim)
+				#self.set_sprite_frames(EvadeBackAnim)
 				self.play()
 				pass
 			elif noteType == GiftJamGlobals.NoteType.DOWN:
@@ -96,7 +101,7 @@ func on_note_hit_result(hitResult:GiftJamGlobals.NoteHitStatus, noteType : GiftJ
 				defenseTween.set_ease(Tween.EASE_IN)
 				evadeDisplacement = Vector2(0, 30)
 				self.stop()
-				self.set_sprite_frames(EvadeBackAnim)
+				#self.set_sprite_frames(EvadeBackAnim)
 				self.play()
 				pass
 			defenseTween.tween_property(self, "position", playerOriginalPos + evadeDisplacement, animLength)

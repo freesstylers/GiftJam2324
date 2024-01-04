@@ -2,13 +2,13 @@
 
 [ext_resource type="Theme" uid="uid://ugxbtljmj80y" path="res://Assets/MainMenuTheme.tres" id="1_h5tew"]
 [ext_resource type="Script" path="res://Scripts/MainMenuScript.gd" id="1_s2qbx"]
-[ext_resource type="Texture2D" uid="uid://bs4huwweijiv8" path="res://Assets/MainMenu/LogoFreestylers.png" id="2_tuuka"]
-[ext_resource type="FontFile" uid="uid://c2x1ua4cao7is" path="res://Assets/Fonts/Larceny.ttf" id="2_xpdlg"]
-[ext_resource type="Texture2D" uid="uid://c821idnkhdm02" path="res://Assets/MainMenu/Twitter.png" id="3_hamnk"]
+[ext_resource type="Texture2D" uid="uid://ba086fbet6wd5" path="res://Assets/MainMenu/LogoFreestylers.png" id="2_tuuka"]
+[ext_resource type="FontFile" uid="uid://b7tnent1gr2u3" path="res://Assets/Fonts/Larceny.ttf" id="2_xpdlg"]
+[ext_resource type="Texture2D" uid="uid://bqji7lspvjsm1" path="res://Assets/MainMenu/Twitter.png" id="3_hamnk"]
 [ext_resource type="SpriteFrames" uid="uid://b4o4idok2krco" path="res://Assets/Sprites/Background/BackgroundAnimation.tres" id="3_iv8ij"]
-[ext_resource type="Texture2D" uid="uid://bksfffs4teg1h" path="res://Assets/MainMenu/LogoGiftJam.png" id="4_kmo4h"]
-[ext_resource type="Texture2D" uid="uid://blou5bwqse0gv" path="res://Assets/MainMenu/AttackTutorial.png" id="7_bc7y5"]
-[ext_resource type="Texture2D" uid="uid://bek7ck106kskt" path="res://Assets/MainMenu/DefendTutorial.png" id="8_eefuj"]
+[ext_resource type="Texture2D" uid="uid://cdqu35fo7lt8j" path="res://Assets/MainMenu/LogoGiftJam.png" id="4_kmo4h"]
+[ext_resource type="Texture2D" uid="uid://c1pdlddf8ioi3" path="res://Assets/MainMenu/AttackTutorial.png" id="7_bc7y5"]
+[ext_resource type="Texture2D" uid="uid://b5uwkw1cagosn" path="res://Assets/MainMenu/DefendTutorial.png" id="8_eefuj"]
 
 [node name="Control" type="Control"]
 layout_mode = 3

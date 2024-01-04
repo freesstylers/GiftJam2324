@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://ih1v8mfmvrux"]
+
+[ext_resource type="Texture2D" uid="uid://bm4mh4nqvdpy6" path="res://Assets/Sprites/Protagonista/PunchLeft/PunchLeft2.png" id="3_y3wt2"]
+[ext_resource type="Texture2D" uid="uid://5vxa75ct5g10" path="res://Assets/Sprites/Protagonista/PunchLeft/PunchLeft6.png" id="4_iwbb6"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 0.3,
+"texture": ExtResource("3_y3wt2")
+}, {
+"duration": 1.2,
+"texture": ExtResource("4_iwbb6")
+}],
+"loop": false,
+"name": &"default",
+"speed": 4.0
+}]
