@@ -41,6 +41,7 @@ PlayerIdleAnim = ExtResource("4_cnkgl")
 position = Vector2(633.5, 356.5)
 scale = Vector2(2.63958, 2.64074)
 sprite_frames = ExtResource("2_p3jlh")
+autoplay = "default"
 
 [node name="Enemy" type="MarginContainer" parent="."]
 layout_mode = 1

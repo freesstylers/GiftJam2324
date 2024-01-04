@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Scripts/BattleManager.gd" id="1_opvlp"]
 [ext_resource type="PackedScene" uid="uid://b7hn7pqk7rh8t" path="res://Scenes/Prefabs/UIContainer.tscn" id="2_825xe"]
-[ext_resource type="AudioStream" uid="uid://ddcf7a4m0ene0" path="res://Audio/Songs/boss1-130bpm.wav" id="3_im766"]
-[ext_resource type="AudioStream" uid="uid://4i4ksx34jgxe" path="res://Audio/Songs/MetronomeTick.mp3" id="4_vc420"]
+[ext_resource type="AudioStream" uid="uid://c6wam6fra1wyt" path="res://Audio/Songs/boss1-130bpm.wav" id="3_im766"]
+[ext_resource type="AudioStream" uid="uid://shblwmanckqc" path="res://Audio/Songs/MetronomeTick.mp3" id="4_vc420"]
 [ext_resource type="SpriteFrames" uid="uid://b4o4idok2krco" path="res://Assets/Sprites/Background/BackgroundAnimation.tres" id="5_2apnm"]
 [ext_resource type="PackedScene" uid="uid://muu12hug5ib1" path="res://Scenes/Boss G.tscn" id="6_ep87c"]
 [ext_resource type="PackedScene" uid="uid://cbi05qfsjhskp" path="res://Scenes/ragnahilda.tscn" id="7_rp4wp"]
@@ -30,6 +30,7 @@ stream = ExtResource("4_vc420")
 position = Vector2(633.5, 357)
 scale = Vector2(2.5, 2.504)
 sprite_frames = ExtResource("5_2apnm")
+autoplay = "default"
 frame_progress = 0.689517
 
 [node name="Boss G" parent="." instance=ExtResource("6_ep87c")]

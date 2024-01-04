@@ -40,12 +40,12 @@ func _on_level_button_down(level: int):
 	pass # Replace with function body.
 
 func _on_credits_button_down():
-	get_node("CreditsPanel").visible = true
+	get_node("credits").visible = true
 	$"MainButtonContainer".visible = false;
 	pass # Replace with function body.
 
 func _on_credits_back_button_down():
-	get_node("CreditsPanel").visible = false
+	get_node("credits").visible = false
 	$"MainButtonContainer".visible = true;
 	pass # Replace with function body.
 
@@ -56,11 +56,11 @@ func TogglePlayMenu(state: bool):
 
 
 func _on_tutorial_button_down():
-	get_node("TutorialPanel").visible = true
+	get_node("tutorial").visible = true
 	$"MainButtonContainer".visible = false;
 	pass # Replace with function body.
 
 func _on_tutorial_back_button_down():
-	get_node("TutorialPanel").visible = false
+	get_node("tutorial").visible = false
 	$"MainButtonContainer".visible = true;
 	pass # Replace with function body.

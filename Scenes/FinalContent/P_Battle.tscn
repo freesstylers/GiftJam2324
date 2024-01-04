@@ -35,6 +35,7 @@ stream = ExtResource("4_8dgeu")
 position = Vector2(633.5, 357)
 scale = Vector2(2.63958, 2.64444)
 sprite_frames = ExtResource("5_m0pb6")
+autoplay = "default"
 frame_progress = 0.689517
 
 [node name="PPP" parent="." instance=ExtResource("6_mcq38")]
@@ -53,7 +54,6 @@ scale = Vector2(3, 3)
 sprite_frames = ExtResource("8_d2cwv")
 frame = 0
 frame_progress = 0.332353
-PlayerBattlePosition = Vector2(560, 470)
 TakeDamagePositionDelta = Vector2(0, 20)
 
 [connection signal="attack_mode_changed" from="." to="UI/Container" method="_on_base_battle_attack_mode_changed"]
