@@ -6,8 +6,8 @@
 [ext_resource type="SpriteFrames" uid="uid://ctr2lotnfhvkj" path="res://Assets/Sprites/Protagonista/Animations/Ragnahilda_Idle.tres" id="4_nsjqn"]
 [ext_resource type="Shader" path="res://Scenes/Testing/Shaders/Wave.gdshader" id="5_d257d"]
 [ext_resource type="Shader" path="res://Scenes/Testing/Shaders/ColorWave.gdshader" id="6_bbin1"]
-[ext_resource type="FontFile" uid="uid://c2x1ua4cao7is" path="res://Assets/Fonts/Larceny.ttf" id="7_5n12r"]
-[ext_resource type="AudioStream" uid="uid://djuh7fcwu702x" path="res://Audio/SFX/RGvsPPP.ogg" id="8_eqkxe"]
+[ext_resource type="FontFile" uid="uid://c5iv3ks722hyp" path="res://Assets/Fonts/Larceny.ttf" id="7_5n12r"]
+[ext_resource type="AudioStream" uid="uid://cab2sponmuxlo" path="res://Audio/SFX/RGvsPPP.ogg" id="8_eqkxe"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_recrc"]
 shader = ExtResource("5_d257d")
@@ -31,69 +31,59 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2il61")
-spriteMain = NodePath("Player/AnimatedSprite2D")
-spriteEnemy = NodePath("Enemy/AnimatedSprite2D")
+spriteMain = NodePath("Player/AnimatedSprite2D2")
+spriteEnemy = NodePath("Enemy/AnimatedSprite2D2")
 vs = NodePath("CenterContainer/VS")
 Enemy = 2
 EnemyIdleAnim = ExtResource("3_mgpj3")
 PlayerIdleAnim = ExtResource("4_nsjqn")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(633.5, 356.5)
-scale = Vector2(2.63958, 2.64074)
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(640, 360)
+scale = Vector2(2.666, 2.666)
 sprite_frames = ExtResource("2_u2cex")
 autoplay = "default"
 
 [node name="Enemy" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_top = -20.0
-offset_bottom = 20.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(0.5, 0)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Enemy"]
+position = Vector2(631, 258)
 scale = Vector2(2.5, 2.5)
 sprite_frames = ExtResource("3_mgpj3")
 
 [node name="Player" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -188.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 pivot_offset = Vector2(-0.5, 188)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
-position = Vector2(6.5, 307)
-scale = Vector2(3.5, 3.5)
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(631, 839)
+scale = Vector2(2.5, 2.5)
 sprite_frames = ExtResource("4_nsjqn")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 material = SubResource("ShaderMaterial_recrc")
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 633.0
-offset_top = 356.5
-offset_right = -633.0
-offset_bottom = -356.5
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(34, 47.5)
 
 [node name="VS" type="Node2D" parent="CenterContainer"]
-position = Vector2(19, 3.5)
+position = Vector2(640, 360)
 scale = Vector2(1e-05, 1e-05)
 
 [node name="Label" type="Label" parent="CenterContainer/VS"]
@@ -113,7 +103,7 @@ pivot_offset = Vector2(34, 40)
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("7_5n12r")
-theme_override_font_sizes/font_size = 400
+theme_override_font_sizes/font_size = 250
 text = "PPPunchMan
 VS
 Ragnahilda
@@ -127,5 +117,5 @@ autostart = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_eqkxe")
 
-[connection signal="animation_finished" from="Enemy/AnimatedSprite2D" to="." method="_on_Enemy_animation_finished"]
-[connection signal="animation_finished" from="Player/AnimatedSprite2D" to="." method="_on_Player_animation_finished"]
+[connection signal="animation_finished" from="Enemy/AnimatedSprite2D2" to="." method="_on_Enemy_animation_finished"]
+[connection signal="animation_finished" from="Player/AnimatedSprite2D2" to="." method="_on_Player_animation_finished"]

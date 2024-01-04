@@ -73,9 +73,9 @@ expand_icon = true
 
 [node name="MainButtonContainer" type="VBoxContainer" parent="MainButtonContainer"]
 layout_mode = 0
-offset_left = 429.0
+offset_left = 440.0
 offset_top = 29.0
-offset_right = 829.0
+offset_right = 840.0
 offset_bottom = 641.0
 alignment = 1
 
@@ -105,10 +105,10 @@ text = "Créditos"
 [node name="level container" type="VBoxContainer" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 429.0
-offset_top = 255.0
-offset_right = 858.0
-offset_bottom = 547.0
+offset_left = 440.0
+offset_top = 349.0
+offset_right = 844.0
+offset_bottom = 641.0
 alignment = 1
 
 [node name="level 1" type="Button" parent="level container"]

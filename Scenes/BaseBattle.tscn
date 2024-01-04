@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://Scripts/BattleManager.gd" id="1_svkjm"]
 [ext_resource type="PackedScene" uid="uid://b7hn7pqk7rh8t" path="res://Scenes/Prefabs/UIContainer.tscn" id="2_gkg66"]
-[ext_resource type="AudioStream" uid="uid://dsxgu5myj0jjo" path="res://Audio/Songs/boss1-130bpm.wav" id="5_8ctp3"]
+[ext_resource type="AudioStream" uid="uid://b0pwo8n1lag45" path="res://Audio/Songs/boss1-130bpm.wav" id="5_8ctp3"]
 [ext_resource type="SpriteFrames" uid="uid://b4o4idok2krco" path="res://Assets/Sprites/Background/BackgroundAnimation.tres" id="5_rh2wk"]
 [ext_resource type="PackedScene" uid="uid://muu12hug5ib1" path="res://Scenes/Boss G.tscn" id="6_3shk1"]
-[ext_resource type="AudioStream" uid="uid://u3b0wntbljip" path="res://Audio/Songs/MetronomeTick.mp3" id="6_jn1fn"]
+[ext_resource type="AudioStream" uid="uid://b8f55lu5knkao" path="res://Audio/Songs/MetronomeTick.mp3" id="6_jn1fn"]
 [ext_resource type="PackedScene" uid="uid://cbi05qfsjhskp" path="res://Scenes/ragnahilda.tscn" id="6_skhid"]
 [ext_resource type="SpriteFrames" uid="uid://ctr2lotnfhvkj" path="res://Assets/Sprites/Protagonista/Animations/Ragnahilda_Idle.tres" id="8_opoqs"]
 

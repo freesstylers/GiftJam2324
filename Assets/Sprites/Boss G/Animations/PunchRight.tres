@@ -1,13 +1,13 @@
 [gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://bjpk3xd6vynyq"]
 
-[ext_resource type="Texture2D" uid="uid://c0rxifq6kkwpt" path="res://Assets/Sprites/Boss G/Boss G PunchRight/Boss G_PunchRight1.png" id="1_0j1mi"]
-[ext_resource type="Texture2D" uid="uid://d2tdrry2l5633" path="res://Assets/Sprites/Boss G/Boss G PunchRight/Boss G_PunchRight2.png" id="2_md6j8"]
-[ext_resource type="Texture2D" uid="uid://bdgsf4rj8g8jy" path="res://Assets/Sprites/Boss G/Boss G PunchRight/Boss G_PunchRight3.png" id="3_uy3ik"]
-[ext_resource type="Texture2D" uid="uid://bv0nlk0w334bm" path="res://Assets/Sprites/Boss G/Boss G PunchRight/Boss G_PunchRight4.png" id="4_477jk"]
-[ext_resource type="Texture2D" uid="uid://cnpuiges5ma5e" path="res://Assets/Sprites/Boss G/Boss G PunchRight/Boss G_PunchRight5.png" id="5_magso"]
-[ext_resource type="Texture2D" uid="uid://tt7ttchq35da" path="res://Assets/Sprites/Boss G/Boss G PunchRight/Boss G_PunchRight6.png" id="6_cvapi"]
-[ext_resource type="Texture2D" uid="uid://cktk8xy2hwpjk" path="res://Assets/Sprites/Boss G/Boss G PunchRight/Boss G_PunchRight7.png" id="7_8sd86"]
-[ext_resource type="Texture2D" uid="uid://w8wpdurmjmm" path="res://Assets/Sprites/Boss G/Boss G PunchRight/Boss G_PunchRight8.png" id="8_updpn"]
+[ext_resource type="Texture2D" uid="uid://dbbjjokuyaume" path="res://Assets/Sprites/Boss G/Boss G PunchRight/Boss G_PunchRight1.png" id="1_0j1mi"]
+[ext_resource type="Texture2D" uid="uid://bk330g35iller" path="res://Assets/Sprites/Boss G/Boss G PunchRight/Boss G_PunchRight2.png" id="2_md6j8"]
+[ext_resource type="Texture2D" uid="uid://de7lpe84dff7n" path="res://Assets/Sprites/Boss G/Boss G PunchRight/Boss G_PunchRight3.png" id="3_uy3ik"]
+[ext_resource type="Texture2D" uid="uid://cfry5fpawmlxc" path="res://Assets/Sprites/Boss G/Boss G PunchRight/Boss G_PunchRight4.png" id="4_477jk"]
+[ext_resource type="Texture2D" uid="uid://3d3rwveyeu7g" path="res://Assets/Sprites/Boss G/Boss G PunchRight/Boss G_PunchRight5.png" id="5_magso"]
+[ext_resource type="Texture2D" uid="uid://dqi2x5xobtkwe" path="res://Assets/Sprites/Boss G/Boss G PunchRight/Boss G_PunchRight6.png" id="6_cvapi"]
+[ext_resource type="Texture2D" uid="uid://dgeqlq3uvix1w" path="res://Assets/Sprites/Boss G/Boss G PunchRight/Boss G_PunchRight7.png" id="7_8sd86"]
+[ext_resource type="Texture2D" uid="uid://c66is7gpua2p2" path="res://Assets/Sprites/Boss G/Boss G PunchRight/Boss G_PunchRight8.png" id="8_updpn"]
 
 [resource]
 animations = [{

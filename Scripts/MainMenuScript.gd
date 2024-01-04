@@ -41,13 +41,7 @@ func _on_twitter_button_down():
 func _on_level_button_down(level: int):
 	$ButtonSFX.play()
 	
-	match level:
-		0:
-			get_tree().root.get_node("SceneManager")._on_transition_screen_screen_transitioned()
-		1:
-			get_tree().root.get_node("SceneManager").Start_P_Presentation()
-		"etc":
-			get_tree().root.get_node("SceneManager").startGame()
+	get_tree().root.get_node("SceneManager").startGame(level)
 	pass # Replace with function body.
 
 func _on_credits_button_down():
