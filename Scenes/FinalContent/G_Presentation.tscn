@@ -122,5 +122,7 @@ horizontal_alignment = 1
 wait_time = 3.0
 autostart = true
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="animation_finished" from="Enemy/AnimatedSprite2D" to="." method="_on_Enemy_animation_finished"]
 [connection signal="animation_finished" from="Player/AnimatedSprite2D" to="." method="_on_Player_animation_finished"]

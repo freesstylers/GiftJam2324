@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dv31ttuyw5rnf"]
+[gd_scene load_steps=15 format=3 uid="uid://dv31ttuyw5rnf"]
 
 [ext_resource type="Theme" uid="uid://ugxbtljmj80y" path="res://Assets/MainMenuTheme.tres" id="1_h5tew"]
 [ext_resource type="Script" path="res://Scripts/MainMenuScript.gd" id="1_s2qbx"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bek7ck106kskt" path="res://Assets/MainMenu/DefendTutorial.png" id="8_eefuj"]
 [ext_resource type="Texture2D" uid="uid://cccncpw8tfmv0" path="res://Assets/Sprites/Notas/Arriba.png" id="9_d1qt2"]
 [ext_resource type="Texture2D" uid="uid://0kgvykuyl2c0" path="res://Assets/Sprites/Notas/Derecha.png" id="10_fpce0"]
+[ext_resource type="AudioStream" uid="uid://cnf1qoy0b4dir" path="res://Audio/SFX/button.ogg" id="14_spj8v"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -273,6 +274,9 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_xpdlg")
 theme_override_font_sizes/font_size = 32
 text = "Cerrar"
+
+[node name="ButtonSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_spj8v")
 
 [connection signal="button_down" from="FreeStylers" to="." method="_on_free_stylers_button_down"]
 [connection signal="button_down" from="GiftJam" to="." method="_on_gift_jam_button_down"]
