@@ -66,6 +66,6 @@ func note_exit_ok_area(note):
 	if playerCanHitNotes and note.is_in_group("note"):
 		if NoteInsideHitter and not NoteInsideHitter.GetNoteWasHit():
 			var result : GiftJamGlobals.NoteHitStatus = NoteInsideHitter.NoteHit(GiftJamGlobals.NoteType.UP,GiftJamGlobals.NoteHitStatus.MISS) #Dir does not matter, its a miss
-			GiftJamGlobals.Note_Hit_Result.emit(result,GiftJamGlobals.NoteType.UP)
+			GiftJamGlobals.Note_Hit_Result.emit(result,1 + (randi()%4))
 		NoteInsideHitter = null
 		OK = false
