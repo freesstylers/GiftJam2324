@@ -1,8 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://e62axyee3hov"]
+[gd_scene load_steps=15 format=3 uid="uid://djj3nwqa6apxj"]
 
 [ext_resource type="Script" path="res://Scripts/BattleManager.gd" id="1_vlfa5"]
 [ext_resource type="PackedScene" uid="uid://b7hn7pqk7rh8t" path="res://Scenes/Prefabs/UIContainer.tscn" id="2_j3d8x"]
-[ext_resource type="AudioStream" uid="uid://shblwmanckqc" path="res://Audio/Songs/MetronomeTick.mp3" id="3_8alsq"]
+[ext_resource type="AudioStream" uid="uid://4i4ksx34jgxe" path="res://Audio/Songs/MetronomeTick.mp3" id="3_8alsq"]
 [ext_resource type="SpriteFrames" uid="uid://b4o4idok2krco" path="res://Assets/Sprites/Background/BackgroundAnimation.tres" id="4_bj5s1"]
 [ext_resource type="PackedScene" uid="uid://muu12hug5ib1" path="res://Scenes/Boss G.tscn" id="5_og3qu"]
 [ext_resource type="SpriteFrames" uid="uid://erq47lvwt0bj" path="res://Assets/Sprites/Seat el Leon/Animations/C_Idle.tres" id="7_feh6u"]
@@ -12,8 +12,8 @@
 [ext_resource type="SpriteFrames" uid="uid://cbesddfngui5f" path="res://Assets/Sprites/Seat el Leon/Animations/C_PunchUp.tres" id="11_8ypjb"]
 [ext_resource type="PackedScene" uid="uid://cbi05qfsjhskp" path="res://Scenes/ragnahilda.tscn" id="11_bwbvl"]
 [ext_resource type="SpriteFrames" uid="uid://ctr2lotnfhvkj" path="res://Assets/Sprites/Protagonista/Animations/Ragnahilda_Idle.tres" id="12_ija64"]
-[ext_resource type="AudioStream" uid="uid://cmlirys56uvqf" path="res://Audio/SFX/bell.ogg" id="13_bvbbl"]
-[ext_resource type="AudioStream" uid="uid://dqkbd8tu0xxoe" path="res://Audio/Songs/boss3-160bpm.wav" id="14_y6dcj"]
+[ext_resource type="AudioStream" uid="uid://chgo5x4jtbugv" path="res://Audio/SFX/bell.ogg" id="13_bvbbl"]
+[ext_resource type="AudioStream" uid="uid://brybo0p4vhia5" path="res://Audio/Songs/boss3-160bpm.wav" id="14_y6dcj"]
 
 [node name="BaseBattle" type="Node2D"]
 script = ExtResource("1_vlfa5")
@@ -38,8 +38,8 @@ autoplay = "default"
 frame_progress = 0.689517
 
 [node name="PPP" parent="." instance=ExtResource("5_og3qu")]
-position = Vector2(631, 258)
-scale = Vector2(2, 2)
+position = Vector2(631, 366)
+scale = Vector2(2.5, 2.5)
 sprite_frames = ExtResource("7_feh6u")
 IdleAnim = ExtResource("7_feh6u")
 PunchLeftAnim = ExtResource("8_l7ke5")
@@ -49,7 +49,7 @@ PunchUpAnim = ExtResource("11_8ypjb")
 
 [node name="Ragnahilda" parent="." instance=ExtResource("11_bwbvl")]
 position = Vector2(631, 488)
-scale = Vector2(3, 3)
+scale = Vector2(2.5, 2.5)
 sprite_frames = ExtResource("12_ija64")
 frame = 0
 frame_progress = 0.332353

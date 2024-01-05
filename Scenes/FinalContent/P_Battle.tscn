@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Scripts/BattleManager.gd" id="1_swyby"]
 [ext_resource type="PackedScene" uid="uid://b7hn7pqk7rh8t" path="res://Scenes/Prefabs/UIContainer.tscn" id="2_jdv7m"]
-[ext_resource type="AudioStream" uid="uid://d1upwl0ha1par" path="res://Audio/Songs/boss2-130bpm.wav" id="3_k7glf"]
-[ext_resource type="AudioStream" uid="uid://b8f55lu5knkao" path="res://Audio/Songs/MetronomeTick.mp3" id="4_8dgeu"]
+[ext_resource type="AudioStream" uid="uid://dv2akqbu41fn0" path="res://Audio/Songs/boss2-130bpm.wav" id="3_k7glf"]
+[ext_resource type="AudioStream" uid="uid://4i4ksx34jgxe" path="res://Audio/Songs/MetronomeTick.mp3" id="4_8dgeu"]
 [ext_resource type="SpriteFrames" uid="uid://b4o4idok2krco" path="res://Assets/Sprites/Background/BackgroundAnimation.tres" id="5_m0pb6"]
 [ext_resource type="PackedScene" uid="uid://muu12hug5ib1" path="res://Scenes/Boss G.tscn" id="6_mcq38"]
 [ext_resource type="PackedScene" uid="uid://cbi05qfsjhskp" path="res://Scenes/ragnahilda.tscn" id="7_hr67b"]
@@ -13,7 +13,7 @@
 [ext_resource type="SpriteFrames" uid="uid://b6e6jopefarql" path="res://Assets/Sprites/P.P Punchman/Anims/PPPunchmanRight.tres" id="9_5lnpr"]
 [ext_resource type="SpriteFrames" uid="uid://cnhln3ofqvnpn" path="res://Assets/Sprites/P.P Punchman/Anims/PPPunchmanDown.tres" id="10_um5c3"]
 [ext_resource type="SpriteFrames" uid="uid://byd1fbkmc0axc" path="res://Assets/Sprites/P.P Punchman/Anims/PPPunchmanUp.tres" id="11_ypx2b"]
-[ext_resource type="AudioStream" uid="uid://mywoqj5oqnl5" path="res://Audio/SFX/bell.ogg" id="14_4d5eg"]
+[ext_resource type="AudioStream" uid="uid://chgo5x4jtbugv" path="res://Audio/SFX/bell.ogg" id="14_4d5eg"]
 
 [node name="BaseBattle" type="Node2D"]
 script = ExtResource("1_swyby")
@@ -37,8 +37,8 @@ autoplay = "default"
 frame_progress = 0.689517
 
 [node name="PPP" parent="." instance=ExtResource("6_mcq38")]
-position = Vector2(631, 258)
-scale = Vector2(2, 2)
+position = Vector2(631, 366)
+scale = Vector2(2.5, 2.5)
 sprite_frames = ExtResource("7_qnsgp")
 IdleAnim = ExtResource("7_qnsgp")
 PunchLeftAnim = ExtResource("8_oe6kr")
@@ -48,7 +48,7 @@ PunchUpAnim = ExtResource("11_ypx2b")
 
 [node name="Ragnahilda" parent="." instance=ExtResource("7_hr67b")]
 position = Vector2(631, 488)
-scale = Vector2(3, 3)
+scale = Vector2(2.5, 2.5)
 sprite_frames = ExtResource("8_d2cwv")
 frame = 0
 frame_progress = 0.332353

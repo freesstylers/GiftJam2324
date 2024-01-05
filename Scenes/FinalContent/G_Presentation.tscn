@@ -1,13 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://c8o8fs35bruht"]
+[gd_scene load_steps=12 format=3 uid="uid://c8o8fs35bruht"]
 
 [ext_resource type="Script" path="res://Scripts/Presentation/Presentation.gd" id="1_87mqb"]
 [ext_resource type="SpriteFrames" uid="uid://b4o4idok2krco" path="res://Assets/Sprites/Background/BackgroundAnimation.tres" id="2_p3jlh"]
 [ext_resource type="SpriteFrames" uid="uid://v0r50qlk686x" path="res://Assets/Sprites/Boss G/Animations/Idle.tres" id="3_rp5q3"]
 [ext_resource type="SpriteFrames" uid="uid://ctr2lotnfhvkj" path="res://Assets/Sprites/Protagonista/Animations/Ragnahilda_Idle.tres" id="4_cnkgl"]
 [ext_resource type="Shader" path="res://Scenes/Testing/Shaders/Wave.gdshader" id="5_n06uc"]
+[ext_resource type="Texture2D" uid="uid://b3fakgp50bm83" path="res://Assets/Sprites/Background/Barra1.png" id="5_vuojl"]
 [ext_resource type="Shader" path="res://Scenes/Testing/Shaders/ColorWave.gdshader" id="6_a1uag"]
-[ext_resource type="FontFile" uid="uid://c2x1ua4cao7is" path="res://Assets/Fonts/Larceny.ttf" id="7_qa6vi"]
-[ext_resource type="AudioStream" uid="uid://pwlu2ro1jlm6" path="res://Audio/SFX/RGvsWA.ogg" id="8_4u6k2"]
+[ext_resource type="FontFile" uid="uid://b7tnent1gr2u3" path="res://Assets/Fonts/Larceny.ttf" id="7_qa6vi"]
+[ext_resource type="AudioStream" uid="uid://c6qqvs2ui0wsl" path="res://Audio/SFX/RGvsWA.ogg" id="8_4u6k2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_recrc"]
 shader = ExtResource("5_n06uc")
@@ -56,7 +57,7 @@ grow_vertical = 2
 pivot_offset = Vector2(0.5, 0)
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Enemy"]
-position = Vector2(631, 366)
+position = Vector2(631, 330)
 scale = Vector2(2.5, 2.5)
 sprite_frames = ExtResource("3_rp5q3")
 
@@ -73,6 +74,11 @@ pivot_offset = Vector2(-0.5, 188)
 position = Vector2(631, 839)
 scale = Vector2(2.5, 2.5)
 sprite_frames = ExtResource("4_cnkgl")
+
+[node name="Barra" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+scale = Vector2(2.666, 2.666)
+texture = ExtResource("5_vuojl")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 material = SubResource("ShaderMaterial_recrc")

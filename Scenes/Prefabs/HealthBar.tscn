@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpo2batpi8tuw"]
+[gd_scene load_steps=7 format=3 uid="uid://dpo2batpi8tuw"]
 
 [ext_resource type="Script" path="res://Scripts/HealthBarController.gd" id="1_qea7d"]
+[ext_resource type="Texture2D" uid="uid://cxulao45fr0u2" path="res://Assets/Sprites/LifeBar.png" id="2_fog6d"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8b314"]
 
@@ -50,5 +51,11 @@ show_percentage = false
 [node name="GreyLifeTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="LifeBar" type="Sprite2D" parent="."]
+z_index = -3
+position = Vector2(120.5, 5)
+scale = Vector2(1.20673, 1)
+texture = ExtResource("2_fog6d")
 
 [connection signal="timeout" from="GreyLifeTimer" to="." method="on_grey_life_timer_ended"]
