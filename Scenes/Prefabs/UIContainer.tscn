@@ -72,6 +72,7 @@ offset_left = 7.0
 offset_right = 144.0
 
 [node name="BPM" parent="." instance=ExtResource("4_j648b")]
+visible = false
 position = Vector2(1196.83, 643)
 
 [editable path="NoteRails"]

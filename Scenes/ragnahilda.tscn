@@ -2,10 +2,10 @@
 
 [ext_resource type="SpriteFrames" uid="uid://blndimigli34l" path="res://Assets/Sprites/Protagonista/Animations/Ragnahilda_PunchDown.tres" id="1_xovg1"]
 [ext_resource type="Script" path="res://Scripts/Ragnahilda.gd" id="2_d10bj"]
-[ext_resource type="AudioStream" uid="uid://du6grs7hw67xi" path="res://Audio/SFX/hit1.ogg" id="3_n2rto"]
-[ext_resource type="AudioStream" uid="uid://duhkmbn1atj70" path="res://Audio/SFX/hit2.ogg" id="4_122t0"]
-[ext_resource type="AudioStream" uid="uid://blhkjpf3nnhhp" path="res://Audio/SFX/hit3.ogg" id="5_3kutv"]
-[ext_resource type="AudioStream" uid="uid://b742jybu8krxf" path="res://Audio/SFX/fail.ogg" id="6_nn2gr"]
+[ext_resource type="AudioStream" uid="uid://bclws66fido7c" path="res://Audio/SFX/hit1.ogg" id="3_n2rto"]
+[ext_resource type="AudioStream" uid="uid://d0qajhy5f4x1p" path="res://Audio/SFX/hit2.ogg" id="4_122t0"]
+[ext_resource type="AudioStream" uid="uid://bb8t3rrgep47o" path="res://Audio/SFX/hit3.ogg" id="5_3kutv"]
+[ext_resource type="AudioStream" uid="uid://c5os0okkgar2q" path="res://Audio/SFX/fail.ogg" id="6_nn2gr"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7c30t"]
 streams_count = 3

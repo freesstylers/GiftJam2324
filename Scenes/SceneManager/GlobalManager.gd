@@ -54,9 +54,9 @@ func _on_transition_screen_screen_transitioned():
 		0:
 			get_tree().root.get_node("SceneManager").Start_G_Presentation()
 		1:
-			get_tree().root.get_node("SceneManager").Start_P_Presentation()
-		2:
 			get_tree().root.get_node("SceneManager").Start_C_Presentation()
+		2:
+			get_tree().root.get_node("SceneManager").Start_P_Presentation()
 	currentLevel = -1
 	pass # Replace with function body.
 

@@ -2,18 +2,17 @@
 
 [ext_resource type="Script" path="res://Scripts/BattleManager.gd" id="1_opvlp"]
 [ext_resource type="PackedScene" uid="uid://b7hn7pqk7rh8t" path="res://Scenes/Prefabs/UIContainer.tscn" id="2_825xe"]
-[ext_resource type="AudioStream" uid="uid://c6wam6fra1wyt" path="res://Audio/Songs/boss1-130bpm.wav" id="3_im766"]
-[ext_resource type="AudioStream" uid="uid://shblwmanckqc" path="res://Audio/Songs/MetronomeTick.mp3" id="4_vc420"]
+[ext_resource type="AudioStream" uid="uid://ceoe6muf53gvi" path="res://Audio/Songs/boss1-130bpm.wav" id="3_im766"]
+[ext_resource type="AudioStream" uid="uid://dxo2wcm7hnkic" path="res://Audio/Songs/MetronomeTick.mp3" id="4_vc420"]
 [ext_resource type="SpriteFrames" uid="uid://b4o4idok2krco" path="res://Assets/Sprites/Background/BackgroundAnimation.tres" id="5_2apnm"]
 [ext_resource type="PackedScene" uid="uid://muu12hug5ib1" path="res://Scenes/Boss G.tscn" id="6_ep87c"]
 [ext_resource type="PackedScene" uid="uid://cbi05qfsjhskp" path="res://Scenes/ragnahilda.tscn" id="7_rp4wp"]
 [ext_resource type="SpriteFrames" uid="uid://ctr2lotnfhvkj" path="res://Assets/Sprites/Protagonista/Animations/Ragnahilda_Idle.tres" id="8_ru886"]
-[ext_resource type="AudioStream" uid="uid://cmlirys56uvqf" path="res://Audio/SFX/bell.ogg" id="9_n5w6w"]
-[ext_resource type="Texture2D" uid="uid://c4j06axdxlnjy" path="res://Assets/Sprites/Background/Barra1.png" id="10_3w3l7"]
+[ext_resource type="AudioStream" uid="uid://bvodyaflaekpu" path="res://Audio/SFX/bell.ogg" id="9_n5w6w"]
+[ext_resource type="Texture2D" uid="uid://b776gwct38ih2" path="res://Assets/Sprites/Background/Barra1.png" id="10_3w3l7"]
 
 [node name="BaseBattle" type="Node2D"]
 script = ExtResource("1_opvlp")
-PlayMetronome = true
 Enemy = 1
 
 [node name="UI" type="CanvasLayer" parent="."]

@@ -7,7 +7,7 @@ var attackingMode : bool
 @export var PunchDownAnim : SpriteFrames = null
 @export var PunchUpAnim : SpriteFrames = null
 
-var battleType : GiftJamGlobals.Battle = GiftJamGlobals.Battle.P
+@export var battleType : GiftJamGlobals.Battle = GiftJamGlobals.Battle.G
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -65,12 +65,19 @@ func GetNoteHitDamageReceived(hitResult: GiftJamGlobals.NoteHitStatus) -> int:
 			return 3
 		elif hitResult == GiftJamGlobals.NoteHitStatus.OK:
 			return 2
-	if battleType == GiftJamGlobals.Battle.P:
+	if battleType == GiftJamGlobals.Battle.C:
 		if hitResult == GiftJamGlobals.NoteHitStatus.PERFECT:
 			return 7
 		elif hitResult == GiftJamGlobals.NoteHitStatus.GREAT:
 			return 6
 		elif hitResult == GiftJamGlobals.NoteHitStatus.OK:
 			return 5
+	if battleType == GiftJamGlobals.Battle.P:
+		if hitResult == GiftJamGlobals.NoteHitStatus.PERFECT:
+			return 3
+		elif hitResult == GiftJamGlobals.NoteHitStatus.GREAT:
+			return 2
+		elif hitResult == GiftJamGlobals.NoteHitStatus.OK:
+			return 2
 	return 0
 	

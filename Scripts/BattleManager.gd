@@ -67,14 +67,19 @@ func GetNumTimesToAttack():
 	if Enemy == GiftJamGlobals.Battle.G:
 		return 1
 	elif Enemy == GiftJamGlobals.Battle.P:
-		#Finished attacking? now Pedro Pablo has 2 turns
+		#Finished attacking? now Cleon has 2 turns
 		if Attacking:
 			return 2
 		#Players turn to attack? he has only 1 turn
 		else:
 			return 1
 	else:
-		return 1
+		#Finished attacking? now Pedro Pablo has 2 turns
+		if Attacking:
+			return 2
+		#Players turn to attack? he has only 1 turn
+		else:
+			return 1
 
 func BPM_Notification():
 	if PlayMetronome:
