@@ -106,14 +106,16 @@ func End_Battle():
 	get_tree().root.get_node("SceneManager/ButtonSFX").play()
 	WinMenu.visible = false
 	LoseMenu.visible = false
-	$CurrentScene.get_child(0).queue_free()
+	if $CurrentScene.get_child_count() > 0:
+		$CurrentScene.get_child(0).queue_free()
 	$CurrentScene.add_child(menuScene.instantiate())
+	currentLevel = 0
 	
 func WinBattle():
 	$CurrentScene.get_child(0).queue_free()
-	NextLevelButton.visible = currentLevel < MaxLevels
 	WinText.text = WinLines[currentLevel]
 	currentLevel += 1
+	NextLevelButton.visible = currentLevel < MaxLevels
 	WinMenu.visible = true
 
 func LoseBattle():

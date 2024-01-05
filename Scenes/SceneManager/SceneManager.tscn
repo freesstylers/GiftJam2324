@@ -41,6 +41,7 @@ metadata/_edit_use_anchors_ = true
 [node name="BattleEndScreen" type="Node2D" parent="."]
 
 [node name="WinPanel" type="Panel" parent="BattleEndScreen"]
+visible = false
 offset_left = 311.0
 offset_top = 183.0
 offset_right = 975.0
