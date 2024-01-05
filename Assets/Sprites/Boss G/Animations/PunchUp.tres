@@ -1,13 +1,13 @@
 [gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://bdiw6fnotim1w"]
 
-[ext_resource type="Texture2D" uid="uid://d1rrcl4hfn35t" path="res://Assets/Sprites/Boss G/GuillePunchUp/GuillePunchUp1.png" id="1_10ynr"]
-[ext_resource type="Texture2D" uid="uid://do3ktn6msccy6" path="res://Assets/Sprites/Boss G/GuillePunchUp/GuillePunchUp2.png" id="2_nm8m5"]
-[ext_resource type="Texture2D" uid="uid://dafx70xpu863x" path="res://Assets/Sprites/Boss G/GuillePunchUp/GuillePunchUp3.png" id="3_pg1l5"]
-[ext_resource type="Texture2D" uid="uid://c2jh6x2hqngfa" path="res://Assets/Sprites/Boss G/GuillePunchUp/GuillePunchUp4.png" id="4_3tbu2"]
-[ext_resource type="Texture2D" uid="uid://mxatojxiw5wl" path="res://Assets/Sprites/Boss G/GuillePunchUp/GuillePunchUp5.png" id="5_l100g"]
-[ext_resource type="Texture2D" uid="uid://b4gdyjqawgmdc" path="res://Assets/Sprites/Boss G/GuillePunchUp/GuillePunchUp6.png" id="6_j6orn"]
-[ext_resource type="Texture2D" uid="uid://bbx6topamxms0" path="res://Assets/Sprites/Boss G/GuillePunchUp/GuillePunchUp7.png" id="7_05100"]
-[ext_resource type="Texture2D" uid="uid://y8ddcu3qmwwi" path="res://Assets/Sprites/Boss G/GuillePunchUp/GuillePunchUp8.png" id="8_okjqr"]
+[ext_resource type="Texture2D" uid="uid://wf71ty14dyss" path="res://Assets/Sprites/Boss G/GuillePunchUp/GuillePunchUp1.png" id="1_10ynr"]
+[ext_resource type="Texture2D" uid="uid://bq0mits8mwwbi" path="res://Assets/Sprites/Boss G/GuillePunchUp/GuillePunchUp2.png" id="2_nm8m5"]
+[ext_resource type="Texture2D" uid="uid://juiex6tnyqno" path="res://Assets/Sprites/Boss G/GuillePunchUp/GuillePunchUp3.png" id="3_pg1l5"]
+[ext_resource type="Texture2D" uid="uid://bbfw7qktuhqu3" path="res://Assets/Sprites/Boss G/GuillePunchUp/GuillePunchUp4.png" id="4_3tbu2"]
+[ext_resource type="Texture2D" uid="uid://jdyhg4dugxik" path="res://Assets/Sprites/Boss G/GuillePunchUp/GuillePunchUp5.png" id="5_l100g"]
+[ext_resource type="Texture2D" uid="uid://c1kygfk4mn1sf" path="res://Assets/Sprites/Boss G/GuillePunchUp/GuillePunchUp6.png" id="6_j6orn"]
+[ext_resource type="Texture2D" uid="uid://cb3ktsx1kaqcv" path="res://Assets/Sprites/Boss G/GuillePunchUp/GuillePunchUp7.png" id="7_05100"]
+[ext_resource type="Texture2D" uid="uid://db0luoluvk6l3" path="res://Assets/Sprites/Boss G/GuillePunchUp/GuillePunchUp8.png" id="8_okjqr"]
 
 [resource]
 animations = [{

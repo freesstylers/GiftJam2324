@@ -1,13 +1,13 @@
 [gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://caexg5lslcag6"]
 
-[ext_resource type="Texture2D" uid="uid://dbufq4fdtharg" path="res://Assets/Sprites/Protagonista/PunchUp/PunchUp1.png" id="1_t8g4g"]
-[ext_resource type="Texture2D" uid="uid://bowtpo1f6ye7h" path="res://Assets/Sprites/Protagonista/PunchUp/PunchUp2.png" id="2_khsrm"]
-[ext_resource type="Texture2D" uid="uid://cu3qsqtodjlxs" path="res://Assets/Sprites/Protagonista/PunchUp/PunchUp3.png" id="3_73es5"]
-[ext_resource type="Texture2D" uid="uid://blocblwb5m6sy" path="res://Assets/Sprites/Protagonista/PunchUp/PunchUp4.png" id="4_nftmx"]
-[ext_resource type="Texture2D" uid="uid://tj85iy3bxr80" path="res://Assets/Sprites/Protagonista/PunchUp/PunchUp5.png" id="5_6isae"]
-[ext_resource type="Texture2D" uid="uid://cblk7lacn707e" path="res://Assets/Sprites/Protagonista/PunchUp/PunchUp6.png" id="6_0piwt"]
-[ext_resource type="Texture2D" uid="uid://btammdwhrv8sb" path="res://Assets/Sprites/Protagonista/PunchUp/PunchUp7.png" id="7_srnj1"]
-[ext_resource type="Texture2D" uid="uid://cjpvwt0g5ybom" path="res://Assets/Sprites/Protagonista/PunchUp/PunchUp8.png" id="8_056nt"]
+[ext_resource type="Texture2D" uid="uid://b6ilnx36dhhoq" path="res://Assets/Sprites/Protagonista/PunchUp/PunchUp1.png" id="1_t8g4g"]
+[ext_resource type="Texture2D" uid="uid://dq347pep13xk0" path="res://Assets/Sprites/Protagonista/PunchUp/PunchUp2.png" id="2_khsrm"]
+[ext_resource type="Texture2D" uid="uid://hm48tminxaws" path="res://Assets/Sprites/Protagonista/PunchUp/PunchUp3.png" id="3_73es5"]
+[ext_resource type="Texture2D" uid="uid://win7owjagwxx" path="res://Assets/Sprites/Protagonista/PunchUp/PunchUp4.png" id="4_nftmx"]
+[ext_resource type="Texture2D" uid="uid://cv7dxkt1k3p31" path="res://Assets/Sprites/Protagonista/PunchUp/PunchUp5.png" id="5_6isae"]
+[ext_resource type="Texture2D" uid="uid://hk7ehsx6dfjx" path="res://Assets/Sprites/Protagonista/PunchUp/PunchUp6.png" id="6_0piwt"]
+[ext_resource type="Texture2D" uid="uid://lq13d8m3hl61" path="res://Assets/Sprites/Protagonista/PunchUp/PunchUp7.png" id="7_srnj1"]
+[ext_resource type="Texture2D" uid="uid://db8kix5t3s4jd" path="res://Assets/Sprites/Protagonista/PunchUp/PunchUp8.png" id="8_056nt"]
 
 [resource]
 animations = [{

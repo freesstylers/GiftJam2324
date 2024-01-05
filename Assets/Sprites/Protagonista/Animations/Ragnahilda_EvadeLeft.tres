@@ -1,7 +1,7 @@
 [gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://ih1v8mfmvrux"]
 
-[ext_resource type="Texture2D" uid="uid://doyf3th0mgvjy" path="res://Assets/Sprites/Protagonista/PunchLeft/PunchLeft2.png" id="3_y3wt2"]
-[ext_resource type="Texture2D" uid="uid://rrscfl3dk84a" path="res://Assets/Sprites/Protagonista/PunchLeft/PunchLeft6.png" id="4_iwbb6"]
+[ext_resource type="Texture2D" uid="uid://dgku3ks1qlqjl" path="res://Assets/Sprites/Protagonista/PunchLeft/PunchLeft2.png" id="3_y3wt2"]
+[ext_resource type="Texture2D" uid="uid://cpxyyywa2bdfx" path="res://Assets/Sprites/Protagonista/PunchLeft/PunchLeft6.png" id="4_iwbb6"]
 
 [resource]
 animations = [{
