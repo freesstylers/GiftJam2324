@@ -1,40 +1,40 @@
 [gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://caexg5lslcag6"]
 
-[ext_resource type="Texture2D" uid="uid://cciuukhxiwu58" path="res://Assets/Sprites/Protagonista/PunchUp1.png" id="1_8hsl6"]
-[ext_resource type="Texture2D" uid="uid://b1cku4cu4lqij" path="res://Assets/Sprites/Protagonista/PunchUp2.png" id="2_twc4v"]
-[ext_resource type="Texture2D" uid="uid://biixtrp8atelm" path="res://Assets/Sprites/Protagonista/PunchUp3.png" id="3_qsgtw"]
-[ext_resource type="Texture2D" uid="uid://ioj64bglm8f3" path="res://Assets/Sprites/Protagonista/PunchUp4.png" id="4_rp6jl"]
-[ext_resource type="Texture2D" uid="uid://ctacgxt4m1ter" path="res://Assets/Sprites/Protagonista/PunchUp5.png" id="5_ahopa"]
-[ext_resource type="Texture2D" uid="uid://b6l2mwdrv5imv" path="res://Assets/Sprites/Protagonista/PunchUp6.png" id="6_j2uym"]
-[ext_resource type="Texture2D" uid="uid://d35ekuumto274" path="res://Assets/Sprites/Protagonista/PunchUp7.png" id="7_a2rpt"]
-[ext_resource type="Texture2D" uid="uid://8wr0ih1iw6f1" path="res://Assets/Sprites/Protagonista/PunchUp8.png" id="8_1eeq4"]
+[ext_resource type="Texture2D" uid="uid://b6ilnx36dhhoq" path="res://Assets/Sprites/Protagonista/PunchUp/PunchUp1.png" id="1_t8g4g"]
+[ext_resource type="Texture2D" uid="uid://dq347pep13xk0" path="res://Assets/Sprites/Protagonista/PunchUp/PunchUp2.png" id="2_khsrm"]
+[ext_resource type="Texture2D" uid="uid://hm48tminxaws" path="res://Assets/Sprites/Protagonista/PunchUp/PunchUp3.png" id="3_73es5"]
+[ext_resource type="Texture2D" uid="uid://win7owjagwxx" path="res://Assets/Sprites/Protagonista/PunchUp/PunchUp4.png" id="4_nftmx"]
+[ext_resource type="Texture2D" uid="uid://cv7dxkt1k3p31" path="res://Assets/Sprites/Protagonista/PunchUp/PunchUp5.png" id="5_6isae"]
+[ext_resource type="Texture2D" uid="uid://hk7ehsx6dfjx" path="res://Assets/Sprites/Protagonista/PunchUp/PunchUp6.png" id="6_0piwt"]
+[ext_resource type="Texture2D" uid="uid://lq13d8m3hl61" path="res://Assets/Sprites/Protagonista/PunchUp/PunchUp7.png" id="7_srnj1"]
+[ext_resource type="Texture2D" uid="uid://db8kix5t3s4jd" path="res://Assets/Sprites/Protagonista/PunchUp/PunchUp8.png" id="8_056nt"]
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 0.5,
-"texture": ExtResource("1_8hsl6")
+"texture": ExtResource("1_t8g4g")
 }, {
 "duration": 0.5,
-"texture": ExtResource("2_twc4v")
+"texture": ExtResource("2_khsrm")
 }, {
 "duration": 0.4,
-"texture": ExtResource("3_qsgtw")
+"texture": ExtResource("3_73es5")
 }, {
 "duration": 0.4,
-"texture": ExtResource("4_rp6jl")
+"texture": ExtResource("4_nftmx")
 }, {
 "duration": 0.2,
-"texture": ExtResource("5_ahopa")
+"texture": ExtResource("5_6isae")
 }, {
 "duration": 0.2,
-"texture": ExtResource("6_j2uym")
+"texture": ExtResource("6_0piwt")
 }, {
 "duration": 0.7,
-"texture": ExtResource("7_a2rpt")
+"texture": ExtResource("7_srnj1")
 }, {
 "duration": 0.7,
-"texture": ExtResource("8_1eeq4")
+"texture": ExtResource("8_056nt")
 }],
 "loop": false,
 "name": &"default",
