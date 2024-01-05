@@ -6,7 +6,10 @@ class_name BattleManager
 @export var NumAttacksPerAttack : int = 4
 @export var Enemy : GiftJamGlobals.Battle
 var UIManager : BattleUIManager = null
+
+var numTimesToAttack : int = 1
 var Attacking : bool = false
+
 var playerHealth : float = 100
 var enemyHealth : float = 100
 var noteRail : NoteRails = null
@@ -53,9 +56,26 @@ func SendNotesToRail():
 func note_hit_result(result : GiftJamGlobals.NoteHitStatus, noteType: GiftJamGlobals.NoteType):
 	notesInRail = notesInRail -1
 	if notesInRail <= 0:
-		ChangeAttackMode(not Attacking)
+		numTimesToAttack = numTimesToAttack -1
+		if numTimesToAttack <= 0:
+			numTimesToAttack = GetNumTimesToAttack()
+			ChangeAttackMode(not Attacking)
 		SendNotesToRail()
-		
+
+func GetNumTimesToAttack():
+	#Guille has always only one turn
+	if Enemy == GiftJamGlobals.Battle.G:
+		return 1
+	elif Enemy == GiftJamGlobals.Battle.P:
+		#Finished attacking? now Pedro Pablo has 2 turns
+		if Attacking:
+			return 2
+		#Players turn to attack? he has only 1 turn
+		else:
+			return 1
+	else:
+		return 1
+
 func BPM_Notification():
 	if PlayMetronome:
 		metronomeSound.play()

@@ -7,6 +7,8 @@ var attackingMode : bool
 @export var PunchDownAnim : SpriteFrames = null
 @export var PunchUpAnim : SpriteFrames = null
 
+var battleType : GiftJamGlobals.Battle = GiftJamGlobals.Battle.P
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GiftJamGlobals.connect("Note_Hit_Result", on_note_hit_result)
@@ -30,13 +32,13 @@ func on_note_hit_result(hitResult:GiftJamGlobals.NoteHitStatus, noteType : GiftJ
 			localTween.tween_property(self, "modulate", Color.WHITE, 0.1)
 			
 			if hitResult == GiftJamGlobals.NoteHitStatus.PERFECT:
-				GiftJamGlobals.LifeChanged.emit(GiftJamGlobals.characterHit.Enemy, 5)
+				GiftJamGlobals.LifeChanged.emit(GiftJamGlobals.characterHit.Enemy, GetNoteHitDamageReceived(GiftJamGlobals.NoteHitStatus.PERFECT))
 				pass
 			elif hitResult == GiftJamGlobals.NoteHitStatus.GREAT:
-				GiftJamGlobals.LifeChanged.emit(GiftJamGlobals.characterHit.Enemy, 4)
+				GiftJamGlobals.LifeChanged.emit(GiftJamGlobals.characterHit.Enemy, GetNoteHitDamageReceived(GiftJamGlobals.NoteHitStatus.GREAT))
 				pass
 			elif hitResult == GiftJamGlobals.NoteHitStatus.OK:
-				GiftJamGlobals.LifeChanged.emit(GiftJamGlobals.characterHit.Enemy, 3)
+				GiftJamGlobals.LifeChanged.emit(GiftJamGlobals.characterHit.Enemy, GetNoteHitDamageReceived(GiftJamGlobals.NoteHitStatus.OK))
 				pass
 			else:
 				#Tween guapo
@@ -54,3 +56,21 @@ func on_note_hit_result(hitResult:GiftJamGlobals.NoteHitStatus, noteType : GiftJ
 		elif noteType == GiftJamGlobals.NoteType.DOWN:
 			self.set_sprite_frames(PunchDownAnim)
 		self.play()
+		
+func GetNoteHitDamageReceived(hitResult: GiftJamGlobals.NoteHitStatus) -> int:
+	if battleType == GiftJamGlobals.Battle.G:
+		if hitResult == GiftJamGlobals.NoteHitStatus.PERFECT:
+			return 4
+		elif hitResult == GiftJamGlobals.NoteHitStatus.GREAT:
+			return 3
+		elif hitResult == GiftJamGlobals.NoteHitStatus.OK:
+			return 2
+	if battleType == GiftJamGlobals.Battle.P:
+		if hitResult == GiftJamGlobals.NoteHitStatus.PERFECT:
+			return 7
+		elif hitResult == GiftJamGlobals.NoteHitStatus.GREAT:
+			return 6
+		elif hitResult == GiftJamGlobals.NoteHitStatus.OK:
+			return 5
+	return 0
+	
