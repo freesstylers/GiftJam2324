@@ -11,7 +11,7 @@ var playerHealth : float = 100
 var enemyHealth : float = 100
 var noteRail : NoteRails = null
 
-var battleSong : AudioStreamPlayer2D = null
+var battleSong : AudioStreamPlayer = null
 var metronomeSound : AudioStreamPlayer2D = null
 var BPM_TIMER : Timer = null
 

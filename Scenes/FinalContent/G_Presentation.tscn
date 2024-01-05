@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c8o8fs35bruht"]
+[gd_scene load_steps=11 format=3 uid="uid://c8o8fs35bruht"]
 
 [ext_resource type="Script" path="res://Scripts/Presentation/Presentation.gd" id="1_87mqb"]
 [ext_resource type="SpriteFrames" uid="uid://b4o4idok2krco" path="res://Assets/Sprites/Background/BackgroundAnimation.tres" id="2_p3jlh"]
@@ -6,7 +6,8 @@
 [ext_resource type="SpriteFrames" uid="uid://ctr2lotnfhvkj" path="res://Assets/Sprites/Protagonista/Animations/Ragnahilda_Idle.tres" id="4_cnkgl"]
 [ext_resource type="Shader" path="res://Scenes/Testing/Shaders/Wave.gdshader" id="5_n06uc"]
 [ext_resource type="Shader" path="res://Scenes/Testing/Shaders/ColorWave.gdshader" id="6_a1uag"]
-[ext_resource type="FontFile" uid="uid://c5iv3ks722hyp" path="res://Assets/Fonts/Larceny.ttf" id="7_qa6vi"]
+[ext_resource type="FontFile" uid="uid://c2x1ua4cao7is" path="res://Assets/Fonts/Larceny.ttf" id="7_qa6vi"]
+[ext_resource type="AudioStream" path="res://Audio/SFX/RGvsWA.ogg" id="8_4u6k2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_recrc"]
 shader = ExtResource("5_n06uc")
@@ -111,10 +112,11 @@ RAGNAHILDA"
 horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 5.0
 autostart = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_4u6k2")
 
 [connection signal="animation_finished" from="Enemy/AnimatedSprite2D2" to="." method="_on_Enemy_animation_finished"]
 [connection signal="animation_finished" from="Player/AnimatedSprite2D2" to="." method="_on_Player_animation_finished"]
