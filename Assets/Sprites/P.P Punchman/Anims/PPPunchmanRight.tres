@@ -1,13 +1,13 @@
 [gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://b6e6jopefarql"]
 
-[ext_resource type="Texture2D" uid="uid://c38w6g7rqo4fm" path="res://Assets/Sprites/P.P Punchman/PPPunchRight/PPPunchman_PunchRight1.png" id="1_kkijv"]
-[ext_resource type="Texture2D" uid="uid://b45bogeq1msab" path="res://Assets/Sprites/P.P Punchman/PPPunchRight/PPPunchman_PunchRight2.png" id="2_fkpts"]
-[ext_resource type="Texture2D" uid="uid://bahjmb1dya884" path="res://Assets/Sprites/P.P Punchman/PPPunchRight/PPPunchman_PunchRight3.png" id="3_ptabb"]
-[ext_resource type="Texture2D" uid="uid://cbh174e0kvygi" path="res://Assets/Sprites/P.P Punchman/PPPunchRight/PPPunchman_PunchRight4.png" id="4_eu8de"]
-[ext_resource type="Texture2D" uid="uid://0b0yag1gy3so" path="res://Assets/Sprites/P.P Punchman/PPPunchRight/PPPunchman_PunchRight5.png" id="5_gghdo"]
-[ext_resource type="Texture2D" uid="uid://cxe6yybxon3yc" path="res://Assets/Sprites/P.P Punchman/PPPunchRight/PPPunchman_PunchRight6.png" id="6_cnf1t"]
-[ext_resource type="Texture2D" uid="uid://c8dv2wmqjotwd" path="res://Assets/Sprites/P.P Punchman/PPPunchRight/PPPunchman_PunchRight7.png" id="7_cm88h"]
-[ext_resource type="Texture2D" uid="uid://01tjhbf23t6" path="res://Assets/Sprites/P.P Punchman/PPPunchRight/PPPunchman_PunchRight8.png" id="8_t0cp7"]
+[ext_resource type="Texture2D" uid="uid://dv5i3ipqx6dlg" path="res://Assets/Sprites/P.P Punchman/PPPunchRight/PPPunchman_PunchRight1.png" id="1_kkijv"]
+[ext_resource type="Texture2D" uid="uid://52ispcwyufoc" path="res://Assets/Sprites/P.P Punchman/PPPunchRight/PPPunchman_PunchRight2.png" id="2_fkpts"]
+[ext_resource type="Texture2D" uid="uid://wh8u3woxjcuw" path="res://Assets/Sprites/P.P Punchman/PPPunchRight/PPPunchman_PunchRight3.png" id="3_ptabb"]
+[ext_resource type="Texture2D" uid="uid://6ga1t8miia6r" path="res://Assets/Sprites/P.P Punchman/PPPunchRight/PPPunchman_PunchRight4.png" id="4_eu8de"]
+[ext_resource type="Texture2D" uid="uid://5o8hfuj1y6w0" path="res://Assets/Sprites/P.P Punchman/PPPunchRight/PPPunchman_PunchRight5.png" id="5_gghdo"]
+[ext_resource type="Texture2D" uid="uid://cnbmskouf15ye" path="res://Assets/Sprites/P.P Punchman/PPPunchRight/PPPunchman_PunchRight6.png" id="6_cnf1t"]
+[ext_resource type="Texture2D" uid="uid://b3ep7gnr5jfp2" path="res://Assets/Sprites/P.P Punchman/PPPunchRight/PPPunchman_PunchRight7.png" id="7_cm88h"]
+[ext_resource type="Texture2D" uid="uid://deu7mx5ck7ih4" path="res://Assets/Sprites/P.P Punchman/PPPunchRight/PPPunchman_PunchRight8.png" id="8_t0cp7"]
 
 [resource]
 animations = [{
