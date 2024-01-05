@@ -5,10 +5,10 @@
 [ext_resource type="SpriteFrames" uid="uid://brmgl2qj5rekh" path="res://Assets/Sprites/P.P Punchman/Anims/PPPunchmanIdle.tres" id="3_mgpj3"]
 [ext_resource type="SpriteFrames" uid="uid://ctr2lotnfhvkj" path="res://Assets/Sprites/Protagonista/Animations/Ragnahilda_Idle.tres" id="4_nsjqn"]
 [ext_resource type="Shader" path="res://Scenes/Testing/Shaders/Wave.gdshader" id="5_d257d"]
-[ext_resource type="Texture2D" uid="uid://b3fakgp50bm83" path="res://Assets/Sprites/Background/Barra1.png" id="5_px22i"]
+[ext_resource type="Texture2D" uid="uid://c4j06axdxlnjy" path="res://Assets/Sprites/Background/Barra1.png" id="5_px22i"]
 [ext_resource type="Shader" path="res://Scenes/Testing/Shaders/ColorWave.gdshader" id="6_bbin1"]
-[ext_resource type="FontFile" uid="uid://b7tnent1gr2u3" path="res://Assets/Fonts/Larceny.ttf" id="7_5n12r"]
-[ext_resource type="AudioStream" uid="uid://bb70p7ri2c8f" path="res://Audio/SFX/RGvsPPP.ogg" id="8_eqkxe"]
+[ext_resource type="FontFile" uid="uid://c2x1ua4cao7is" path="res://Assets/Fonts/Larceny.ttf" id="7_5n12r"]
+[ext_resource type="AudioStream" uid="uid://djuh7fcwu702x" path="res://Audio/SFX/RGvsPPP.ogg" id="8_eqkxe"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_recrc"]
 shader = ExtResource("5_d257d")

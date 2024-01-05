@@ -66,6 +66,10 @@ func on_note_hit_result(hitResult:GiftJamGlobals.NoteHitStatus, noteType : GiftJ
 				#animTween.tween_property(self, "scale", playerOriginalScale*1.2, animLength)
 				#animTween.tween_property(self, "position", playerOriginalPos + Vector2(0, -80), animLength)
 			self.play()
+			
+			$HitPlayer.play()
+		else:
+			$MissPlayer.play()
 	else:
 		var animLength : float = 0.2
 		animTween = self.create_tween()
@@ -90,6 +94,8 @@ func on_note_hit_result(hitResult:GiftJamGlobals.NoteHitStatus, noteType : GiftJ
 				GiftJamGlobals.LifeChanged.emit(GiftJamGlobals.characterHit.Ragnahilda, 5)
 			if hitResult == GiftJamGlobals.NoteHitStatus.MISS:
 				GiftJamGlobals.LifeChanged.emit(GiftJamGlobals.characterHit.Ragnahilda, 4)
+				
+			$HitPlayer.play()
 		#Player defended succesfully??? Do an evasion anim
 		else:
 			global_position = playerOriginalPos
@@ -129,3 +135,5 @@ func on_note_hit_result(hitResult:GiftJamGlobals.NoteHitStatus, noteType : GiftJ
 				animTween.tween_property(self, "position", playerOriginalPos + Vector2(0, -30), animLength)
 				animTween.tween_property(self, "position", playerOriginalPos , 0)
 			self.play()
+			
+			$MissPlayer.play()

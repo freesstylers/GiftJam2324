@@ -1,7 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbi05qfsjhskp"]
+[gd_scene load_steps=8 format=3 uid="uid://cbi05qfsjhskp"]
 
 [ext_resource type="SpriteFrames" uid="uid://blndimigli34l" path="res://Assets/Sprites/Protagonista/Animations/Ragnahilda_PunchDown.tres" id="1_xovg1"]
 [ext_resource type="Script" path="res://Scripts/Ragnahilda.gd" id="2_d10bj"]
+[ext_resource type="AudioStream" uid="uid://du6grs7hw67xi" path="res://Audio/SFX/hit1.ogg" id="3_n2rto"]
+[ext_resource type="AudioStream" uid="uid://duhkmbn1atj70" path="res://Audio/SFX/hit2.ogg" id="4_122t0"]
+[ext_resource type="AudioStream" uid="uid://blhkjpf3nnhhp" path="res://Audio/SFX/hit3.ogg" id="5_3kutv"]
+[ext_resource type="AudioStream" uid="uid://b742jybu8krxf" path="res://Audio/SFX/fail.ogg" id="6_nn2gr"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7c30t"]
+streams_count = 3
+stream_0/stream = ExtResource("3_n2rto")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("4_122t0")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("5_3kutv")
+stream_2/weight = 1.0
 
 [node name="Ragnahilda" type="AnimatedSprite2D"]
 position = Vector2(560, 300)
@@ -9,5 +22,11 @@ sprite_frames = ExtResource("1_xovg1")
 frame = 3
 frame_progress = 1.0
 script = ExtResource("2_d10bj")
+
+[node name="HitPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_7c30t")
+
+[node name="MissPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_nn2gr")
 
 [connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
