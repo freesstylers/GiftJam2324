@@ -1,14 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://ca1h6dvg5ay7a"]
+[gd_scene load_steps=12 format=3 uid="uid://bj12frufiho1a"]
 
 [ext_resource type="Script" path="res://Scripts/Presentation/Presentation.gd" id="1_fjyi1"]
 [ext_resource type="SpriteFrames" uid="uid://ctr2lotnfhvkj" path="res://Assets/Sprites/Protagonista/Animations/Ragnahilda_Idle.tres" id="3_rc5o0"]
 [ext_resource type="SpriteFrames" uid="uid://b4o4idok2krco" path="res://Assets/Sprites/Background/BackgroundAnimation.tres" id="4_gxs7b"]
 [ext_resource type="SpriteFrames" uid="uid://erq47lvwt0bj" path="res://Assets/Sprites/Seat el Leon/Animations/C_Idle.tres" id="5_ao265"]
-[ext_resource type="Texture2D" uid="uid://b3fakgp50bm83" path="res://Assets/Sprites/Background/Barra1.png" id="5_gd8gc"]
+[ext_resource type="Texture2D" uid="uid://c4j06axdxlnjy" path="res://Assets/Sprites/Background/Barra1.png" id="5_gd8gc"]
 [ext_resource type="Shader" path="res://Scenes/Testing/Shaders/Wave.gdshader" id="5_slccf"]
 [ext_resource type="Shader" path="res://Scenes/Testing/Shaders/ColorWave.gdshader" id="6_kw5o1"]
-[ext_resource type="FontFile" uid="uid://b7tnent1gr2u3" path="res://Assets/Fonts/Larceny.ttf" id="7_26ddi"]
-[ext_resource type="AudioStream" uid="uid://mp03h0410x6u" path="res://Audio/SFX/RGvsKSL.ogg" id="8_c71np"]
+[ext_resource type="FontFile" uid="uid://c2x1ua4cao7is" path="res://Assets/Fonts/Larceny.ttf" id="7_26ddi"]
+[ext_resource type="AudioStream" uid="uid://dc8bolg0yx7mx" path="res://Audio/SFX/RGvsKSL.ogg" id="8_c71np"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_recrc"]
 shader = ExtResource("5_slccf")

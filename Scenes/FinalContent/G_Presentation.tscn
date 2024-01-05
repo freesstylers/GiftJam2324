@@ -5,10 +5,10 @@
 [ext_resource type="SpriteFrames" uid="uid://v0r50qlk686x" path="res://Assets/Sprites/Boss G/Animations/Idle.tres" id="3_rp5q3"]
 [ext_resource type="SpriteFrames" uid="uid://ctr2lotnfhvkj" path="res://Assets/Sprites/Protagonista/Animations/Ragnahilda_Idle.tres" id="4_cnkgl"]
 [ext_resource type="Shader" path="res://Scenes/Testing/Shaders/Wave.gdshader" id="5_n06uc"]
-[ext_resource type="Texture2D" uid="uid://b3fakgp50bm83" path="res://Assets/Sprites/Background/Barra1.png" id="5_vuojl"]
+[ext_resource type="Texture2D" uid="uid://c4j06axdxlnjy" path="res://Assets/Sprites/Background/Barra1.png" id="5_vuojl"]
 [ext_resource type="Shader" path="res://Scenes/Testing/Shaders/ColorWave.gdshader" id="6_a1uag"]
-[ext_resource type="FontFile" uid="uid://b7tnent1gr2u3" path="res://Assets/Fonts/Larceny.ttf" id="7_qa6vi"]
-[ext_resource type="AudioStream" uid="uid://c6qqvs2ui0wsl" path="res://Audio/SFX/RGvsWA.ogg" id="8_4u6k2"]
+[ext_resource type="FontFile" uid="uid://c2x1ua4cao7is" path="res://Assets/Fonts/Larceny.ttf" id="7_qa6vi"]
+[ext_resource type="AudioStream" uid="uid://pwlu2ro1jlm6" path="res://Audio/SFX/RGvsWA.ogg" id="8_4u6k2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_recrc"]
 shader = ExtResource("5_n06uc")
@@ -20,7 +20,7 @@ shader_parameter/speed = 10.0
 shader = ExtResource("6_a1uag")
 shader_parameter/speedColor = 2.0
 shader_parameter/colorH = 1.0
-shader_parameter/hegiht = 2.0
+shader_parameter/hegiht = 1.5
 shader_parameter/frecuency = 7.0
 shader_parameter/speed = 3.0
 
@@ -111,7 +111,7 @@ pivot_offset = Vector2(34, 40)
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("7_qa6vi")
-theme_override_font_sizes/font_size = 250
+theme_override_font_sizes/font_size = 200
 text = "Ragnahilda
 VS
 William The Agile"
