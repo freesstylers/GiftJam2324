@@ -1,23 +1,23 @@
-[gd_scene load_steps=12 format=3 uid="uid://c8o8fs35bruht"]
+[gd_scene load_steps=12 format=3 uid="uid://ca1h6dvg5ay7a"]
 
-[ext_resource type="Script" path="res://Scripts/Presentation/Presentation.gd" id="1_87mqb"]
-[ext_resource type="SpriteFrames" uid="uid://b4o4idok2krco" path="res://Assets/Sprites/Background/BackgroundAnimation.tres" id="2_p3jlh"]
-[ext_resource type="SpriteFrames" uid="uid://v0r50qlk686x" path="res://Assets/Sprites/Boss G/Animations/Idle.tres" id="3_rp5q3"]
-[ext_resource type="SpriteFrames" uid="uid://ctr2lotnfhvkj" path="res://Assets/Sprites/Protagonista/Animations/Ragnahilda_Idle.tres" id="4_cnkgl"]
-[ext_resource type="Shader" path="res://Scenes/Testing/Shaders/Wave.gdshader" id="5_n06uc"]
-[ext_resource type="Texture2D" uid="uid://b3fakgp50bm83" path="res://Assets/Sprites/Background/Barra1.png" id="5_vuojl"]
-[ext_resource type="Shader" path="res://Scenes/Testing/Shaders/ColorWave.gdshader" id="6_a1uag"]
-[ext_resource type="FontFile" uid="uid://b7tnent1gr2u3" path="res://Assets/Fonts/Larceny.ttf" id="7_qa6vi"]
-[ext_resource type="AudioStream" uid="uid://c6qqvs2ui0wsl" path="res://Audio/SFX/RGvsWA.ogg" id="8_4u6k2"]
+[ext_resource type="Script" path="res://Scripts/Presentation/Presentation.gd" id="1_fjyi1"]
+[ext_resource type="SpriteFrames" uid="uid://ctr2lotnfhvkj" path="res://Assets/Sprites/Protagonista/Animations/Ragnahilda_Idle.tres" id="3_rc5o0"]
+[ext_resource type="SpriteFrames" uid="uid://b4o4idok2krco" path="res://Assets/Sprites/Background/BackgroundAnimation.tres" id="4_gxs7b"]
+[ext_resource type="SpriteFrames" uid="uid://erq47lvwt0bj" path="res://Assets/Sprites/Seat el Leon/Animations/C_Idle.tres" id="5_ao265"]
+[ext_resource type="Texture2D" uid="uid://b3fakgp50bm83" path="res://Assets/Sprites/Background/Barra1.png" id="5_gd8gc"]
+[ext_resource type="Shader" path="res://Scenes/Testing/Shaders/Wave.gdshader" id="5_slccf"]
+[ext_resource type="Shader" path="res://Scenes/Testing/Shaders/ColorWave.gdshader" id="6_kw5o1"]
+[ext_resource type="FontFile" uid="uid://b7tnent1gr2u3" path="res://Assets/Fonts/Larceny.ttf" id="7_26ddi"]
+[ext_resource type="AudioStream" uid="uid://mp03h0410x6u" path="res://Audio/SFX/RGvsKSL.ogg" id="8_c71np"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_recrc"]
-shader = ExtResource("5_n06uc")
+shader = ExtResource("5_slccf")
 shader_parameter/hegiht = 1.0
 shader_parameter/frecuency = 1.0
 shader_parameter/speed = 10.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_irycq"]
-shader = ExtResource("6_a1uag")
+shader = ExtResource("6_kw5o1")
 shader_parameter/speedColor = 2.0
 shader_parameter/colorH = 1.0
 shader_parameter/hegiht = 2.0
@@ -31,20 +31,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-script = ExtResource("1_87mqb")
+script = ExtResource("1_fjyi1")
 spriteMain = NodePath("Player/AnimatedSprite2D2")
 spriteEnemy = NodePath("Enemy/AnimatedSprite2D2")
 vs = NodePath("CenterContainer/VS")
-Enemy = 1
-EnemyIdleAnim = ExtResource("3_rp5q3")
-PlayerIdleAnim = ExtResource("4_cnkgl")
+Enemy = 3
+EnemyIdleAnim = ExtResource("5_ao265")
+PlayerIdleAnim = ExtResource("3_rc5o0")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 position = Vector2(640, 360)
 scale = Vector2(2.666, 2.666)
-sprite_frames = ExtResource("2_p3jlh")
+sprite_frames = ExtResource("4_gxs7b")
 autoplay = "default"
 
 [node name="Enemy" type="MarginContainer" parent="."]
@@ -59,7 +57,7 @@ pivot_offset = Vector2(0.5, 0)
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Enemy"]
 position = Vector2(631, 330)
 scale = Vector2(2.5, 2.5)
-sprite_frames = ExtResource("3_rp5q3")
+sprite_frames = ExtResource("5_ao265")
 
 [node name="Player" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -73,12 +71,12 @@ pivot_offset = Vector2(-0.5, 188)
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Player"]
 position = Vector2(631, 839)
 scale = Vector2(2.5, 2.5)
-sprite_frames = ExtResource("4_cnkgl")
+sprite_frames = ExtResource("3_rc5o0")
 
 [node name="Barra" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
 scale = Vector2(2.666, 2.666)
-texture = ExtResource("5_vuojl")
+texture = ExtResource("5_gd8gc")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 material = SubResource("ShaderMaterial_recrc")
@@ -101,28 +99,29 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -440.0
-offset_top = -331.0
-offset_right = 439.0
-offset_bottom = 332.0
+offset_left = -38.0
+offset_top = -44.0
+offset_right = 38.0
+offset_bottom = 44.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(34, 40)
 size_flags_horizontal = 4
 size_flags_vertical = 0
-theme_override_fonts/font = ExtResource("7_qa6vi")
+theme_override_fonts/font = ExtResource("7_26ddi")
 theme_override_font_sizes/font_size = 250
 text = "Ragnahilda
 VS
-William The Agile"
+Kitty Sea Lion
+"
 horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 4.5
 autostart = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_4u6k2")
+stream = ExtResource("8_c71np")
 
 [connection signal="animation_finished" from="Enemy/AnimatedSprite2D2" to="." method="_on_Enemy_animation_finished"]
 [connection signal="animation_finished" from="Player/AnimatedSprite2D2" to="." method="_on_Player_animation_finished"]

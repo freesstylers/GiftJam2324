@@ -45,6 +45,9 @@ func end():
 	elif Enemy == GiftJamGlobals.Battle.P:
 		GiftJamGlobals.To_P_Battle.emit()
 		pass
+	elif Enemy == GiftJamGlobals.Battle.C:
+		GiftJamGlobals.To_C_Battle.emit()
+		pass
 	#GiftJamGlobals.FromPresentationToBattle.emit()
 
 func _on_Enemy_animation_finished():

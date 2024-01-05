@@ -1,13 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://cjfq3tat7ma7b"]
+[gd_scene load_steps=12 format=3 uid="uid://cjfq3tat7ma7b"]
 
 [ext_resource type="Script" path="res://Scripts/Presentation/Presentation.gd" id="1_2il61"]
 [ext_resource type="SpriteFrames" uid="uid://b4o4idok2krco" path="res://Assets/Sprites/Background/BackgroundAnimation.tres" id="2_u2cex"]
 [ext_resource type="SpriteFrames" uid="uid://brmgl2qj5rekh" path="res://Assets/Sprites/P.P Punchman/Anims/PPPunchmanIdle.tres" id="3_mgpj3"]
 [ext_resource type="SpriteFrames" uid="uid://ctr2lotnfhvkj" path="res://Assets/Sprites/Protagonista/Animations/Ragnahilda_Idle.tres" id="4_nsjqn"]
 [ext_resource type="Shader" path="res://Scenes/Testing/Shaders/Wave.gdshader" id="5_d257d"]
+[ext_resource type="Texture2D" uid="uid://b3fakgp50bm83" path="res://Assets/Sprites/Background/Barra1.png" id="5_px22i"]
 [ext_resource type="Shader" path="res://Scenes/Testing/Shaders/ColorWave.gdshader" id="6_bbin1"]
-[ext_resource type="FontFile" uid="uid://c2x1ua4cao7is" path="res://Assets/Fonts/Larceny.ttf" id="7_5n12r"]
-[ext_resource type="AudioStream" uid="uid://djuh7fcwu702x" path="res://Audio/SFX/RGvsPPP.ogg" id="8_eqkxe"]
+[ext_resource type="FontFile" uid="uid://b7tnent1gr2u3" path="res://Assets/Fonts/Larceny.ttf" id="7_5n12r"]
+[ext_resource type="AudioStream" uid="uid://bb70p7ri2c8f" path="res://Audio/SFX/RGvsPPP.ogg" id="8_eqkxe"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_recrc"]
 shader = ExtResource("5_d257d")
@@ -54,7 +55,7 @@ grow_vertical = 2
 pivot_offset = Vector2(0.5, 0)
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Enemy"]
-position = Vector2(631, 258)
+position = Vector2(631, 330)
 scale = Vector2(2.5, 2.5)
 sprite_frames = ExtResource("3_mgpj3")
 
@@ -71,6 +72,11 @@ pivot_offset = Vector2(-0.5, 188)
 position = Vector2(631, 839)
 scale = Vector2(2.5, 2.5)
 sprite_frames = ExtResource("4_nsjqn")
+
+[node name="Barra" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+scale = Vector2(2.666, 2.666)
+texture = ExtResource("5_px22i")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 material = SubResource("ShaderMaterial_recrc")
@@ -104,9 +110,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("7_5n12r")
 theme_override_font_sizes/font_size = 250
-text = "PPPunchMan
+text = "Ragnahilda
 VS
-Ragnahilda
+PPPunchMan
 "
 horizontal_alignment = 1
 
