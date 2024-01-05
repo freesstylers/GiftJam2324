@@ -14,8 +14,8 @@ const menuScene = preload("res://Scenes/MainMenu.tscn")
 @export var LoseMenu : Panel
 @export var LoseText : Label
 
-@export var WinLines = ["Guille", "Cleon", "PPP"]
-@export var LoseLines = ["Guille", "Cleon", "PPP"]
+@export var WinLines = ["\"Mis muñones ya no son lo que eran.\"", "\"Vendo Seat León\n Y también a mi descendencia.\"", "\"Ojalá hubiera estado mi\nhermano para ayudarme.\""]
+@export var LoseLines = ["\"Yo sé a qué se juega aquí.\"", "\"Así no hubieras aprobado \nni Proyectos 2\"", "\"Que ritmo más truculento, ¿eh?\""]
 
 @export var MaxLevels : int
 

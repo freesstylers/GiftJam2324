@@ -96,7 +96,7 @@ func on_life_changed(who : GiftJamGlobals.characterHit, quantity : int):
 		enemyHealth -= quantity
 		print("EnemyHealth: %d" % enemyHealth)
 		
-		if enemyHealth <= 0:
+		if true or enemyHealth <= 0:
 			print ("VICTORY")
 			get_tree().root.get_node("SceneManager").WinBattle()
 			pass

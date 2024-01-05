@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/BattleManager.gd" id="1_vlfa5"]
 [ext_resource type="PackedScene" uid="uid://b7hn7pqk7rh8t" path="res://Scenes/Prefabs/UIContainer.tscn" id="2_j3d8x"]
-[ext_resource type="AudioStream" uid="uid://dxo2wcm7hnkic" path="res://Audio/Songs/MetronomeTick.mp3" id="3_8alsq"]
+[ext_resource type="AudioStream" uid="uid://shblwmanckqc" path="res://Audio/Songs/MetronomeTick.mp3" id="3_8alsq"]
 [ext_resource type="SpriteFrames" uid="uid://b4o4idok2krco" path="res://Assets/Sprites/Background/BackgroundAnimation.tres" id="4_bj5s1"]
 [ext_resource type="PackedScene" uid="uid://muu12hug5ib1" path="res://Scenes/Boss G.tscn" id="5_og3qu"]
 [ext_resource type="SpriteFrames" uid="uid://erq47lvwt0bj" path="res://Assets/Sprites/Seat el Leon/Animations/C_Idle.tres" id="7_feh6u"]
@@ -12,8 +12,8 @@
 [ext_resource type="SpriteFrames" uid="uid://cbesddfngui5f" path="res://Assets/Sprites/Seat el Leon/Animations/C_PunchUp.tres" id="11_8ypjb"]
 [ext_resource type="PackedScene" uid="uid://cbi05qfsjhskp" path="res://Scenes/ragnahilda.tscn" id="11_bwbvl"]
 [ext_resource type="SpriteFrames" uid="uid://ctr2lotnfhvkj" path="res://Assets/Sprites/Protagonista/Animations/Ragnahilda_Idle.tres" id="12_ija64"]
-[ext_resource type="AudioStream" uid="uid://bvodyaflaekpu" path="res://Audio/SFX/bell.ogg" id="13_bvbbl"]
-[ext_resource type="AudioStream" uid="uid://c8wprgbmneylq" path="res://Audio/Songs/boss2-130bpm.wav" id="14_uwr33"]
+[ext_resource type="AudioStream" uid="uid://cmlirys56uvqf" path="res://Audio/SFX/bell.ogg" id="13_bvbbl"]
+[ext_resource type="AudioStream" uid="uid://bq6xnytfexcoy" path="res://Audio/Songs/boss2-130bpm.wav" id="14_uwr33"]
 
 [node name="BaseBattle" type="Node2D"]
 script = ExtResource("1_vlfa5")

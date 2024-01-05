@@ -12,28 +12,28 @@
 [resource]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 0.6,
 "texture": ExtResource("1_5gc5s")
 }, {
-"duration": 1.0,
+"duration": 0.6,
 "texture": ExtResource("2_4lrjh")
 }, {
-"duration": 1.0,
+"duration": 0.6,
 "texture": ExtResource("3_luhfw")
 }, {
-"duration": 1.0,
+"duration": 0.6,
 "texture": ExtResource("4_h4x4n")
 }, {
-"duration": 1.0,
+"duration": 0.6,
 "texture": ExtResource("5_fme5a")
 }, {
-"duration": 1.0,
+"duration": 0.6,
 "texture": ExtResource("6_ek343")
 }, {
-"duration": 1.0,
+"duration": 0.6,
 "texture": ExtResource("7_be07v")
 }, {
-"duration": 1.0,
+"duration": 0.6,
 "texture": ExtResource("8_6nb1e")
 }],
 "loop": false,
