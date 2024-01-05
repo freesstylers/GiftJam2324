@@ -1,14 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://bv22ivwo0yn75"]
+[gd_scene load_steps=12 format=3 uid="uid://bv22ivwo0yn75"]
 
 [ext_resource type="Script" path="res://Scripts/Testing/Note.gd" id="1_go4f3"]
 [ext_resource type="PackedScene" uid="uid://bkgtdolv7qr3a" path="res://Scenes/Testing/NoteHitEffects/OkEffect.tscn" id="2_5goob"]
 [ext_resource type="PackedScene" uid="uid://c1ujt0puwtmfh" path="res://Scenes/Testing/NoteHitEffects/MissEffect.tscn" id="2_hq07o"]
 [ext_resource type="PackedScene" uid="uid://72wcyaddjgym" path="res://Scenes/Testing/NoteHitEffects/PerfectEffect.tscn" id="2_p5km2"]
 [ext_resource type="PackedScene" uid="uid://ch038v25fwfw8" path="res://Scenes/Testing/NoteHitEffects/GreatEffect.tscn" id="2_uu0ww"]
-[ext_resource type="Texture2D" uid="uid://cba1t482rhpc3" path="res://Assets/Sprites/Notas/Arriba.png" id="6_u2dsh"]
-[ext_resource type="Texture2D" uid="uid://vhufsnteek2m" path="res://Assets/Sprites/Notas/Abajo.png" id="7_b0yqf"]
-[ext_resource type="Texture2D" uid="uid://bl4gatl7yuj0g" path="res://Assets/Sprites/Notas/Izquierda.png" id="8_1qgc4"]
-[ext_resource type="Texture2D" uid="uid://2vnxqds5h8en" path="res://Assets/Sprites/Notas/Derecha.png" id="9_kolby"]
+[ext_resource type="Texture2D" uid="uid://cccncpw8tfmv0" path="res://Assets/Sprites/Notas/Arriba.png" id="6_u2dsh"]
+[ext_resource type="Texture2D" uid="uid://rgwx2j8cclrg" path="res://Assets/Sprites/Notas/Abajo.png" id="7_b0yqf"]
+[ext_resource type="Texture2D" uid="uid://b5i6uggh7msg6" path="res://Assets/Sprites/Notas/Izquierda.png" id="8_1qgc4"]
+[ext_resource type="Texture2D" uid="uid://0kgvykuyl2c0" path="res://Assets/Sprites/Notas/Derecha.png" id="9_kolby"]
+[ext_resource type="AudioStream" uid="uid://cybjixu0aoogn" path="res://Audio/SFX/Mouth_43.mp3" id="10_js7ju"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s32cn"]
 size = Vector2(0, 20)
@@ -59,5 +60,8 @@ texture = ExtResource("8_1qgc4")
 [node name="Right" type="Sprite2D" parent="PlayerNotes"]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("9_kolby")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_js7ju")
 
 [connection signal="area_entered" from="." to="." method="on_note_hitter_pass"]

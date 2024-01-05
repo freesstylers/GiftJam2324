@@ -26,33 +26,7 @@ func _ready():
 	GiftJamGlobals.connect("To_C_Battle", Start_C_Battle)
 	GiftJamGlobals.connect("To_P_Presentation", Start_P_Presentation)
 	GiftJamGlobals.connect("FromBattleToMainMenu", End_Battle)
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	#Gameplay Input sample
-	if Input.is_action_just_pressed("input_left"):
-		print("left")
-		#send signal?
-		pass
-	elif Input.is_action_just_pressed("input_up"):
-		print("up")
-		#send signal?
-		pass
-	elif Input.is_action_just_pressed("input_down"):
-		print("down")
-		#send signal?
-		pass
-	elif Input.is_action_just_pressed("input_right"):
-		print("right")
-		#send signal?
-		pass
-		
-	#Transition
-	#if Input.is_action_just_pressed("ui_accept"):
-		#$TransitionScreen.transition()
-	pass
-	
+	pass # Replace with function body.	
 
 var currentLevel = -1
 

@@ -99,6 +99,7 @@ func FadeIn(fDuration : float):
 	myTween = self.create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	myTween.set_parallel(true)
 	myTween.tween_property(noteSprite, "scale", Vector2(0.1,0.1), fDuration)
+	$AudioStreamPlayer.play()
 
 func FadeOut(fDuration: float):
 	var myTween : Tween = null

@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://c6kwux5euwagh" path="res://Scenes/TransitionScreen/Transition.tscn" id="1_glc8e"]
 [ext_resource type="SpriteFrames" uid="uid://b4o4idok2krco" path="res://Assets/Sprites/Background/BackgroundAnimation.tres" id="2_0wsfv"]
 [ext_resource type="Theme" uid="uid://ugxbtljmj80y" path="res://Assets/MainMenuTheme.tres" id="4_gu21e"]
-[ext_resource type="FontFile" uid="uid://c5iv3ks722hyp" path="res://Assets/Fonts/Larceny.ttf" id="5_vhnd0"]
-[ext_resource type="AudioStream" uid="uid://75wtfp0hti4t" path="res://Audio/SFX/button.ogg" id="6_hu5f8"]
+[ext_resource type="FontFile" uid="uid://c2x1ua4cao7is" path="res://Assets/Fonts/Larceny.ttf" id="5_vhnd0"]
+[ext_resource type="AudioStream" uid="uid://cnf1qoy0b4dir" path="res://Audio/SFX/button.ogg" id="6_hu5f8"]
 
 [node name="SceneManager" type="Node2D" node_paths=PackedStringArray("WinMenu", "WinText", "NextLevelButton", "LoseMenu", "LoseText")]
 script = ExtResource("1_d07kg")
@@ -41,6 +41,7 @@ metadata/_edit_use_anchors_ = true
 [node name="BattleEndScreen" type="Node2D" parent="."]
 
 [node name="WinPanel" type="Panel" parent="BattleEndScreen"]
+visible = false
 offset_left = 311.0
 offset_top = 183.0
 offset_right = 975.0
