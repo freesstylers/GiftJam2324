@@ -1,6 +1,7 @@
 extends AnimatedSprite2D
 
 @export var TakeDamagePositionDelta : Vector2 = Vector2(0,10)
+@export var battleType : GiftJamGlobals.Battle = GiftJamGlobals.Battle.G
 
 var attackingMode : bool = true
 var IdleAnim = preload("res://Assets/Sprites/Protagonista/Animations/Ragnahilda_Idle.tres")
@@ -91,9 +92,9 @@ func on_note_hit_result(hitResult:GiftJamGlobals.NoteHitStatus, noteType : GiftJ
 			animTween.tween_property(self, "scale", playerOriginalScale, animLength/2.0).set_delay(animLength/2.0)
 			#Send signal to notify that the player should lose some health
 			if hitResult == GiftJamGlobals.NoteHitStatus.NONE:
-				GiftJamGlobals.LifeChanged.emit(GiftJamGlobals.characterHit.Ragnahilda, 5)
+				GiftJamGlobals.LifeChanged.emit(GiftJamGlobals.characterHit.Ragnahilda, GetNoteHitDamageReceived(GiftJamGlobals.NoteHitStatus.MISS))
 			if hitResult == GiftJamGlobals.NoteHitStatus.MISS:
-				GiftJamGlobals.LifeChanged.emit(GiftJamGlobals.characterHit.Ragnahilda, 4)
+				GiftJamGlobals.LifeChanged.emit(GiftJamGlobals.characterHit.Ragnahilda, GetNoteHitDamageReceived(GiftJamGlobals.NoteHitStatus.MISS))
 				
 			$HitPlayer.play()
 		#Player defended succesfully??? Do an evasion anim
@@ -137,3 +138,13 @@ func on_note_hit_result(hitResult:GiftJamGlobals.NoteHitStatus, noteType : GiftJ
 			self.play()
 			
 			$MissPlayer.play()
+
+func GetNoteHitDamageReceived(hitResult: GiftJamGlobals.NoteHitStatus) -> int:
+	if battleType == GiftJamGlobals.Battle.G:
+		return 5
+	if battleType == GiftJamGlobals.Battle.C:
+		return 5
+	if battleType == GiftJamGlobals.Battle.P:
+		return 5
+	return 0
+	

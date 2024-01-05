@@ -74,10 +74,10 @@ func GetNoteHitDamageReceived(hitResult: GiftJamGlobals.NoteHitStatus) -> int:
 			return 5
 	if battleType == GiftJamGlobals.Battle.P:
 		if hitResult == GiftJamGlobals.NoteHitStatus.PERFECT:
-			return 3
+			return 6
 		elif hitResult == GiftJamGlobals.NoteHitStatus.GREAT:
-			return 2
+			return 4
 		elif hitResult == GiftJamGlobals.NoteHitStatus.OK:
-			return 2
+			return 3
 	return 0
 	
