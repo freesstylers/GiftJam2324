@@ -16,6 +16,7 @@ func _ready():
 	pass
 	
 func start(time=timer):
+	$AudioStreamPlayer.play()
 	var t = $Timer
 	start_animation()
 	await t.timeout
@@ -32,7 +33,7 @@ func start_animation():
 	tween.set_trans(Tween.TRANS_LINEAR)
 	tween.set_ease(Tween.EASE_IN)
 	
-	tween.tween_property(spriteMain, "position", Vector2(0.0, 227.5), timeAnim)
+	tween.tween_property(spriteMain, "position", Vector2(631, 488), timeAnim)
 	###tween.tween_property(spriteEnemy, "position", Vector2(0.0, 0.0), timeAnim)
 	tween.tween_property(vs, "scale", Vector2(1.0, 1.0), timeAnim)
 	tween.tween_property(vs, "rotation", deg_to_rad(720.0), timeAnim)

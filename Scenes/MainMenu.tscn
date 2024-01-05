@@ -1,17 +1,20 @@
-[gd_scene load_steps=13 format=3 uid="uid://dv31ttuyw5rnf"]
+[gd_scene load_steps=16 format=3 uid="uid://dv31ttuyw5rnf"]
 
 [ext_resource type="Theme" uid="uid://ugxbtljmj80y" path="res://Assets/MainMenuTheme.tres" id="1_h5tew"]
 [ext_resource type="Script" path="res://Scripts/MainMenuScript.gd" id="1_s2qbx"]
-[ext_resource type="Texture2D" uid="uid://bstclb2nmk31u" path="res://Assets/MainMenu/LogoFreestylers.png" id="2_tuuka"]
-[ext_resource type="FontFile" uid="uid://c5iv3ks722hyp" path="res://Assets/Fonts/Larceny.ttf" id="2_xpdlg"]
-[ext_resource type="Texture2D" uid="uid://bl6qwto7tu54e" path="res://Assets/MainMenu/Twitter.png" id="3_hamnk"]
+[ext_resource type="Texture2D" uid="uid://6fkvqpq4lkcr" path="res://Assets/MainMenu/LogoFreestylers.png" id="2_tuuka"]
+[ext_resource type="FontFile" uid="uid://d10ue1qpsk32e" path="res://Assets/Fonts/Larceny.ttf" id="2_xpdlg"]
+[ext_resource type="Texture2D" uid="uid://bka7gnkpxxl1" path="res://Assets/MainMenu/Twitter.png" id="3_hamnk"]
 [ext_resource type="SpriteFrames" uid="uid://b4o4idok2krco" path="res://Assets/Sprites/Background/BackgroundAnimation.tres" id="3_iv8ij"]
-[ext_resource type="Texture2D" uid="uid://bxcw5y458os4" path="res://Assets/MainMenu/LogoGiftJam.png" id="4_kmo4h"]
-[ext_resource type="Texture2D" uid="uid://ypcfsm455d7r" path="res://Assets/MainMenu/AttackTutorial.png" id="7_bc7y5"]
-[ext_resource type="Texture2D" uid="uid://bmur04v5tlsqp" path="res://Assets/Sprites/Notas/Abajo.png" id="8_4tl2g"]
-[ext_resource type="Texture2D" uid="uid://t72lkycv11wu" path="res://Assets/MainMenu/DefendTutorial.png" id="8_eefuj"]
-[ext_resource type="Texture2D" uid="uid://dmjvsxkmmh5l8" path="res://Assets/Sprites/Notas/Arriba.png" id="9_d1qt2"]
-[ext_resource type="Texture2D" uid="uid://dxbrs4p20fj68" path="res://Assets/Sprites/Notas/Derecha.png" id="10_fpce0"]
+[ext_resource type="Theme" uid="uid://dg651pgtwypi2" path="res://Assets/ImgButton.tres" id="4_2tqs0"]
+[ext_resource type="Texture2D" uid="uid://qw1we5fw64a0" path="res://Assets/MainMenu/LogoGiftJam.png" id="4_kmo4h"]
+[ext_resource type="Texture2D" uid="uid://cop8surwmo8db" path="res://Assets/MainMenu/AttackTutorial.png" id="7_bc7y5"]
+[ext_resource type="Texture2D" uid="uid://w4texerpvbix" path="res://Assets/Sprites/LogoApruebameEsta.png" id="7_c0a5j"]
+[ext_resource type="Texture2D" uid="uid://3vjmuyoff0ie" path="res://Assets/Sprites/Notas/Abajo.png" id="8_4tl2g"]
+[ext_resource type="Texture2D" uid="uid://duwn11yyjcsm7" path="res://Assets/MainMenu/DefendTutorial.png" id="8_eefuj"]
+[ext_resource type="Texture2D" uid="uid://bi0i1o5adi4ui" path="res://Assets/Sprites/Notas/Arriba.png" id="9_d1qt2"]
+[ext_resource type="Texture2D" uid="uid://c4ycjb7fgbo2x" path="res://Assets/Sprites/Notas/Derecha.png" id="10_fpce0"]
+[ext_resource type="AudioStream" uid="uid://ca4i7smvj0y1d" path="res://Audio/SFX/button.ogg" id="14_spj8v"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -30,58 +33,70 @@ sprite_frames = ExtResource("3_iv8ij")
 autoplay = "default"
 frame_progress = 0.656875
 
-[node name="FreeStylers" type="TextureButton" parent="."]
-layout_mode = 2
-offset_left = 1071.0
-offset_top = 555.0
-offset_right = 1391.0
-offset_bottom = 811.0
-scale = Vector2(0.607021, 0.607021)
-texture_normal = ExtResource("2_tuuka")
+[node name="MainButtonContainer" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="GiftJam" type="TextureButton" parent="."]
+[node name="FreeStylers" type="Button" parent="MainButtonContainer"]
 layout_mode = 2
-offset_left = 2.0
-offset_top = 541.0
-offset_right = 1502.0
-offset_bottom = 1541.0
+offset_left = 1084.0
+offset_top = 560.0
+offset_right = 1273.0
+offset_bottom = 711.0
+theme = ExtResource("4_2tqs0")
+icon = ExtResource("2_tuuka")
+expand_icon = true
+
+[node name="GiftJam" type="Button" parent="MainButtonContainer"]
+layout_mode = 2
+offset_left = 13.0
+offset_top = 554.0
+offset_right = 246.0
+offset_bottom = 709.0
 grow_vertical = 0
-scale = Vector2(0.165439, 0.165439)
-texture_normal = ExtResource("4_kmo4h")
+theme = ExtResource("4_2tqs0")
+icon = ExtResource("4_kmo4h")
+expand_icon = true
 
-[node name="Twitter" type="TextureButton" parent="."]
+[node name="Twitter" type="Button" parent="MainButtonContainer"]
 layout_mode = 2
-offset_left = 1105.0
-offset_top = 440.0
-offset_right = 1169.0
-offset_bottom = 504.0
-scale = Vector2(2, 2)
+offset_left = 1123.0
+offset_top = 448.0
+offset_right = 1229.0
+offset_bottom = 554.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture_normal = ExtResource("3_hamnk")
+theme = ExtResource("4_2tqs0")
+icon = ExtResource("3_hamnk")
+expand_icon = true
 
-[node name="MainButtonContainer" type="VBoxContainer" parent="."]
+[node name="MainButtonContainer" type="VBoxContainer" parent="MainButtonContainer"]
 layout_mode = 0
-offset_left = 429.0
-offset_top = 255.0
-offset_right = 858.0
-offset_bottom = 547.0
+offset_left = 440.0
+offset_top = 29.0
+offset_right = 840.0
+offset_bottom = 641.0
 alignment = 1
 
-[node name="play" type="Button" parent="MainButtonContainer"]
+[node name="TextureRect" type="TextureRect" parent="MainButtonContainer/MainButtonContainer"]
+layout_mode = 2
+texture = ExtResource("7_c0a5j")
+
+[node name="play" type="Button" parent="MainButtonContainer/MainButtonContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_xpdlg")
 theme_override_font_sizes/font_size = 60
 text = "Jugar"
 
-[node name="tutorial" type="Button" parent="MainButtonContainer"]
+[node name="tutorial" type="Button" parent="MainButtonContainer/MainButtonContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_xpdlg")
 theme_override_font_sizes/font_size = 60
 text = "Tutorial
 "
 
-[node name="Credits" type="Button" parent="MainButtonContainer"]
+[node name="Credits" type="Button" parent="MainButtonContainer/MainButtonContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_xpdlg")
 theme_override_font_sizes/font_size = 60
@@ -90,17 +105,23 @@ text = "Créditos"
 [node name="level container" type="VBoxContainer" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 429.0
-offset_top = 255.0
-offset_right = 858.0
-offset_bottom = 547.0
+offset_left = 440.0
+offset_top = 349.0
+offset_right = 844.0
+offset_bottom = 641.0
 alignment = 1
 
 [node name="level 1" type="Button" parent="level container"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_xpdlg")
 theme_override_font_sizes/font_size = 60
-text = "Jugar"
+text = "Examen 1"
+
+[node name="level 2" type="Button" parent="level container"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xpdlg")
+theme_override_font_sizes/font_size = 60
+text = "Examen 2"
 
 [node name="back" type="Button" parent="level container"]
 layout_mode = 2
@@ -269,13 +290,17 @@ theme_override_fonts/font = ExtResource("2_xpdlg")
 theme_override_font_sizes/font_size = 32
 text = "Cerrar"
 
-[connection signal="button_down" from="FreeStylers" to="." method="_on_free_stylers_button_down"]
-[connection signal="button_down" from="GiftJam" to="." method="_on_gift_jam_button_down"]
-[connection signal="button_down" from="Twitter" to="." method="_on_twitter_button_down"]
-[connection signal="button_down" from="MainButtonContainer/play" to="." method="TogglePlayMenu" binds= [true]]
-[connection signal="button_down" from="MainButtonContainer/tutorial" to="." method="_on_tutorial_button_down"]
-[connection signal="button_down" from="MainButtonContainer/Credits" to="." method="_on_credits_button_down"]
+[node name="ButtonSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_spj8v")
+
+[connection signal="button_down" from="MainButtonContainer/FreeStylers" to="." method="_on_free_stylers_button_down"]
+[connection signal="button_down" from="MainButtonContainer/GiftJam" to="." method="_on_gift_jam_button_down"]
+[connection signal="button_down" from="MainButtonContainer/Twitter" to="." method="_on_twitter_button_down"]
+[connection signal="button_down" from="MainButtonContainer/MainButtonContainer/play" to="." method="TogglePlayMenu" binds= [true]]
+[connection signal="button_down" from="MainButtonContainer/MainButtonContainer/tutorial" to="." method="_on_tutorial_button_down"]
+[connection signal="button_down" from="MainButtonContainer/MainButtonContainer/Credits" to="." method="_on_credits_button_down"]
 [connection signal="button_down" from="level container/level 1" to="." method="_on_level_button_down" binds= [0]]
+[connection signal="button_down" from="level container/level 2" to="." method="_on_level_button_down" binds= [1]]
 [connection signal="button_down" from="level container/back" to="." method="TogglePlayMenu" binds= [false]]
 [connection signal="button_down" from="credits/container/VBoxContainer/CreditsBack" to="." method="_on_credits_back_button_down"]
 [connection signal="button_down" from="tutorial/container/VBoxContainer/TutorialBack" to="." method="_on_tutorial_back_button_down"]

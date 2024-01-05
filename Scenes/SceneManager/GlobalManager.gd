@@ -38,11 +38,25 @@ func _process(delta):
 	#if Input.is_action_just_pressed("ui_accept"):
 		#$TransitionScreen.transition()
 	pass
+	
 
-func startGame():
+var currentLevel = -1
+
+func startGame(level: int):
 	$TransitionScreen.transition()
-
+	currentLevel = level
+	
 func _on_transition_screen_screen_transitioned():
+	match currentLevel:
+		0:
+			get_tree().root.get_node("SceneManager").Start_G_Presentation()
+		1:
+			get_tree().root.get_node("SceneManager").Start_P_Presentation()
+			
+	currentLevel = -1
+	pass # Replace with function body.
+
+func Start_G_Presentation():
 	$CurrentScene.get_child(0).queue_free()
 	$CurrentScene.add_child(introGScene.instantiate())
 	pass # Replace with function body.

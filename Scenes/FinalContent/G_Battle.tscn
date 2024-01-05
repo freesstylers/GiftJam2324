@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://b4g66c7ypymr4"]
+[gd_scene load_steps=10 format=3 uid="uid://b4g66c7ypymr4"]
 
 [ext_resource type="Script" path="res://Scripts/BattleManager.gd" id="1_opvlp"]
 [ext_resource type="PackedScene" uid="uid://b7hn7pqk7rh8t" path="res://Scenes/Prefabs/UIContainer.tscn" id="2_825xe"]
-[ext_resource type="AudioStream" uid="uid://c6wam6fra1wyt" path="res://Audio/Songs/boss1-130bpm.wav" id="3_im766"]
-[ext_resource type="AudioStream" uid="uid://shblwmanckqc" path="res://Audio/Songs/MetronomeTick.mp3" id="4_vc420"]
+[ext_resource type="AudioStream" uid="uid://b0pwo8n1lag45" path="res://Audio/Songs/boss1-130bpm.wav" id="3_im766"]
+[ext_resource type="AudioStream" uid="uid://b8f55lu5knkao" path="res://Audio/Songs/MetronomeTick.mp3" id="4_vc420"]
 [ext_resource type="SpriteFrames" uid="uid://b4o4idok2krco" path="res://Assets/Sprites/Background/BackgroundAnimation.tres" id="5_2apnm"]
 [ext_resource type="PackedScene" uid="uid://muu12hug5ib1" path="res://Scenes/Boss G.tscn" id="6_ep87c"]
 [ext_resource type="PackedScene" uid="uid://cbi05qfsjhskp" path="res://Scenes/ragnahilda.tscn" id="7_rp4wp"]
 [ext_resource type="SpriteFrames" uid="uid://ctr2lotnfhvkj" path="res://Assets/Sprites/Protagonista/Animations/Ragnahilda_Idle.tres" id="8_ru886"]
+[ext_resource type="AudioStream" uid="uid://mywoqj5oqnl5" path="res://Audio/SFX/bell.ogg" id="9_n5w6w"]
 
 [node name="BaseBattle" type="Node2D"]
 script = ExtResource("1_opvlp")
@@ -18,32 +19,37 @@ Enemy = 1
 
 [node name="Container" parent="UI" instance=ExtResource("2_825xe")]
 
-[node name="BattleSong" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_im766")
-
 [node name="MetronomeSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_vc420")
 
 [node name="BPM_TIMER" type="Timer" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(633.5, 357)
-scale = Vector2(2.63958, 2.64444)
+position = Vector2(640, 360)
+scale = Vector2(2.666, 2.666)
 sprite_frames = ExtResource("5_2apnm")
+autoplay = "default"
 frame_progress = 0.689517
 
 [node name="Boss G" parent="." instance=ExtResource("6_ep87c")]
-position = Vector2(631, 258)
-scale = Vector2(2, 2)
+position = Vector2(631, 366)
+scale = Vector2(2.5, 2.5)
 
 [node name="Ragnahilda" parent="." instance=ExtResource("7_rp4wp")]
 position = Vector2(631, 488)
-scale = Vector2(3, 3)
+scale = Vector2(2.5, 2.5)
 sprite_frames = ExtResource("8_ru886")
 frame = 0
 frame_progress = 0.332353
-PlayerBattlePosition = Vector2(560, 470)
 TakeDamagePositionDelta = Vector2(0, 20)
+
+[node name="StartBattleSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_n5w6w")
+autoplay = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_im766")
+autoplay = true
 
 [connection signal="attack_mode_changed" from="." to="UI/Container" method="_on_base_battle_attack_mode_changed"]
 [connection signal="attack_mode_changed" from="." to="Boss G" method="_on_base_battle_attack_mode_changed"]

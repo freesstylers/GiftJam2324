@@ -1,9 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://cces55bu50it6"]
+[gd_scene load_steps=15 format=3 uid="uid://cces55bu50it6"]
 
 [ext_resource type="Script" path="res://Scripts/BattleManager.gd" id="1_swyby"]
 [ext_resource type="PackedScene" uid="uid://b7hn7pqk7rh8t" path="res://Scenes/Prefabs/UIContainer.tscn" id="2_jdv7m"]
-[ext_resource type="AudioStream" uid="uid://c6wam6fra1wyt" path="res://Audio/Songs/boss1-130bpm.wav" id="3_xruy4"]
-[ext_resource type="AudioStream" uid="uid://shblwmanckqc" path="res://Audio/Songs/MetronomeTick.mp3" id="4_8dgeu"]
+[ext_resource type="AudioStream" uid="uid://d1upwl0ha1par" path="res://Audio/Songs/boss2-130bpm.wav" id="3_k7glf"]
+[ext_resource type="AudioStream" uid="uid://b8f55lu5knkao" path="res://Audio/Songs/MetronomeTick.mp3" id="4_8dgeu"]
 [ext_resource type="SpriteFrames" uid="uid://b4o4idok2krco" path="res://Assets/Sprites/Background/BackgroundAnimation.tres" id="5_m0pb6"]
 [ext_resource type="PackedScene" uid="uid://muu12hug5ib1" path="res://Scenes/Boss G.tscn" id="6_mcq38"]
 [ext_resource type="PackedScene" uid="uid://cbi05qfsjhskp" path="res://Scenes/ragnahilda.tscn" id="7_hr67b"]
@@ -13,6 +13,7 @@
 [ext_resource type="SpriteFrames" uid="uid://b6e6jopefarql" path="res://Assets/Sprites/P.P Punchman/Anims/PPPunchmanRight.tres" id="9_5lnpr"]
 [ext_resource type="SpriteFrames" uid="uid://cnhln3ofqvnpn" path="res://Assets/Sprites/P.P Punchman/Anims/PPPunchmanDown.tres" id="10_um5c3"]
 [ext_resource type="SpriteFrames" uid="uid://byd1fbkmc0axc" path="res://Assets/Sprites/P.P Punchman/Anims/PPPunchmanUp.tres" id="11_ypx2b"]
+[ext_resource type="AudioStream" uid="uid://mywoqj5oqnl5" path="res://Audio/SFX/bell.ogg" id="14_4d5eg"]
 
 [node name="BaseBattle" type="Node2D"]
 script = ExtResource("1_swyby")
@@ -23,18 +24,16 @@ Enemy = 2
 
 [node name="Container" parent="UI" instance=ExtResource("2_jdv7m")]
 
-[node name="BattleSong" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_xruy4")
-
 [node name="MetronomeSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_8dgeu")
 
 [node name="BPM_TIMER" type="Timer" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(633.5, 357)
-scale = Vector2(2.63958, 2.64444)
+position = Vector2(640, 360)
+scale = Vector2(2.666, 2.666)
 sprite_frames = ExtResource("5_m0pb6")
+autoplay = "default"
 frame_progress = 0.689517
 
 [node name="PPP" parent="." instance=ExtResource("6_mcq38")]
@@ -53,8 +52,15 @@ scale = Vector2(3, 3)
 sprite_frames = ExtResource("8_d2cwv")
 frame = 0
 frame_progress = 0.332353
-PlayerBattlePosition = Vector2(560, 470)
 TakeDamagePositionDelta = Vector2(0, 20)
+
+[node name="StartBattleSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_4d5eg")
+autoplay = true
+
+[node name="BattleSong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_k7glf")
+autoplay = true
 
 [connection signal="attack_mode_changed" from="." to="UI/Container" method="_on_base_battle_attack_mode_changed"]
 [connection signal="attack_mode_changed" from="." to="PPP" method="_on_base_battle_attack_mode_changed"]

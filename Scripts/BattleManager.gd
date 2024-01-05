@@ -45,8 +45,8 @@ func SendNotesToRail():
 	var newSet = []
 	newSet.append(GiftJamGlobals.NoteType.NONE) #Start of the rail
 	for i in range(NumAttacksPerAttack):
-		#newSet.append(1 + (randi()%4))
-		newSet.append(1 + 2)
+		newSet.append(1 + (randi()%4))
+		#newSet.append(1 + 0)
 	newSet.append(GiftJamGlobals.NoteType.NONE) #End of the rail
 	noteRail.AddKeyNoteSet(newSet)
 		
