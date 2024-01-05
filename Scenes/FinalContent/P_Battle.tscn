@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/BattleManager.gd" id="1_swyby"]
 [ext_resource type="PackedScene" uid="uid://b7hn7pqk7rh8t" path="res://Scenes/Prefabs/UIContainer.tscn" id="2_jdv7m"]
-[ext_resource type="AudioStream" uid="uid://b8f55lu5knkao" path="res://Audio/Songs/MetronomeTick.mp3" id="4_8dgeu"]
+[ext_resource type="AudioStream" uid="uid://dxo2wcm7hnkic" path="res://Audio/Songs/MetronomeTick.mp3" id="4_8dgeu"]
 [ext_resource type="SpriteFrames" uid="uid://b4o4idok2krco" path="res://Assets/Sprites/Background/BackgroundAnimation.tres" id="5_m0pb6"]
 [ext_resource type="PackedScene" uid="uid://muu12hug5ib1" path="res://Scenes/Boss G.tscn" id="6_mcq38"]
 [ext_resource type="PackedScene" uid="uid://cbi05qfsjhskp" path="res://Scenes/ragnahilda.tscn" id="7_hr67b"]
@@ -12,8 +12,8 @@
 [ext_resource type="SpriteFrames" uid="uid://b6e6jopefarql" path="res://Assets/Sprites/P.P Punchman/Anims/PPPunchmanRight.tres" id="9_5lnpr"]
 [ext_resource type="SpriteFrames" uid="uid://cnhln3ofqvnpn" path="res://Assets/Sprites/P.P Punchman/Anims/PPPunchmanDown.tres" id="10_um5c3"]
 [ext_resource type="SpriteFrames" uid="uid://byd1fbkmc0axc" path="res://Assets/Sprites/P.P Punchman/Anims/PPPunchmanUp.tres" id="11_ypx2b"]
-[ext_resource type="AudioStream" uid="uid://mywoqj5oqnl5" path="res://Audio/SFX/bell.ogg" id="14_4d5eg"]
-[ext_resource type="AudioStream" uid="uid://b1deqaqpt534g" path="res://Audio/Songs/boss3-160bpm.wav" id="14_p017t"]
+[ext_resource type="AudioStream" uid="uid://bvodyaflaekpu" path="res://Audio/SFX/bell.ogg" id="14_4d5eg"]
+[ext_resource type="AudioStream" uid="uid://dcun3pgj8u54d" path="res://Audio/Songs/boss3-160bpm.wav" id="14_p017t"]
 
 [node name="BaseBattle" type="Node2D"]
 script = ExtResource("1_swyby")
@@ -55,6 +55,7 @@ sprite_frames = ExtResource("8_d2cwv")
 frame = 0
 frame_progress = 0.332353
 TakeDamagePositionDelta = Vector2(0, 20)
+battleType = 2
 
 [node name="StartBattleSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_4d5eg")
