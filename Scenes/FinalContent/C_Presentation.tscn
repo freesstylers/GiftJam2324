@@ -4,11 +4,11 @@
 [ext_resource type="SpriteFrames" uid="uid://ctr2lotnfhvkj" path="res://Assets/Sprites/Protagonista/Animations/Ragnahilda_Idle.tres" id="3_rc5o0"]
 [ext_resource type="SpriteFrames" uid="uid://b4o4idok2krco" path="res://Assets/Sprites/Background/BackgroundAnimation.tres" id="4_gxs7b"]
 [ext_resource type="SpriteFrames" uid="uid://erq47lvwt0bj" path="res://Assets/Sprites/Seat el Leon/Animations/C_Idle.tres" id="5_ao265"]
-[ext_resource type="Texture2D" uid="uid://c4j06axdxlnjy" path="res://Assets/Sprites/Background/Barra1.png" id="5_gd8gc"]
+[ext_resource type="Texture2D" uid="uid://b8o8i4iemhgrk" path="res://Assets/Sprites/Background/Barra1.png" id="5_gd8gc"]
 [ext_resource type="Shader" path="res://Scenes/Testing/Shaders/Wave.gdshader" id="5_slccf"]
 [ext_resource type="Shader" path="res://Scenes/Testing/Shaders/ColorWave.gdshader" id="6_kw5o1"]
-[ext_resource type="FontFile" uid="uid://c2x1ua4cao7is" path="res://Assets/Fonts/Larceny.ttf" id="7_26ddi"]
-[ext_resource type="AudioStream" uid="uid://dc8bolg0yx7mx" path="res://Audio/SFX/RGvsKSL.ogg" id="8_c71np"]
+[ext_resource type="FontFile" uid="uid://c5iv3ks722hyp" path="res://Assets/Fonts/Larceny.ttf" id="7_26ddi"]
+[ext_resource type="AudioStream" uid="uid://d1h4k1pqskvax" path="res://Audio/SFX/RGvsKSL.ogg" id="8_c71np"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_recrc"]
 shader = ExtResource("5_slccf")
@@ -40,6 +40,7 @@ EnemyIdleAnim = ExtResource("5_ao265")
 PlayerIdleAnim = ExtResource("3_rc5o0")
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(640, 360)
 scale = Vector2(2.666, 2.666)
 sprite_frames = ExtResource("4_gxs7b")

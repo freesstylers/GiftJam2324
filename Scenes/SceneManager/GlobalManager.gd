@@ -8,6 +8,17 @@ const battlePScene = preload("res://Scenes/FinalContent/P_Battle.tscn")
 const battleCScene = preload("res://Scenes/FinalContent/C_Battle.tscn")
 const menuScene = preload("res://Scenes/MainMenu.tscn")
 
+@export var WinMenu : Panel
+@export var WinText : Label
+@export var NextLevelButton : Button
+@export var LoseMenu : Panel
+@export var LoseText : Label
+
+@export var WinLines = ["Guille", "Cleon", "PPP"]
+@export var LoseLines = ["Guille", "Cleon", "PPP"]
+
+@export var MaxLevels : int
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GiftJamGlobals.connect("To_G_Battle", Start_G_Battle)
@@ -57,7 +68,7 @@ func _on_transition_screen_screen_transitioned():
 			get_tree().root.get_node("SceneManager").Start_C_Presentation()
 		2:
 			get_tree().root.get_node("SceneManager").Start_P_Presentation()
-	currentLevel = -1
+	#currentLevel = -1
 	pass # Replace with function body.
 
 func Start_G_Presentation():
@@ -67,25 +78,55 @@ func Start_G_Presentation():
 
 
 func Start_G_Battle():
-	$CurrentScene.get_child(0).queue_free()
+	if $CurrentScene.get_child_count() > 0:
+		$CurrentScene.get_child(0).queue_free()
 	$CurrentScene.add_child(battleGScene.instantiate())
 	
 func Start_P_Presentation():
-	$CurrentScene.get_child(0).queue_free()
+	if $CurrentScene.get_child_count() > 0:
+		$CurrentScene.get_child(0).queue_free()
 	$CurrentScene.add_child(introPScene.instantiate())
 	
 func Start_P_Battle():
-	$CurrentScene.get_child(0).queue_free()
+	if $CurrentScene.get_child_count() > 0:
+		$CurrentScene.get_child(0).queue_free()
 	$CurrentScene.add_child(battlePScene.instantiate())
 	
 func Start_C_Presentation():
-	$CurrentScene.get_child(0).queue_free()
+	if $CurrentScene.get_child_count() > 0:
+		$CurrentScene.get_child(0).queue_free()
 	$CurrentScene.add_child(introCScene.instantiate())
 	
 func Start_C_Battle():
-	$CurrentScene.get_child(0).queue_free()
+	if $CurrentScene.get_child_count() > 0:
+		$CurrentScene.get_child(0).queue_free()
 	$CurrentScene.add_child(battleCScene.instantiate())
 	
 func End_Battle():
+	get_tree().root.get_node("SceneManager/ButtonSFX").play()
+	WinMenu.visible = false
+	LoseMenu.visible = false
 	$CurrentScene.get_child(0).queue_free()
 	$CurrentScene.add_child(menuScene.instantiate())
+	
+func WinBattle():
+	$CurrentScene.get_child(0).queue_free()
+	NextLevelButton.visible = currentLevel < MaxLevels
+	WinText.text = WinLines[currentLevel]
+	currentLevel += 1
+	WinMenu.visible = true
+
+func LoseBattle():
+	$CurrentScene.get_child(0).queue_free()
+	LoseText.text = LoseLines[currentLevel]
+	LoseMenu.visible = true
+	
+func NextLevel():
+	get_tree().root.get_node("SceneManager/ButtonSFX").play()
+	WinMenu.visible = false
+	startGame(currentLevel)
+	
+func RetryLevel():
+	get_tree().root.get_node("SceneManager/ButtonSFX").play()
+	LoseMenu.visible = false
+	startGame(currentLevel)

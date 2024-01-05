@@ -1,11 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://bk43jhsw5sywy"]
+[gd_scene load_steps=8 format=3 uid="uid://bk43jhsw5sywy"]
 
 [ext_resource type="PackedScene" uid="uid://dv31ttuyw5rnf" path="res://Scenes/MainMenu.tscn" id="1_3ccln"]
 [ext_resource type="Script" path="res://Scenes/SceneManager/GlobalManager.gd" id="1_d07kg"]
 [ext_resource type="PackedScene" uid="uid://c6kwux5euwagh" path="res://Scenes/TransitionScreen/Transition.tscn" id="1_glc8e"]
+[ext_resource type="SpriteFrames" uid="uid://b4o4idok2krco" path="res://Assets/Sprites/Background/BackgroundAnimation.tres" id="2_0wsfv"]
+[ext_resource type="Theme" uid="uid://ugxbtljmj80y" path="res://Assets/MainMenuTheme.tres" id="4_gu21e"]
+[ext_resource type="FontFile" uid="uid://c5iv3ks722hyp" path="res://Assets/Fonts/Larceny.ttf" id="5_vhnd0"]
+[ext_resource type="AudioStream" uid="uid://75wtfp0hti4t" path="res://Audio/SFX/button.ogg" id="6_hu5f8"]
 
-[node name="SceneManager" type="Node2D"]
+[node name="SceneManager" type="Node2D" node_paths=PackedStringArray("WinMenu", "WinText", "NextLevelButton", "LoseMenu", "LoseText")]
 script = ExtResource("1_d07kg")
+WinMenu = NodePath("BattleEndScreen/WinPanel")
+WinText = NodePath("BattleEndScreen/WinPanel/Label2")
+NextLevelButton = NodePath("BattleEndScreen/WinPanel/VBoxContainer/next")
+LoseMenu = NodePath("BattleEndScreen/LosePanel")
+LoseText = NodePath("BattleEndScreen/LosePanel/Label2")
+MaxLevels = 3
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(640, 360)
+scale = Vector2(2.666, 2.666)
+sprite_frames = ExtResource("2_0wsfv")
+autoplay = "default"
+frame_progress = 0.656875
 
 [node name="CurrentScene" type="Node2D" parent="."]
 
@@ -21,4 +38,179 @@ metadata/_edit_use_anchors_ = true
 
 [node name="TransitionScreen" parent="." instance=ExtResource("1_glc8e")]
 
+[node name="BattleEndScreen" type="Node2D" parent="."]
+
+[node name="WinPanel" type="Panel" parent="BattleEndScreen"]
+offset_left = 311.0
+offset_top = 183.0
+offset_right = 975.0
+offset_bottom = 569.0
+theme = ExtResource("4_gu21e")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="BattleEndScreen/WinPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -312.0
+offset_top = -96.0
+offset_right = 312.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="menu" type="Button" parent="BattleEndScreen/WinPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_vhnd0")
+theme_override_font_sizes/font_size = 55
+text = "  Menú  "
+
+[node name="next" type="Button" parent="BattleEndScreen/WinPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_vhnd0")
+theme_override_font_sizes/font_size = 55
+text = " Siguiente curso "
+
+[node name="Label" type="Label" parent="BattleEndScreen/WinPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 11.0
+offset_right = -15.0
+offset_bottom = -273.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 116
+text = "APROBASTE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="BattleEndScreen/WinPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 93.0
+offset_right = -15.0
+offset_bottom = -193.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="BattleEndScreen/WinPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 203.0
+offset_right = -15.0
+offset_bottom = -101.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Recuerda: un 5 son 6 créditos"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LosePanel" type="Panel" parent="BattleEndScreen"]
+visible = false
+offset_left = 311.0
+offset_top = 183.0
+offset_right = 975.0
+offset_bottom = 569.0
+theme = ExtResource("4_gu21e")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="BattleEndScreen/LosePanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -312.0
+offset_top = -96.0
+offset_right = 312.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="menu" type="Button" parent="BattleEndScreen/LosePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_vhnd0")
+theme_override_font_sizes/font_size = 55
+text = "   Menú   "
+
+[node name="retry" type="Button" parent="BattleEndScreen/LosePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_vhnd0")
+theme_override_font_sizes/font_size = 55
+text = "  Reintentar  "
+
+[node name="Label" type="Label" parent="BattleEndScreen/LosePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 11.0
+offset_right = -15.0
+offset_bottom = -273.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 116
+text = "SUSPENDISTE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="BattleEndScreen/LosePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 93.0
+offset_right = -15.0
+offset_bottom = -193.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="BattleEndScreen/LosePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 205.0
+offset_right = -15.0
+offset_bottom = -101.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Las personas extraordinarias van a convocatorias extraordinarias"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ButtonSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_hu5f8")
+
 [connection signal="screenTransitioned" from="TransitionScreen" to="." method="_on_transition_screen_screen_transitioned"]
+[connection signal="button_down" from="BattleEndScreen/WinPanel/VBoxContainer/menu" to="." method="End_Battle"]
+[connection signal="button_down" from="BattleEndScreen/WinPanel/VBoxContainer/next" to="." method="NextLevel"]
+[connection signal="button_down" from="BattleEndScreen/LosePanel/VBoxContainer/menu" to="." method="End_Battle"]
+[connection signal="button_down" from="BattleEndScreen/LosePanel/VBoxContainer/retry" to="." method="RetryLevel"]
