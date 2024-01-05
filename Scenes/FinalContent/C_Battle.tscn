@@ -1,0 +1,69 @@
+[gd_scene load_steps=15 format=3 uid="uid://e62axyee3hov"]
+
+[ext_resource type="Script" path="res://Scripts/BattleManager.gd" id="1_vlfa5"]
+[ext_resource type="PackedScene" uid="uid://b7hn7pqk7rh8t" path="res://Scenes/Prefabs/UIContainer.tscn" id="2_j3d8x"]
+[ext_resource type="AudioStream" uid="uid://shblwmanckqc" path="res://Audio/Songs/MetronomeTick.mp3" id="3_8alsq"]
+[ext_resource type="SpriteFrames" uid="uid://b4o4idok2krco" path="res://Assets/Sprites/Background/BackgroundAnimation.tres" id="4_bj5s1"]
+[ext_resource type="PackedScene" uid="uid://muu12hug5ib1" path="res://Scenes/Boss G.tscn" id="5_og3qu"]
+[ext_resource type="SpriteFrames" uid="uid://erq47lvwt0bj" path="res://Assets/Sprites/Seat el Leon/Animations/C_Idle.tres" id="7_feh6u"]
+[ext_resource type="SpriteFrames" uid="uid://flmmiwls6s8d" path="res://Assets/Sprites/Seat el Leon/Animations/C_PunchLeft.tres" id="8_l7ke5"]
+[ext_resource type="SpriteFrames" uid="uid://icl74tht0g45" path="res://Assets/Sprites/Seat el Leon/Animations/C_PunchRight.tres" id="9_xqfxd"]
+[ext_resource type="SpriteFrames" uid="uid://dd3eih4plp84w" path="res://Assets/Sprites/Seat el Leon/Animations/C_PunchDown.tres" id="10_p3i45"]
+[ext_resource type="SpriteFrames" uid="uid://cbesddfngui5f" path="res://Assets/Sprites/Seat el Leon/Animations/C_PunchUp.tres" id="11_8ypjb"]
+[ext_resource type="PackedScene" uid="uid://cbi05qfsjhskp" path="res://Scenes/ragnahilda.tscn" id="11_bwbvl"]
+[ext_resource type="SpriteFrames" uid="uid://ctr2lotnfhvkj" path="res://Assets/Sprites/Protagonista/Animations/Ragnahilda_Idle.tres" id="12_ija64"]
+[ext_resource type="AudioStream" uid="uid://cmlirys56uvqf" path="res://Audio/SFX/bell.ogg" id="13_bvbbl"]
+[ext_resource type="AudioStream" uid="uid://dqkbd8tu0xxoe" path="res://Audio/Songs/boss3-160bpm.wav" id="14_y6dcj"]
+
+[node name="BaseBattle" type="Node2D"]
+script = ExtResource("1_vlfa5")
+SONG_BPM = 160
+PlayMetronome = true
+Enemy = 3
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Container" parent="UI" instance=ExtResource("2_j3d8x")]
+
+[node name="MetronomeSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_8alsq")
+
+[node name="BPM_TIMER" type="Timer" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(640, 360)
+scale = Vector2(2.666, 2.666)
+sprite_frames = ExtResource("4_bj5s1")
+autoplay = "default"
+frame_progress = 0.689517
+
+[node name="PPP" parent="." instance=ExtResource("5_og3qu")]
+position = Vector2(631, 258)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("7_feh6u")
+IdleAnim = ExtResource("7_feh6u")
+PunchLeftAnim = ExtResource("8_l7ke5")
+PunchRightAnim = ExtResource("9_xqfxd")
+PunchDownAnim = ExtResource("10_p3i45")
+PunchUpAnim = ExtResource("11_8ypjb")
+
+[node name="Ragnahilda" parent="." instance=ExtResource("11_bwbvl")]
+position = Vector2(631, 488)
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("12_ija64")
+frame = 0
+frame_progress = 0.332353
+TakeDamagePositionDelta = Vector2(0, 20)
+
+[node name="StartBattleSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_bvbbl")
+autoplay = true
+
+[node name="BattleSong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_y6dcj")
+autoplay = true
+
+[connection signal="attack_mode_changed" from="." to="UI/Container" method="_on_base_battle_attack_mode_changed"]
+[connection signal="attack_mode_changed" from="." to="PPP" method="_on_base_battle_attack_mode_changed"]
+[connection signal="attack_mode_changed" from="." to="Ragnahilda" method="_on_base_battle_attack_mode_changed"]
+[connection signal="timeout" from="BPM_TIMER" to="." method="BPM_Notification"]

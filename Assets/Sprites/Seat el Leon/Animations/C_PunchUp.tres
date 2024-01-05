@@ -1,0 +1,42 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://cbesddfngui5f"]
+
+[ext_resource type="Texture2D" uid="uid://b7h40jyt0icb0" path="res://Assets/Sprites/Seat el Leon/SeatLeonPunchUp/UwU_PunchUp1.png" id="1_5gc5s"]
+[ext_resource type="Texture2D" uid="uid://cvsrf726eb5ca" path="res://Assets/Sprites/Seat el Leon/SeatLeonPunchUp/UwU_PunchUp2.png" id="2_4lrjh"]
+[ext_resource type="Texture2D" uid="uid://c2ex8v8wc1jbp" path="res://Assets/Sprites/Seat el Leon/SeatLeonPunchUp/UwU_PunchUp3.png" id="3_luhfw"]
+[ext_resource type="Texture2D" uid="uid://j1g82w4uts1r" path="res://Assets/Sprites/Seat el Leon/SeatLeonPunchUp/UwU_PunchUp4.png" id="4_h4x4n"]
+[ext_resource type="Texture2D" uid="uid://bga32ednhm75f" path="res://Assets/Sprites/Seat el Leon/SeatLeonPunchUp/UwU_PunchUp5.png" id="5_fme5a"]
+[ext_resource type="Texture2D" uid="uid://n6bimy5lmmai" path="res://Assets/Sprites/Seat el Leon/SeatLeonPunchUp/UwU_PunchUp6.png" id="6_ek343"]
+[ext_resource type="Texture2D" uid="uid://dd763fabxf1td" path="res://Assets/Sprites/Seat el Leon/SeatLeonPunchUp/UwU_PunchUp7.png" id="7_be07v"]
+[ext_resource type="Texture2D" uid="uid://cdbbtf2pxew41" path="res://Assets/Sprites/Seat el Leon/SeatLeonPunchUp/UwU_PunchUp8.png" id="8_6nb1e"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5gc5s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_4lrjh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_luhfw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_h4x4n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fme5a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ek343")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_be07v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_6nb1e")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]

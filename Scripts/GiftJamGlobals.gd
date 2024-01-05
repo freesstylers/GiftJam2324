@@ -11,12 +11,13 @@ const NoteSprites = ["res://Assets/Sprites/Notas/Arriba.png",
 					"res://Assets/Sprites/Notas/Izquierda.png",
 					"res://Assets/Sprites/Notas/Derecha.png"]
 
-enum Battle { NONE, G, P }
+enum Battle { NONE, G, P, C }
 
 signal BPM_Notification()
 signal To_G_Battle()
 signal To_P_Battle()
 signal To_P_Presentation()
+signal To_C_Battle()
 signal FromBattleToMainMenu()
 signal Fight_Start()
 signal Note_Hit_Result(result : NoteHitStatus, dir : NoteType) 
