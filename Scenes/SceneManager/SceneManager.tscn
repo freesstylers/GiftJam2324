@@ -8,11 +8,13 @@
 [ext_resource type="FontFile" uid="uid://c5iv3ks722hyp" path="res://Assets/Fonts/Larceny.ttf" id="5_vhnd0"]
 [ext_resource type="AudioStream" uid="uid://75wtfp0hti4t" path="res://Audio/SFX/button.ogg" id="6_hu5f8"]
 
-[node name="SceneManager" type="Node2D" node_paths=PackedStringArray("WinMenu", "NextLevelButton", "LoseMenu")]
+[node name="SceneManager" type="Node2D" node_paths=PackedStringArray("WinMenu", "WinText", "NextLevelButton", "LoseMenu", "LoseText")]
 script = ExtResource("1_d07kg")
 WinMenu = NodePath("BattleEndScreen/WinPanel")
+WinText = NodePath("BattleEndScreen/WinPanel/Label2")
 NextLevelButton = NodePath("BattleEndScreen/WinPanel/VBoxContainer/next")
 LoseMenu = NodePath("BattleEndScreen/LosePanel")
+LoseText = NodePath("BattleEndScreen/LosePanel/Label2")
 MaxLevels = 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -41,9 +43,9 @@ metadata/_edit_use_anchors_ = true
 [node name="WinPanel" type="Panel" parent="BattleEndScreen"]
 visible = false
 offset_left = 311.0
-offset_top = 136.0
+offset_top = 183.0
 offset_right = 975.0
-offset_bottom = 616.0
+offset_bottom = 569.0
 theme = ExtResource("4_gu21e")
 
 [node name="VBoxContainer" type="HBoxContainer" parent="BattleEndScreen/WinPanel"]
@@ -74,12 +76,59 @@ theme_override_fonts/font = ExtResource("5_vhnd0")
 theme_override_font_sizes/font_size = 55
 text = " Siguiente nivel "
 
+[node name="Label" type="Label" parent="BattleEndScreen/WinPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 11.0
+offset_right = -15.0
+offset_bottom = -273.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 116
+text = "APROBASTE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="BattleEndScreen/WinPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 93.0
+offset_right = -15.0
+offset_bottom = -193.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="BattleEndScreen/WinPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 203.0
+offset_right = -15.0
+offset_bottom = -101.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Recuerda: un 5 son 6 créditos"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="LosePanel" type="Panel" parent="BattleEndScreen"]
 visible = false
 offset_left = 311.0
-offset_top = 136.0
+offset_top = 183.0
 offset_right = 975.0
-offset_bottom = 616.0
+offset_bottom = 569.0
 theme = ExtResource("4_gu21e")
 
 [node name="VBoxContainer" type="HBoxContainer" parent="BattleEndScreen/LosePanel"]
@@ -109,6 +158,54 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("5_vhnd0")
 theme_override_font_sizes/font_size = 55
 text = "  Reintentar  "
+
+[node name="Label" type="Label" parent="BattleEndScreen/LosePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 11.0
+offset_right = -15.0
+offset_bottom = -273.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 116
+text = "SUSPENDISTE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="BattleEndScreen/LosePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 93.0
+offset_right = -15.0
+offset_bottom = -193.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="BattleEndScreen/LosePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 205.0
+offset_right = -15.0
+offset_bottom = -101.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Las personas extraordinarias van a convocatorias extraordinarias"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="ButtonSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_hu5f8")

@@ -9,8 +9,13 @@ const battleCScene = preload("res://Scenes/FinalContent/C_Battle.tscn")
 const menuScene = preload("res://Scenes/MainMenu.tscn")
 
 @export var WinMenu : Panel
+@export var WinText : Label
 @export var NextLevelButton : Button
 @export var LoseMenu : Panel
+@export var LoseText : Label
+
+@export var WinLines = ["Guille", "Cleon", "PPP"]
+@export var LoseLines = ["Guille", "Cleon", "PPP"]
 
 @export var MaxLevels : int
 
@@ -50,32 +55,20 @@ func _process(delta):
 	
 
 var currentLevel = -1
-var retry = false
 
 func startGame(level: int):
 	$TransitionScreen.transition()
 	currentLevel = level
-	retry = false
 	
 func _on_transition_screen_screen_transitioned():
 	match currentLevel:
 		0:
-			if retry:
-				get_tree().root.get_node("SceneManager").Start_G_Battle()
-			else:
-				get_tree().root.get_node("SceneManager").Start_G_Presentation()
+			get_tree().root.get_node("SceneManager").Start_G_Presentation()
 		1:
-			if retry:
-				get_tree().root.get_node("SceneManager").Start_P_Battle()
-			else:
-				get_tree().root.get_node("SceneManager").Start_P_Presentation()
+			get_tree().root.get_node("SceneManager").Start_C_Presentation()
 		2:
-			if retry:
-				get_tree().root.get_node("SceneManager").Start_C_Battle()
-			else:
-				get_tree().root.get_node("SceneManager").Start_C_Presentation()
+			get_tree().root.get_node("SceneManager").Start_P_Presentation()
 	#currentLevel = -1
-	retry = false
 	pass # Replace with function body.
 
 func Start_G_Presentation():
@@ -85,43 +78,55 @@ func Start_G_Presentation():
 
 
 func Start_G_Battle():
-	$CurrentScene.get_child(0).queue_free()
+	if $CurrentScene.get_child_count() > 0:
+		$CurrentScene.get_child(0).queue_free()
 	$CurrentScene.add_child(battleGScene.instantiate())
 	
 func Start_P_Presentation():
-	$CurrentScene.get_child(0).queue_free()
+	if $CurrentScene.get_child_count() > 0:
+		$CurrentScene.get_child(0).queue_free()
 	$CurrentScene.add_child(introPScene.instantiate())
 	
 func Start_P_Battle():
-	$CurrentScene.get_child(0).queue_free()
+	if $CurrentScene.get_child_count() > 0:
+		$CurrentScene.get_child(0).queue_free()
 	$CurrentScene.add_child(battlePScene.instantiate())
 	
 func Start_C_Presentation():
-	$CurrentScene.get_child(0).queue_free()
+	if $CurrentScene.get_child_count() > 0:
+		$CurrentScene.get_child(0).queue_free()
 	$CurrentScene.add_child(introCScene.instantiate())
 	
 func Start_C_Battle():
-	$CurrentScene.get_child(0).queue_free()
+	if $CurrentScene.get_child_count() > 0:
+		$CurrentScene.get_child(0).queue_free()
 	$CurrentScene.add_child(battleCScene.instantiate())
 	
 func End_Battle():
 	get_tree().root.get_node("SceneManager/ButtonSFX").play()
+	WinMenu.visible = false
+	LoseMenu.visible = false
 	$CurrentScene.get_child(0).queue_free()
 	$CurrentScene.add_child(menuScene.instantiate())
 	
 func WinBattle():
-	currentLevel += 1
+	$CurrentScene.get_child(0).queue_free()
 	NextLevelButton.visible = currentLevel < MaxLevels
+	WinText.text = WinLines[currentLevel]
+	currentLevel += 1
 	WinMenu.visible = true
 
 func LoseBattle():
+	$CurrentScene.get_child(0).queue_free()
+	LoseText.text = LoseLines[currentLevel]
 	LoseMenu.visible = true
 	
 func NextLevel():
 	get_tree().root.get_node("SceneManager/ButtonSFX").play()
+	WinMenu.visible = false
 	startGame(currentLevel)
 	
 func RetryLevel():
 	get_tree().root.get_node("SceneManager/ButtonSFX").play()
-	retry = true
+	LoseMenu.visible = false
 	startGame(currentLevel)

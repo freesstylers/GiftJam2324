@@ -5,10 +5,10 @@
 [ext_resource type="SpriteFrames" uid="uid://v0r50qlk686x" path="res://Assets/Sprites/Boss G/Animations/Idle.tres" id="3_rp5q3"]
 [ext_resource type="SpriteFrames" uid="uid://ctr2lotnfhvkj" path="res://Assets/Sprites/Protagonista/Animations/Ragnahilda_Idle.tres" id="4_cnkgl"]
 [ext_resource type="Shader" path="res://Scenes/Testing/Shaders/Wave.gdshader" id="5_n06uc"]
-[ext_resource type="Texture2D" uid="uid://c4j06axdxlnjy" path="res://Assets/Sprites/Background/Barra1.png" id="5_vuojl"]
+[ext_resource type="Texture2D" uid="uid://b8o8i4iemhgrk" path="res://Assets/Sprites/Background/Barra1.png" id="5_vuojl"]
 [ext_resource type="Shader" path="res://Scenes/Testing/Shaders/ColorWave.gdshader" id="6_a1uag"]
-[ext_resource type="FontFile" uid="uid://c2x1ua4cao7is" path="res://Assets/Fonts/Larceny.ttf" id="7_qa6vi"]
-[ext_resource type="AudioStream" uid="uid://pwlu2ro1jlm6" path="res://Audio/SFX/RGvsWA.ogg" id="8_4u6k2"]
+[ext_resource type="FontFile" uid="uid://c5iv3ks722hyp" path="res://Assets/Fonts/Larceny.ttf" id="7_qa6vi"]
+[ext_resource type="AudioStream" uid="uid://c10jhx1biy3ml" path="res://Audio/SFX/RGvsWA.ogg" id="8_4u6k2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_recrc"]
 shader = ExtResource("5_n06uc")
@@ -42,6 +42,7 @@ EnemyIdleAnim = ExtResource("3_rp5q3")
 PlayerIdleAnim = ExtResource("4_cnkgl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(640, 360)
 scale = Vector2(2.666, 2.666)
 sprite_frames = ExtResource("2_p3jlh")
