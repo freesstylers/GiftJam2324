@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://c1ujt0puwtmfh" path="res://Scenes/Testing/NoteHitEffects/MissEffect.tscn" id="2_hq07o"]
 [ext_resource type="PackedScene" uid="uid://72wcyaddjgym" path="res://Scenes/Testing/NoteHitEffects/PerfectEffect.tscn" id="2_p5km2"]
 [ext_resource type="PackedScene" uid="uid://ch038v25fwfw8" path="res://Scenes/Testing/NoteHitEffects/GreatEffect.tscn" id="2_uu0ww"]
-[ext_resource type="Texture2D" uid="uid://cba1t482rhpc3" path="res://Assets/Sprites/Notas/Arriba.png" id="6_u2dsh"]
-[ext_resource type="Texture2D" uid="uid://vhufsnteek2m" path="res://Assets/Sprites/Notas/Abajo.png" id="7_b0yqf"]
-[ext_resource type="Texture2D" uid="uid://bl4gatl7yuj0g" path="res://Assets/Sprites/Notas/Izquierda.png" id="8_1qgc4"]
-[ext_resource type="Texture2D" uid="uid://2vnxqds5h8en" path="res://Assets/Sprites/Notas/Derecha.png" id="9_kolby"]
+[ext_resource type="Texture2D" uid="uid://vemclkghh0d8" path="res://Assets/Sprites/Notas/Arriba.png" id="6_u2dsh"]
+[ext_resource type="Texture2D" uid="uid://e6rqavtu14al" path="res://Assets/Sprites/Notas/Abajo.png" id="7_b0yqf"]
+[ext_resource type="Texture2D" uid="uid://2dcawua274xu" path="res://Assets/Sprites/Notas/Izquierda.png" id="8_1qgc4"]
+[ext_resource type="Texture2D" uid="uid://dburth1bntu6x" path="res://Assets/Sprites/Notas/Derecha.png" id="9_kolby"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s32cn"]
 size = Vector2(0, 20)
