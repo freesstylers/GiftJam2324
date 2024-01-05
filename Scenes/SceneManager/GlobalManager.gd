@@ -8,6 +8,12 @@ const battlePScene = preload("res://Scenes/FinalContent/P_Battle.tscn")
 const battleCScene = preload("res://Scenes/FinalContent/C_Battle.tscn")
 const menuScene = preload("res://Scenes/MainMenu.tscn")
 
+@export var WinMenu : Panel
+@export var NextLevelButton : Button
+@export var LoseMenu : Panel
+
+@export var MaxLevels : int
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GiftJamGlobals.connect("To_G_Battle", Start_G_Battle)
@@ -44,20 +50,32 @@ func _process(delta):
 	
 
 var currentLevel = -1
+var retry = false
 
 func startGame(level: int):
 	$TransitionScreen.transition()
 	currentLevel = level
+	retry = false
 	
 func _on_transition_screen_screen_transitioned():
 	match currentLevel:
 		0:
-			get_tree().root.get_node("SceneManager").Start_G_Presentation()
+			if retry:
+				get_tree().root.get_node("SceneManager").Start_G_Battle()
+			else:
+				get_tree().root.get_node("SceneManager").Start_G_Presentation()
 		1:
-			get_tree().root.get_node("SceneManager").Start_C_Presentation()
+			if retry:
+				get_tree().root.get_node("SceneManager").Start_P_Battle()
+			else:
+				get_tree().root.get_node("SceneManager").Start_P_Presentation()
 		2:
-			get_tree().root.get_node("SceneManager").Start_P_Presentation()
-	currentLevel = -1
+			if retry:
+				get_tree().root.get_node("SceneManager").Start_C_Battle()
+			else:
+				get_tree().root.get_node("SceneManager").Start_C_Presentation()
+	#currentLevel = -1
+	retry = false
 	pass # Replace with function body.
 
 func Start_G_Presentation():
@@ -87,5 +105,23 @@ func Start_C_Battle():
 	$CurrentScene.add_child(battleCScene.instantiate())
 	
 func End_Battle():
+	get_tree().root.get_node("SceneManager/ButtonSFX").play()
 	$CurrentScene.get_child(0).queue_free()
 	$CurrentScene.add_child(menuScene.instantiate())
+	
+func WinBattle():
+	currentLevel += 1
+	NextLevelButton.visible = currentLevel < MaxLevels
+	WinMenu.visible = true
+
+func LoseBattle():
+	LoseMenu.visible = true
+	
+func NextLevel():
+	get_tree().root.get_node("SceneManager/ButtonSFX").play()
+	startGame(currentLevel)
+	
+func RetryLevel():
+	get_tree().root.get_node("SceneManager/ButtonSFX").play()
+	retry = true
+	startGame(currentLevel)
